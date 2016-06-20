@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
+            <connections>
+                <outlet property="cjzbBut" destination="K4j-nF-za2" id="ixz-Fi-TQ7"/>
+                <outlet property="ingBut" destination="VYw-3d-Eqh" id="ONk-Rc-doN"/>
+                <outlet property="overBut" destination="IMj-nc-4HS" id="X3S-ih-Qc6"/>
+                <outlet property="previewBut" destination="cck-Iv-jkU" id="3eA-OE-cJd"/>
+                <outlet property="scrller" destination="gNK-w1-Ikz" id="NI3-5L-sTd"/>
+                <outlet property="sgypBut" destination="2mF-Ft-XYU" id="lZO-Ia-m7Z"/>
+                <outlet property="smjkBut" destination="Yt4-Is-F07" id="XIp-lK-Wve"/>
+                <outlet property="sureBut" destination="Uvw-RC-kv2" id="qPo-V8-bMc"/>
+                <outlet property="tableView" destination="PJp-Xn-DJi" id="xA4-lx-2K5"/>
+                <outlet property="view" destination="eqB-pb-EVH" id="bcJ-KB-fnT"/>
+                <outlet property="wwscBut" destination="tdV-6w-xMZ" id="m1Z-ly-bTg"/>
+                <outlet property="xhdsBut" destination="hom-IH-gko" id="BK9-NR-Xhs"/>
+                <outlet property="yqzbBut" destination="x0C-Va-tzd" id="4pu-qJ-tPj"/>
+                <outlet property="zstcBut" destination="ywV-al-E3p" id="LTW-CQ-pAI"/>
+                <outlet property="zxBut" destination="5i4-MS-bps" id="4PO-1r-C3x"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="eqB-pb-EVH">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="PJp-Xn-DJi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="r1e-BW-XkJ"/>
+                        <outlet property="delegate" destination="-1" id="rAZ-pZ-d4l"/>
+                    </connections>
+                </tableView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="gNK-w1-Ikz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cck-Iv-jkU">
+                            <rect key="frame" x="30" y="17" width="86" height="32"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="预展中">
+                                <color key="titleColor" red="0.59999999999999998" green="0.058823529411764705" blue="0.14901960784313725" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionPreviewIngOver:" destination="-1" eventType="touchUpInside" id="9xf-e7-HHr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VYw-3d-Eqh">
+                            <rect key="frame" x="206" y="19" width="86" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="进行中">
+                                <color key="titleColor" red="0.59999999999999998" green="0.058823529411764705" blue="0.14901960784313725" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <state key="selected" title="进行中">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionPreviewIngOver:" destination="-1" eventType="touchUpInside" id="u36-gF-RNX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hom-IH-gko">
+                            <rect key="frame" x="90" y="82" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-23" maxY="0.0"/>
+                            <state key="normal" title="玉器" image="search_yq">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_yq_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="nHL-Mj-GtE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="x0C-Va-tzd">
+                            <rect key="frame" x="170" y="82" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-22" maxY="0.0"/>
+                            <state key="normal" title="陶瓷" image="search_tc">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_tc_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="nDD-TW-gJL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ywV-al-E3p">
+                            <rect key="frame" x="250" y="82" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-25" maxY="0.0"/>
+                            <state key="normal" title="紫砂" image="search_zs">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_zs_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="hkw-aG-teX"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tdV-6w-xMZ">
+                            <rect key="frame" x="10" y="168" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-23" maxY="0.0"/>
+                            <state key="normal" title="珠宝" image="search_zb">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_zb_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="hwc-3A-roc"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2mF-Ft-XYU">
+                            <rect key="frame" x="90" y="168" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-25" maxY="0.0"/>
+                            <state key="normal" title="茶叶" image="search_cy">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_cy_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="GVM-L5-zEw"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K4j-nF-za2">
+                            <rect key="frame" x="170" y="168" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-22" maxY="0.0"/>
+                            <state key="normal" title="老酒" image="search_lj">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_lj_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="Jze-kz-JI5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5i4-MS-bps">
+                            <rect key="frame" x="250" y="168" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-21" maxY="0.0"/>
+                            <state key="normal" title="杂项" image="search_zx">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_zx_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="DwK-zV-Tsx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Uvw-RC-kv2">
+                            <rect key="frame" x="15" y="266" width="290" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="确定" backgroundImage="search_but"/>
+                            <connections>
+                                <action selector="actionSearch:" destination="-1" eventType="touchUpInside" id="L4R-Nv-cDm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IMj-nc-4HS">
+                            <rect key="frame" x="117" y="17" width="86" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="已结束">
+                                <color key="titleColor" red="0.59999999999999998" green="0.058823529411764705" blue="0.14901960784313725" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actionPreviewIngOver:" destination="-1" eventType="touchUpInside" id="eK1-Jh-5ae"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Yt4-Is-F07">
+                            <rect key="frame" x="10" y="82" width="60" height="60"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <inset key="titleEdgeInsets" minX="-17" minY="38" maxX="20" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="-29" maxY="0.0"/>
+                            <state key="normal" title="书画" image="search_smzk">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="search_smzk_s"/>
+                            <connections>
+                                <action selector="actionStairCatalog:" destination="-1" eventType="touchUpInside" id="wcv-Ih-asA"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="162" y="147"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="search_but" width="10" height="40"/>
+        <image name="search_cy" width="36" height="36"/>
+        <image name="search_cy_s" width="36" height="36"/>
+        <image name="search_lj" width="36" height="36"/>
+        <image name="search_lj_s" width="36" height="36"/>
+        <image name="search_smzk" width="36" height="36"/>
+        <image name="search_smzk_s" width="36" height="36"/>
+        <image name="search_tc" width="36" height="36"/>
+        <image name="search_tc_s" width="36" height="36"/>
+        <image name="search_yq" width="36" height="36"/>
+        <image name="search_yq_s" width="36" height="36"/>
+        <image name="search_zb" width="36" height="36"/>
+        <image name="search_zb_s" width="36" height="36"/>
+        <image name="search_zs" width="36" height="36"/>
+        <image name="search_zs_s" width="36" height="36"/>
+        <image name="search_zx" width="36" height="36"/>
+        <image name="search_zx_s" width="36" height="36"/>
+    </resources>
+</document>

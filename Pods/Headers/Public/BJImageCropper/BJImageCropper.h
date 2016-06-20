@@ -1,0 +1,1 @@
+../../../BJImageCropper/BJImageCropper/BJImageCropper.h

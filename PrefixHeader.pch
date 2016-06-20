@@ -1,0 +1,101 @@
+//
+//  PrefixHeader.pch
+//  ArtisticAucation
+//
+//  Created by xieran on 15/8/31.
+//  Copyright (c) 2015年 xieran. All rights reserved.
+//
+
+#ifndef ArtisticAucation_PrefixHeader_pch
+#define ArtisticAucation_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <Masonry/Masonry.h>
+#import "UIView+MBProgress.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <SBJson/SBJson4.h>
+#import "JSONKit.h"
+#import "UserInfo.h"
+#import "Define.h"
+#import "HttpManager.h"
+#import "Utils.h"
+#import "UIAlertView+TapBlock.h"
+#import "UIView+background.h"
+#import "NSString+CompleteImageUrl.h"
+#import <UIImageView+WebCache.h>
+#import "UIViewController+LoginAlert.h"
+#import "NSArray+StringSeparateByComma.h"
+#import "NSString+PriceString.h"
+#import "NSString+randomString.h"
+#import "AABaseJSONModelResponse.h"
+#import <MJRefresh/MJRefresh.h>
+#import "AATextField.h"
+#import "FMUString.h"
+#import "UIImage+FixOrientation.h"
+#import "TimeManager.h"
+
+#endif
+
+#ifdef DEBUG
+#define NBLog(format, ...) NSLog(format, ## __VA_ARGS__)
+#else
+#define NBLog(format, ...)
+#endif
+
+#define Screen_Width [UIApplication sharedApplication].keyWindow.frame.size.width
+#define Screen_Height [UIApplication sharedApplication].keyWindow.frame.size.height
+
+// 16进制
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+// 10进制
+#define ColorRGBA(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
+
+#define iPhone5 ([UIScreen mainScreen].bounds.size.height == 568.f? YES: NO)
+#define iPhone4S ([UIScreen mainScreen].bounds.size.height == 480.f? YES: NO)
+
+/**
+ NSLineBreakMode, UILineBreakMode
+ */
+#define  LineBreakByWordWrapping     0
+#define  LineBreakByCharWrapping     1
+#define  LineBreakByClipping         2
+#define  LineBreakByTruncatingHead   3
+#define	 LineBreakByTruncatingTail   4
+#define  LineBreakByTruncatingMiddle 5
+
+/**
+ NSTextAlignment, UITextAlignment
+ */
+#define  TextAlignmentLeft   0
+#define	 TextAlignmentCenter 1
+#define	 TextAlignmentRight  2
+
+
+/******************************************************************************
+ *如果左值不为nil或0.而右值为nil或0，将不进行赋值
+ *
+ ******************************************************************************/
+#define IgnoreNullAssign(lvalue,rvalue) \
+while(ParseObject(rvalue) != nil && (lvalue) != ParseObject(rvalue))(lvalue) = ParseObject(rvalue);
+
+#define IgnoreZeroAssign(lvalue,rvalue) \
+while(ParseInt(rvalue) != 0){(lvalue) = ParseInt(rvalue);break;}
+
+#define ParseObject(x) ((x)==[NSNull null]?nil:(x))
+#define ParseBool(x)   ((x)==[NSNull null]?NO:([x boolValue]))
+#define ParseInt(x)    ((x)==[NSNull null]?0:([x intValue]))
+#define ParseFloat(x)  ((x)==[NSNull null]?0.0:([x floatValue]))
+#define ParseStr(x)    [ParseObject(x) length]==0?nil:ParseObject(x)
+
+
+//nslog
+#define _po(o) NSLog(@"%@", (o))
+#define _pn(o) NSLog(@"%d", (o))
+#define _pf(o) NSLog(@"%f", (o))
+#define _ps(o) NSLog(@"CGSize: {%.0f, %.0f}", (o).width, (o).height)
+#define _pr(o) NSLog(@"NSRect: {{%.0f, %.0f}, {%.0f, %.0f}}", (o).origin.x, (o).origin.x, (o).size.width, (o).size.height)
+#define DOBJ(obj) NSLog(@"%s: %@", #obj, [(obj) description])

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>书画</string>
+	<string>玉器</string>
+	<string>陶瓷</string>
+	<string>紫砂</string>
+	<string>珠宝</string>
+	<string>茶叶</string>
+	<string>老酒</string>
+	<string>杂项</string>
+</array>
+</plist>
