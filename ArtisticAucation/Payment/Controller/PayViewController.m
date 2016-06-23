@@ -214,9 +214,9 @@
     
     if (self.settlementModule.settlementType == kSettlementTypeAlipay) {
         AlipayOrder *order = [[AlipayOrder alloc] init];
-        order.appID = @"2015100800398750";
-        order.partner = @"2088021821374404";
-        order.seller = @"3283467416@qq.com";
+        order.appID = @"2016061601525741";
+        order.partner = @"2088321033914680";
+        order.seller = @"gonggongwenhua@jiahengwentou.com";
         order.tradeNO = [NSString ret12bitStringAppendTimeIntervalSince1970]; //订单ID(由商家□自□行制定)
         order.productName = @"拍品结算"; //商品标题
         order.productDescription = @"商品结算"; //商品描述

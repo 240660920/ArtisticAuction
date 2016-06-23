@@ -570,13 +570,13 @@
 		949820AC1C3E3C1100C86835 /* MyLotsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLotsCell.h; sourceTree = "<group>"; };
 		949820AD1C3E3C1100C86835 /* MyLotsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLotsCell.m; sourceTree = "<group>"; };
 		949820AE1C3E3C1100C86835 /* MyLotsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyLotsCell.xib; sourceTree = "<group>"; };
-		94A137271B8EEB1F00D8DDF6 /* ArtisticAucation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtisticAucation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A137271B8EEB1F00D8DDF6 /* ArtisticAuction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtisticAuction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1372B1B8EEB1F00D8DDF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94A1372C1B8EEB1F00D8DDF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		94A1372E1B8EEB1F00D8DDF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94A1372F1B8EEB1F00D8DDF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		94A137371B8EEB1F00D8DDF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		94A137401B8EEB1F00D8DDF6 /* ArtisticAucationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtisticAucationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A137401B8EEB1F00D8DDF6 /* ArtisticAuction.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtisticAuction.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A137451B8EEB1F00D8DDF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94A137461B8EEB1F00D8DDF6 /* ArtisticAucationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtisticAucationTests.m; sourceTree = "<group>"; };
 		94A37F401BFF6A6600FB89DC /* AucationHallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AucationHallViewController.h; sourceTree = "<group>"; };
@@ -1528,8 +1528,8 @@
 		94A137281B8EEB1F00D8DDF6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				94A137271B8EEB1F00D8DDF6 /* ArtisticAucation.app */,
-				94A137401B8EEB1F00D8DDF6 /* ArtisticAucationTests.xctest */,
+				94A137271B8EEB1F00D8DDF6 /* ArtisticAuction.app */,
+				94A137401B8EEB1F00D8DDF6 /* ArtisticAuction.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1784,9 +1784,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		94A137261B8EEB1F00D8DDF6 /* ArtisticAucation */ = {
+		94A137261B8EEB1F00D8DDF6 /* ArtisticAuction */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94A1374A1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAucation" */;
+			buildConfigurationList = 94A1374A1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAuction" */;
 			buildPhases = (
 				E324F4BCCDDA17D69079B922 /* 📦 Check Pods Manifest.lock */,
 				94A137231B8EEB1F00D8DDF6 /* Sources */,
@@ -1799,14 +1799,14 @@
 			);
 			dependencies = (
 			);
-			name = ArtisticAucation;
+			name = ArtisticAuction;
 			productName = ArtisticAucation;
-			productReference = 94A137271B8EEB1F00D8DDF6 /* ArtisticAucation.app */;
+			productReference = 94A137271B8EEB1F00D8DDF6 /* ArtisticAuction.app */;
 			productType = "com.apple.product-type.application";
 		};
-		94A1373F1B8EEB1F00D8DDF6 /* ArtisticAucationTests */ = {
+		94A1373F1B8EEB1F00D8DDF6 /* ArtisticAuctionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94A1374D1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAucationTests" */;
+			buildConfigurationList = 94A1374D1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAuctionTests" */;
 			buildPhases = (
 				94A1373C1B8EEB1F00D8DDF6 /* Sources */,
 				94A1373D1B8EEB1F00D8DDF6 /* Frameworks */,
@@ -1817,9 +1817,9 @@
 			dependencies = (
 				94A137421B8EEB1F00D8DDF6 /* PBXTargetDependency */,
 			);
-			name = ArtisticAucationTests;
+			name = ArtisticAuctionTests;
 			productName = ArtisticAucationTests;
-			productReference = 94A137401B8EEB1F00D8DDF6 /* ArtisticAucationTests.xctest */;
+			productReference = 94A137401B8EEB1F00D8DDF6 /* ArtisticAuction.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1847,7 +1847,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 94A137221B8EEB1F00D8DDF6 /* Build configuration list for PBXProject "ArtisticAucation" */;
+			buildConfigurationList = 94A137221B8EEB1F00D8DDF6 /* Build configuration list for PBXProject "ArtisticAuction" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1861,8 +1861,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				94A137261B8EEB1F00D8DDF6 /* ArtisticAucation */,
-				94A1373F1B8EEB1F00D8DDF6 /* ArtisticAucationTests */,
+				94A137261B8EEB1F00D8DDF6 /* ArtisticAuction */,
+				94A1373F1B8EEB1F00D8DDF6 /* ArtisticAuctionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2137,7 +2137,7 @@
 /* Begin PBXTargetDependency section */
 		94A137421B8EEB1F00D8DDF6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 94A137261B8EEB1F00D8DDF6 /* ArtisticAucation */;
+			target = 94A137261B8EEB1F00D8DDF6 /* ArtisticAuction */;
 			targetProxy = 94A137411B8EEB1F00D8DDF6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2293,7 +2293,7 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "b7ef5ef8-9b84-4eb2-be62-c484db61d7a9";
 			};
 			name = Debug;
@@ -2352,7 +2352,7 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "b7ef5ef8-9b84-4eb2-be62-c484db61d7a9";
 			};
 			name = Release;
@@ -2373,9 +2373,9 @@
 				);
 				INFOPLIST_FILE = ArtisticAucationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtisticAucation.app/ArtisticAucation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtisticAuction.app/ArtisticAuction";
 			};
 			name = Debug;
 		};
@@ -2391,16 +2391,16 @@
 				);
 				INFOPLIST_FILE = ArtisticAucationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtisticAucation.app/ArtisticAucation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtisticAuction.app/ArtisticAuction";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		94A137221B8EEB1F00D8DDF6 /* Build configuration list for PBXProject "ArtisticAucation" */ = {
+		94A137221B8EEB1F00D8DDF6 /* Build configuration list for PBXProject "ArtisticAuction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94A137481B8EEB1F00D8DDF6 /* Debug */,
@@ -2409,7 +2409,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94A1374A1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAucation" */ = {
+		94A1374A1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAuction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94A1374B1B8EEB1F00D8DDF6 /* Debug */,
@@ -2418,7 +2418,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94A1374D1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAucationTests" */ = {
+		94A1374D1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAuctionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94A1374E1B8EEB1F00D8DDF6 /* Debug */,

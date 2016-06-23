@@ -25,7 +25,7 @@ AlipayManager *alipayManager;
 
 -(void)payOrder:(AlipayOrder *)order completionBlock:(CompletionBlock)completionBlock controller:(UIViewController *)controller
 {    
-    NSString *appScheme = @"artisticaucation";
+    NSString *appScheme = @"artisticauction";
 
     NSString *orderSpec = [order description];
     

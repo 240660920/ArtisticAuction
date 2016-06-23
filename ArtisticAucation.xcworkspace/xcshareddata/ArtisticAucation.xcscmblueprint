@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "263F9C715DD8E37E6A18AEBA4D2A747DA2348C79",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "263F9C715DD8E37E6A18AEBA4D2A747DA2348C79" : 0,
+    "AFB254127B74984FCE2723A18BBC905372024F65" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5E940E86-2414-42BA-A4AC-E995757641BA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "263F9C715DD8E37E6A18AEBA4D2A747DA2348C79" : "ArtisticAuction\/",
+    "AFB254127B74984FCE2723A18BBC905372024F65" : "ArtisticAucation"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ArtisticAucation",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ArtisticAucation.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/240660920\/ArtisticAuction.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "263F9C715DD8E37E6A18AEBA4D2A747DA2348C79"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/240660920\/ArtisticAucation.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AFB254127B74984FCE2723A18BBC905372024F65"
+    }
+  ]
+}

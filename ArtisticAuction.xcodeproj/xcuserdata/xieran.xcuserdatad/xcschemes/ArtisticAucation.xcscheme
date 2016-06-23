@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "94A137261B8EEB1F00D8DDF6"
-               BuildableName = "ArtisticAucation.app"
-               BlueprintName = "ArtisticAucation"
-               ReferencedContainer = "container:ArtisticAucation.xcodeproj">
+               BuildableName = "ArtisticAuction.app"
+               BlueprintName = "ArtisticAuction"
+               ReferencedContainer = "container:ArtisticAuction.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "94A1373F1B8EEB1F00D8DDF6"
-               BuildableName = "ArtisticAucationTests.xctest"
-               BlueprintName = "ArtisticAucationTests"
-               ReferencedContainer = "container:ArtisticAucation.xcodeproj">
+               BuildableName = "ArtisticAuction.xctest"
+               BlueprintName = "ArtisticAuctionTests"
+               ReferencedContainer = "container:ArtisticAuction.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "94A1373F1B8EEB1F00D8DDF6"
-               BuildableName = "ArtisticAucationTests.xctest"
-               BlueprintName = "ArtisticAucationTests"
-               ReferencedContainer = "container:ArtisticAucation.xcodeproj">
+               BuildableName = "ArtisticAuction.xctest"
+               BlueprintName = "ArtisticAuctionTests"
+               ReferencedContainer = "container:ArtisticAuction.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "94A137261B8EEB1F00D8DDF6"
-            BuildableName = "ArtisticAucation.app"
-            BlueprintName = "ArtisticAucation"
-            ReferencedContainer = "container:ArtisticAucation.xcodeproj">
+            BuildableName = "ArtisticAuction.app"
+            BlueprintName = "ArtisticAuction"
+            ReferencedContainer = "container:ArtisticAuction.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "94A137261B8EEB1F00D8DDF6"
-            BuildableName = "ArtisticAucation.app"
-            BlueprintName = "ArtisticAucation"
-            ReferencedContainer = "container:ArtisticAucation.xcodeproj">
+            BuildableName = "ArtisticAuction.app"
+            BlueprintName = "ArtisticAuction"
+            ReferencedContainer = "container:ArtisticAuction.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -104,9 +104,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "94A137261B8EEB1F00D8DDF6"
-            BuildableName = "ArtisticAucation.app"
-            BlueprintName = "ArtisticAucation"
-            ReferencedContainer = "container:ArtisticAucation.xcodeproj">
+            BuildableName = "ArtisticAuction.app"
+            BlueprintName = "ArtisticAuction"
+            ReferencedContainer = "container:ArtisticAuction.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
