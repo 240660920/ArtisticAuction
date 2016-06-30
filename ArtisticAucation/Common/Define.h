@@ -72,9 +72,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define AucationItemCornerRadius 2
 
 
-#define WeixinAppId     @"wx43c87c83db104853"
-#define WeixinAppSecret @"9bc8e3bc7077df109a2f3cd489edd152"
-#define WeixinPartnerId @"1277800801"
+#define WeixinAppId     @"wx7f03b3e0e3642f7c"
+#define WeixinAppSecret @"fe933c691d064e3759b2eed7106e9870"
+#define WeixinPartnerId @"1360187702"
 
 /***通知名字****/
 #define ItemPreferenceStateChanged   @"ItemPreferenceStateChanged"
