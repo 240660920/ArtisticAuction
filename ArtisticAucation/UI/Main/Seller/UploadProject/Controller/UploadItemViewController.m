@@ -80,7 +80,8 @@
     __block NSMutableString *featureStr = [[NSMutableString alloc]init];
     [self.featuresTextFields enumerateObjectsUsingBlock:^(UITextField *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.text rangeOfString:@";"].length > 0) {
-            [self.view showHudAndAutoDismiss:@"拍品描述不允许输入非法字符"];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"材质、尺寸、作者及简介不允许输入分号" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
             featuresLegal = NO;
             *stop = YES;
         }
