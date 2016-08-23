@@ -83,6 +83,9 @@
 		9463819C1BFD73DE00E7D96D /* NSString+randomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9463819B1BFD73DE00E7D96D /* NSString+randomString.m */; };
 		94652FE61BC8AE18004EBBC5 /* UIView+background.m in Sources */ = {isa = PBXBuildFile; fileRef = 94652FE51BC8AE18004EBBC5 /* UIView+background.m */; };
 		94662EA21C151E32008F2325 /* FullScreenScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94662EA11C151E32008F2325 /* FullScreenScrollView.m */; };
+		946AFF811D6BE2E50060F1C9 /* LaunchAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AFF801D6BE2E50060F1C9 /* LaunchAdManager.m */; };
+		946AFF841D6BE8360060F1C9 /* LaunchAdResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AFF831D6BE8360060F1C9 /* LaunchAdResponse.m */; };
+		946AFF871D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AFF861D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m */; };
 		946C8C521BB3A2E900F3DE74 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 946C8C511BB3A2E900F3DE74 /* libicucore.dylib */; };
 		946C8C541BB3A2F800F3DE74 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946C8C531BB3A2F800F3DE74 /* MessageUI.framework */; };
 		94760C2D1BB3A2A500A1E5BB /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94760C251BB3A2A500A1E5BB /* SMS_SDKLocalizable.strings */; };
@@ -444,6 +447,12 @@
 		94652FE51BC8AE18004EBBC5 /* UIView+background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+background.m"; sourceTree = "<group>"; };
 		94662EA01C151E32008F2325 /* FullScreenScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullScreenScrollView.h; sourceTree = "<group>"; };
 		94662EA11C151E32008F2325 /* FullScreenScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullScreenScrollView.m; sourceTree = "<group>"; };
+		946AFF7F1D6BE2E50060F1C9 /* LaunchAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAdManager.h; sourceTree = "<group>"; };
+		946AFF801D6BE2E50060F1C9 /* LaunchAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAdManager.m; sourceTree = "<group>"; };
+		946AFF821D6BE8360060F1C9 /* LaunchAdResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAdResponse.h; sourceTree = "<group>"; };
+		946AFF831D6BE8360060F1C9 /* LaunchAdResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAdResponse.m; sourceTree = "<group>"; };
+		946AFF851D6BEAEC0060F1C9 /* LaunchAdArchieveModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchAdArchieveModule.h; sourceTree = "<group>"; };
+		946AFF861D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAdArchieveModule.m; sourceTree = "<group>"; };
 		946C8C511BB3A2E900F3DE74 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		946C8C531BB3A2F800F3DE74 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		94760C261BB3A2A500A1E5BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
@@ -808,6 +817,7 @@
 		940F5B0D1B9C800F00EEA5C1 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				946AFF7E1D6BE2B00060F1C9 /* LaunchAdManager */,
 				948AE07A1C1672B800D17429 /* TextField */,
 				947C74B61C0BEA07000EC72D /* ImageView */,
 				94543E871BF4603F004C2062 /* TextView */,
@@ -884,8 +894,8 @@
 		9416F4C81BA03AA5005ACBA2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				94B330051C2BEBAC00A04347 /* AucationItems */,
 				94B876A81BA26E4000B6B720 /* Aucations */,
+				94B330051C2BEBAC00A04347 /* AucationItems */,
 				94B876AA1BA26E4000B6B720 /* Seller */,
 				94B8769E1BA26D4900B6B720 /* Search */,
 				94B876A91BA26E4000B6B720 /* PersonalCenter */,
@@ -1225,6 +1235,19 @@
 			);
 			name = AucationItemDetail;
 			path = AucationDetail;
+			sourceTree = "<group>";
+		};
+		946AFF7E1D6BE2B00060F1C9 /* LaunchAdManager */ = {
+			isa = PBXGroup;
+			children = (
+				946AFF7F1D6BE2E50060F1C9 /* LaunchAdManager.h */,
+				946AFF801D6BE2E50060F1C9 /* LaunchAdManager.m */,
+				946AFF821D6BE8360060F1C9 /* LaunchAdResponse.h */,
+				946AFF831D6BE8360060F1C9 /* LaunchAdResponse.m */,
+				946AFF851D6BEAEC0060F1C9 /* LaunchAdArchieveModule.h */,
+				946AFF861D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m */,
+			);
+			path = LaunchAdManager;
 			sourceTree = "<group>";
 		};
 		94760C241BB3A2A500A1E5BB /* SMS_SDK */ = {
@@ -1978,6 +2001,7 @@
 				945FA81A1BCFA0610014D77E /* AlipayOrder.m in Sources */,
 				945FA81B1BCFA0610014D77E /* base64.m in Sources */,
 				94662EA21C151E32008F2325 /* FullScreenScrollView.m in Sources */,
+				946AFF811D6BE2E50060F1C9 /* LaunchAdManager.m in Sources */,
 				945FA8201BCFA0610014D77E /* openssl_wrapper.m in Sources */,
 				947BBC971C5B872300A0DDE4 /* SBJsonParser.m in Sources */,
 				947B4EFE1BAC4B490083E203 /* SegmentControl.m in Sources */,
@@ -1999,6 +2023,7 @@
 				94CF727C1BC7A42500E94D34 /* JSONKit.m in Sources */,
 				94571F7A1C51467A00A20339 /* AdResponse.m in Sources */,
 				948AE0931C16864A00D17429 /* PropertyListViewController.m in Sources */,
+				946AFF871D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m in Sources */,
 				948AE0961C16864A00D17429 /* UploadListViewController.m in Sources */,
 				9486EE2A1BE73FE900CEE486 /* PaidLotsViewController.m in Sources */,
 				945355FE1BCE2CEC00EEAA14 /* ModifyInfoCell.m in Sources */,
@@ -2090,6 +2115,7 @@
 				94C668F01BDE1DCE0083AFBF /* MyCollectedPerformancesResponse.m in Sources */,
 				9452F2B01BE8549A0080502A /* AucationsCell.m in Sources */,
 				947BBC941C5B872300A0DDE4 /* NSString+SBJSON.m in Sources */,
+				946AFF841D6BE8360060F1C9 /* LaunchAdResponse.m in Sources */,
 				943802AC1BB4048C003446A4 /* UIBarButtonItem+CustomButton.m in Sources */,
 				945290961BD6658C000BE139 /* WeixinPayManager.m in Sources */,
 				948AE1691C16D83100D17429 /* ZYQAssetPickerController.m in Sources */,
@@ -2247,8 +2273,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (73L7JYF73Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (73L7JYF73Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (2BUEK97Q8K)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2294,7 +2320,7 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
 				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "b7ef5ef8-9b84-4eb2-be62-c484db61d7a9";
+				PROVISIONING_PROFILE = "597c9b1f-1db8-45e9-b217-525f44d0af6b";
 			};
 			name = Debug;
 		};
@@ -2306,8 +2332,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (73L7JYF73Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (73L7JYF73Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (2BUEK97Q8K)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2353,7 +2379,7 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
 				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "b7ef5ef8-9b84-4eb2-be62-c484db61d7a9";
+				PROVISIONING_PROFILE = "597c9b1f-1db8-45e9-b217-525f44d0af6b";
 			};
 			name = Release;
 		};

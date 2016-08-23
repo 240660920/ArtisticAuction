@@ -79,8 +79,8 @@
     __block BOOL featuresLegal = YES;
     __block NSMutableString *featureStr = [[NSMutableString alloc]init];
     [self.featuresTextFields enumerateObjectsUsingBlock:^(UITextField *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.text rangeOfString:@";"].length > 0) {
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"材质、尺寸、作者及简介不允许输入分号" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        if ([obj.text rangeOfString:@";$"].length > 0) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"材质、尺寸、作者及简介不允许输入非法字符" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             featuresLegal = NO;
             *stop = YES;
@@ -92,9 +92,9 @@
         
         
         [featureStr appendString:obj.text.length == 0 ? @" " : obj.text];
-        [featureStr appendString:@";"];
+        [featureStr appendString:@";$"];
     }];
-    featureStr = (NSMutableString *)[featureStr substringToIndex:featureStr.length - 1];
+    featureStr = (NSMutableString *)[featureStr substringToIndex:featureStr.length - 2];
     if (!featuresLegal) {
         return;
     }
@@ -708,8 +708,8 @@
             
             [_featuresTextFields addObject:featureTf];
             
-            if (self.item && [self.item.features componentsSeparatedByString:@";"].count == 3) {
-                featureTf.text = [[self.item.features componentsSeparatedByString:@";"][i]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            if (self.item && [self.item.features componentsSeparatedByString:@";$"].count == 3) {
+                featureTf.text = [[self.item.features componentsSeparatedByString:@";$"][i]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             }
         }
     }

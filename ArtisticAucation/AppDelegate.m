@@ -14,6 +14,7 @@
 #import "APService.h"
 #import "MainViewController.h"
 #import "LoginManager.h"
+#import "LaunchAdManager.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -38,6 +39,10 @@
     self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
+    
+    
+    [self requestAd];
+    
 
     //微信
     [WXApi registerApp:WeixinAppId];
@@ -239,6 +244,13 @@ fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler
         [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"登录失败，请重新登录"];
     }];
     [request startAsynchronous];
+}
+
+-(void)requestAd
+{
+    [LaunchAdManager requestAd];
+    
+    [LaunchAdManager showIfNeeded];
 }
 
 @end
