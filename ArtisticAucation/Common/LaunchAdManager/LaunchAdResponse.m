@@ -10,6 +10,11 @@
 
 @implementation LaunchAdDataModel
 
++(JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc]initWithDictionary:@{@"4inch" : @"img_4inch" , @"4.7inch" : @"img_47inch" , @"5.5inch" : @"img_55inch"}];
+}
+
 @end
 
 @implementation LaunchAdResponse
