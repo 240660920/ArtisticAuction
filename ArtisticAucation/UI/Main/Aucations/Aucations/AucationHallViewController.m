@@ -17,6 +17,7 @@
 
 @property(nonatomic,retain)UIWebView *webview;
 @property(nonatomic,copy)NSString *url;
+@property(nonatomic,strong)UIView *topBar;
 
 @end
 
@@ -34,31 +35,65 @@
     return self;
 }
 
+-(void)pop
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"拍卖大厅";
     
-//    NSMutableArray *leftItems = [[NSMutableArray alloc]initWithArray:self.navigationItem.leftBarButtonItems];
-//    
-//    UIButton *webviewBackBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    webviewBackBtn.frame = CGRectMake(0, 0, 40, 40);
-//    [webviewBackBtn setTitleColor:BlackColor forState:UIControlStateNormal];
-//    [webviewBackBtn setTitle:@"返回" forState:UIControlStateNormal];
-//    [webviewBackBtn addTarget:self.webview action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *webviewBackItem = [[UIBarButtonItem alloc]initWithCustomView:webviewBackBtn];
-//    [leftItems addObject:webviewBackItem];
-//    self.navigationItem.leftBarButtonItems = leftItems;
     
+    UIView *topBar = [[UIView alloc]init];
+    topBar.backgroundColor = [UIColor colorWithRed:0xa0/255.0 green:0x1b/255.0 blue:0x22/255.0 alpha:1];
+    self.topBar = topBar;
+    
+    [self.view addSubview:topBar];
+    
+    [topBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(self.view);
+        make.height.equalTo(@64);
+    }];
+    
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setBackgroundImage:[UIImage imageNamed:@"white_left_arrow_nor"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];
+    [topBar addSubview:backBtn];
+    
+    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(topBar).offset(18);
+        make.width.height.equalTo(@23);
+        make.bottom.equalTo(topBar).offset(-(44 - 23) / 2);
+    }];
+    
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.font = NavigationBarTitleFont;
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = @"拍卖大厅";
+    [topBar addSubview:titleLabel];
+    
+    [titleLabel sizeToFit];
+    
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(topBar);
+        make.bottom.equalTo(topBar).offset(-(44 - titleLabel.frame.size.height) / 2);
+    }];
     
     
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     rightButton.frame = CGRectMake(0, 0, 23, 23);
-    [rightButton setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
+    [rightButton setImage:[UIImage imageNamed:@"share_white"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    [topBar addSubview:rightButton];
     
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    [rightButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(topBar).offset(-10);
+        make.bottom.equalTo(topBar).offset(-(44 - 23) / 2);
+    }];
+    
     
     
     
@@ -83,6 +118,18 @@
     
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
     [self.webview loadRequest:request];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = YES;
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -162,7 +209,8 @@
         [self.view addSubview:_webview];
         
         [_webview mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view);
+            make.left.right.bottom.equalTo(self.view);
+            make.top.equalTo(self.topBar.mas_bottom);
         }];
     }
     return _webview;

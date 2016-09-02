@@ -1,4 +1,4 @@
-target ‘ArtisticAucation’
+target ‘ArtisticAuction’
 
 platform:ios,'7.0'
 pod 'Masonry'

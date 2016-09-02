@@ -15,6 +15,8 @@
 		940F5B0C1B9C70BC00EEA5C1 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 940F5B0B1B9C70BC00EEA5C1 /* UserInfo.m */; };
 		940F5B101B9C801C00EEA5C1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 940F5B0F1B9C801C00EEA5C1 /* Utils.m */; };
 		940F5B141B9C809C00EEA5C1 /* UIView+MBProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 940F5B131B9C809C00EEA5C1 /* UIView+MBProgress.m */; };
+		941231161D7569E800B79746 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941231141D7569E800B79746 /* MOBFoundation.framework */; };
+		941231171D7569E800B79746 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941231151D7569E800B79746 /* SMS_SDK.framework */; };
 		941666281BDA17300092431A /* CommonRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941666271BDA17300092431A /* CommonRequests.m */; };
 		9416662B1BDA1A660092431A /* UIViewController+LoginAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416662A1BDA1A660092431A /* UIViewController+LoginAlert.m */; };
 		941666321BDA25820092431A /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 941666311BDA25820092431A /* LikeButton.m */; };
@@ -88,8 +90,6 @@
 		946AFF871D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AFF861D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m */; };
 		946C8C521BB3A2E900F3DE74 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 946C8C511BB3A2E900F3DE74 /* libicucore.dylib */; };
 		946C8C541BB3A2F800F3DE74 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946C8C531BB3A2F800F3DE74 /* MessageUI.framework */; };
-		94760C2D1BB3A2A500A1E5BB /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94760C251BB3A2A500A1E5BB /* SMS_SDKLocalizable.strings */; };
-		94760C2E1BB3A2A500A1E5BB /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94760C271BB3A2A500A1E5BB /* SMS_SDK.framework */; };
 		94760C2F1BB3A2A500A1E5BB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94760C2A1BB3A2A500A1E5BB /* libWeChatSDK.a */; };
 		947A31DE1BD91F2500D75424 /* NSString+CompleteImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 947A31DD1BD91F2500D75424 /* NSString+CompleteImageUrl.m */; };
 		947A31E01BD926AC00D75424 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947A31DF1BD926AC00D75424 /* SearchViewController.xib */; };
@@ -213,6 +213,7 @@
 		A8E063001BC6510500294D08 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E062FF1BC6510500294D08 /* Security.framework */; };
 		A8E063021BC6526C00294D08 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8E063011BC6526C00294D08 /* PushConfig.plist */; };
 		A8E27CF91C2D311200836D08 /* EightProModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E27CF81C2D311200836D08 /* EightProModel.m */; };
+		D73CD15DF875623130350ADF /* libPods-ArtisticAuction.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A15634401ACC26CF32E849DF /* libPods-ArtisticAuction.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +228,7 @@
 
 /* Begin PBXFileReference section */
 		5F60CDAEEEABBB14A40EDD41 /* Pods-ArtisticAucation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticAucation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticAucation/Pods-ArtisticAucation.release.xcconfig"; sourceTree = "<group>"; };
+		62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticAuction.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction.release.xcconfig"; sourceTree = "<group>"; };
 		8696C41DA76950C625451993 /* libPods-ArtisticAucation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtisticAucation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		940D61EE1BE79C060021D199 /* RealNameCerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RealNameCerViewController.xib; sourceTree = "<group>"; };
 		940D97B01BAC14780064F381 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
@@ -241,6 +243,8 @@
 		940F5B0F1B9C801C00EEA5C1 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		940F5B121B9C809C00EEA5C1 /* UIView+MBProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBProgress.h"; sourceTree = "<group>"; };
 		940F5B131B9C809C00EEA5C1 /* UIView+MBProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MBProgress.m"; sourceTree = "<group>"; };
+		941231141D7569E800B79746 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		941231151D7569E800B79746 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
 		941666261BDA17300092431A /* CommonRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonRequests.h; sourceTree = "<group>"; };
 		941666271BDA17300092431A /* CommonRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonRequests.m; sourceTree = "<group>"; };
 		941666291BDA1A660092431A /* UIViewController+LoginAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoginAlert.h"; sourceTree = "<group>"; };
@@ -455,9 +459,6 @@
 		946AFF861D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchAdArchieveModule.m; sourceTree = "<group>"; };
 		946C8C511BB3A2E900F3DE74 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		946C8C531BB3A2F800F3DE74 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		94760C261BB3A2A500A1E5BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
-		94760C271BB3A2A500A1E5BB /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
-		94760C281BB3A2A500A1E5BB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
 		94760C2A1BB3A2A500A1E5BB /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		94760C2B1BB3A2A500A1E5BB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		94760C2C1BB3A2A500A1E5BB /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
@@ -638,6 +639,7 @@
 		94ED2C001B9C5805002B0E3F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		94F022B31BFB043000FAD28F /* AucationItemImagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AucationItemImagesScrollView.h; sourceTree = "<group>"; };
 		94F022B41BFB043000FAD28F /* AucationItemImagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AucationItemImagesScrollView.m; sourceTree = "<group>"; };
+		A15634401ACC26CF32E849DF /* libPods-ArtisticAuction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtisticAuction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DA06FC1B9EBA9800475C7D /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
 		A8DA06FD1B9EBA9800475C7D /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
 		A8DA11E31BD6356E004740B2 /* SearchResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultModel.h; sourceTree = "<group>"; };
@@ -673,6 +675,7 @@
 		A8E27CF71C2D311200836D08 /* EightProModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EightProModel.h; sourceTree = "<group>"; };
 		A8E27CF81C2D311200836D08 /* EightProModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EightProModel.m; sourceTree = "<group>"; };
 		AF5A1F230549EC1FAE5C4443 /* Pods-ArtisticAucation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticAucation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticAucation/Pods-ArtisticAucation.debug.xcconfig"; sourceTree = "<group>"; };
+		F9C0DA14F713868AE1BE44FC /* Pods-ArtisticAuction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticAuction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,10 +697,12 @@
 				94ED2C011B9C5805002B0E3F /* libc++.dylib in Frameworks */,
 				94ED2BFF1B9C57F8002B0E3F /* libsqlite3.0.dylib in Frameworks */,
 				94ED2BFD1B9C57F3002B0E3F /* libz.dylib in Frameworks */,
-				94760C2E1BB3A2A500A1E5BB /* SMS_SDK.framework in Frameworks */,
+				941231161D7569E800B79746 /* MOBFoundation.framework in Frameworks */,
 				94ED2BFB1B9C57E3002B0E3F /* SystemConfiguration.framework in Frameworks */,
 				947BBC901C5B872300A0DDE4 /* AlipaySDK.framework in Frameworks */,
+				941231171D7569E800B79746 /* SMS_SDK.framework in Frameworks */,
 				20054B0F421D4DDE8F24503D /* libPods-ArtisticAucation.a in Frameworks */,
+				D73CD15DF875623130350ADF /* libPods-ArtisticAuction.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +721,8 @@
 			children = (
 				AF5A1F230549EC1FAE5C4443 /* Pods-ArtisticAucation.debug.xcconfig */,
 				5F60CDAEEEABBB14A40EDD41 /* Pods-ArtisticAucation.release.xcconfig */,
+				F9C0DA14F713868AE1BE44FC /* Pods-ArtisticAuction.debug.xcconfig */,
+				62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -867,6 +874,15 @@
 				9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		941231131D7569E800B79746 /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				941231141D7569E800B79746 /* MOBFoundation.framework */,
+				941231151D7569E800B79746 /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
 			sourceTree = "<group>";
 		};
 		941666251BDA171C0092431A /* CommonRequests */ = {
@@ -1248,15 +1264,6 @@
 				946AFF861D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m */,
 			);
 			path = LaunchAdManager;
-			sourceTree = "<group>";
-		};
-		94760C241BB3A2A500A1E5BB /* SMS_SDK */ = {
-			isa = PBXGroup;
-			children = (
-				94760C251BB3A2A500A1E5BB /* SMS_SDKLocalizable.strings */,
-				94760C271BB3A2A500A1E5BB /* SMS_SDK.framework */,
-			);
-			path = SMS_SDK;
 			sourceTree = "<group>";
 		};
 		94760C291BB3A2A500A1E5BB /* Weixin */ = {
@@ -1699,9 +1706,9 @@
 		94ED2BF51B9C5791002B0E3F /* Dependence */ = {
 			isa = PBXGroup;
 			children = (
+				941231131D7569E800B79746 /* SMS_SDK */,
 				948AE14B1C16D83100D17429 /* ZYQAssetPickerController */,
 				94CF72791BC7A42500E94D34 /* JSONKit */,
-				94760C241BB3A2A500A1E5BB /* SMS_SDK */,
 				94760C291BB3A2A500A1E5BB /* Weixin */,
 			);
 			path = Dependence;
@@ -1800,6 +1807,7 @@
 				94ED2BFC1B9C57F3002B0E3F /* libz.dylib */,
 				94ED2BFA1B9C57E3002B0E3F /* SystemConfiguration.framework */,
 				8696C41DA76950C625451993 /* libPods-ArtisticAucation.a */,
+				A15634401ACC26CF32E849DF /* libPods-ArtisticAuction.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1901,7 +1909,6 @@
 				947BBC8F1C5B872300A0DDE4 /* AlipaySDK.bundle in Resources */,
 				9452F2C81BE85B0E0080502A /* AucationDetailTopViewSubview.xib in Resources */,
 				948AE1621C16D83100D17429 /* AssetsPickerVideo@2x.png in Resources */,
-				94760C2D1BB3A2A500A1E5BB /* SMS_SDKLocalizable.strings in Resources */,
 				948AE1611C16D83100D17429 /* AssetsPickerLocked@2x.png in Resources */,
 				9452F2AE1BE8549A0080502A /* AHeader.xib in Resources */,
 				948AE1671C16D83100D17429 /* OK.png in Resources */,
@@ -1958,7 +1965,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticAucation/Pods-ArtisticAucation-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E0D6FA799DF6EEC5A9656E17 /* 📦 Embed Pods Frameworks */ = {
@@ -1973,7 +1980,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticAucation/Pods-ArtisticAucation-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E324F4BCCDDA17D69079B922 /* 📦 Check Pods Manifest.lock */ = {
@@ -2168,18 +2175,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		94760C251BB3A2A500A1E5BB /* SMS_SDKLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94760C261BB3A2A500A1E5BB /* en */,
-				94760C281BB3A2A500A1E5BB /* zh-Hans */,
-			);
-			name = SMS_SDKLocalizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		94A137481B8EEB1F00D8DDF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2267,7 +2262,7 @@
 		};
 		94A1374B1B8EEB1F00D8DDF6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF5A1F230549EC1FAE5C4443 /* Pods-ArtisticAucation.debug.xcconfig */;
+			baseConfigurationReference = F9C0DA14F713868AE1BE44FC /* Pods-ArtisticAuction.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -2326,7 +2321,7 @@
 		};
 		94A1374C1B8EEB1F00D8DDF6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F60CDAEEEABBB14A40EDD41 /* Pods-ArtisticAucation.release.xcconfig */;
+			baseConfigurationReference = 62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

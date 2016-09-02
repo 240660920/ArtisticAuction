@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "WXApi.h"
-#import <SMS_SDK/SMS_SDK.h>
+#import <SMS_SDK/SMSSDK.h>
 #import <AlipaySDK/AlipaySDK.h>
 #import "APService.h"
 #import "MainViewController.h"
@@ -47,7 +47,7 @@
     //微信
     [WXApi registerApp:WeixinAppId];
     //短信验证码(ShareSDK)
-    [SMS_SDK registerApp:@"aadb7ae3b583" withSecret:@"c72606704f363165c83d4bad5e01cd37"];
+    [SMSSDK registerApp:@"16a0cb85c5f14" withSecret:@"7fbed5b12666a8e83de93c742b29bedc"];
     
     
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];

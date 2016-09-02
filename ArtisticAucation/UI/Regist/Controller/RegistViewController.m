@@ -12,7 +12,7 @@
 #import "VerificationCodeButton.h"
 #import "VerificationCodeManager.h"
 #import <MD5Digest/NSString+MD5.h>
-#import <SMS_SDK/SMS_SDK.h>
+#import <SMS_SDK/SMSSDK.h>
 
 #define RegistButtonDisableBackgroundColor [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:204.0/255.0]
 #define RegistTableRowHeight 45
@@ -172,9 +172,8 @@
     
     
     //验证码校验
-    [SMS_SDK commitVerifyCode:self.verifyCodeTf.text result:^(enum SMS_ResponseState state) {
-    
-        if (state == SMS_ResponseStateSuccess) {
+    [SMSSDK commitVerificationCode:self.verifyCodeTf.text phoneNumber:self.phoneNumTf.text zone:@"86" result:^(NSError *error) {
+        if (!error) {
             NSLog(@"验证码校验成功");
             [self.view showLoadingHud];
             
@@ -203,34 +202,36 @@
             [self.view showHudAndAutoDismiss:@"验证码错误"];
         }
     }];
-    
-    
 }
 
 -(void)sendVerifyCode
 {
+    //校验手机号格式
+    NSString *regex = @"^[1][3578][0-9]{9}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    if (![predicate evaluateWithObject:[self.phoneNumTf.text stringByReplacingOccurrencesOfString:@"-" withString:@""]]) {
+        [self.view showHudAndAutoDismiss:@"请输入正确的手机号码"];
+        return;
+    }
+    
     [self.view showLoadingHud];
     
-    [SMS_SDK getVerificationCodeBySMSWithPhone:self.phoneNumTf.text
-                                          zone:@"86"
-                                        result:^(SMS_SDKError *error)
-     {
-         if (!error)
-         {
-             NSLog(@"验证码发送成功");
-             
-             [self.view showHudAndAutoDismiss:@"发送成功"];
-             
-             [[VerificationCodeManager sharedInstance]startRegistTimeCountDown];
-             
-             self.verifyCodeButton.enabled = NO;
-         }
-         else
-         {
-             [self.view showHudAndAutoDismiss:@"发送失败"];
-         }
-         
-     }];
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneNumTf.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
+        if (!error)
+        {
+            NSLog(@"验证码发送成功");
+            
+            [self.view showHudAndAutoDismiss:@"发送成功"];
+            
+            [[VerificationCodeManager sharedInstance]startRegistTimeCountDown];
+            
+            self.verifyCodeButton.enabled = NO;
+        }
+        else
+        {
+            [self.view showHudAndAutoDismiss:@"发送失败"];
+        }
+    }];
 }
 
 #pragma mark Properties

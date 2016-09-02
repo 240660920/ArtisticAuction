@@ -15,15 +15,15 @@ PODS:
   - BJImageCropper (1.0.2)
   - FSMediaPicker (0.0.2)
   - JSONModel (1.2.0)
-  - Masonry (1.0.0)
-  - MBProgressHUD (0.9.2)
+  - Masonry (1.0.1)
+  - MBProgressHUD (1.0.0)
   - MD5Digest (1.1.0)
-  - MJRefresh (3.1.0)
+  - MJRefresh (3.1.10)
   - Reachability (3.2)
   - SBJson (4.0.2)
-  - SDWebImage (3.7.6):
-    - SDWebImage/Core (= 3.7.6)
-  - SDWebImage/Core (3.7.6)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
 
 DEPENDENCIES:
   - ASIHTTPRequest
@@ -42,14 +42,14 @@ SPEC CHECKSUMS:
   BJImageCropper: 18fcc5d11d78bbb5be01f7d9cf7581634338905d
   FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
   JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
-  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MD5Digest: fea371215507cfcdc3c9633d02cffc7fd075ebc3
-  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SBJson: c18691cc18375b14664ff0fec841f8c4faef1934
-  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 55bc27d0886e145e9cf21ecdbc6356993e01ade8
+PODFILE CHECKSUM: ed07ad430b63c24ca0618dfee05a984b6f7cbe3a
 
 COCOAPODS: 1.0.0
