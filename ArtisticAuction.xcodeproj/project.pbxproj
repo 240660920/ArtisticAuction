@@ -25,7 +25,7 @@
 		9417C65F1C450ABB00C32422 /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */; };
 		9427BF3A1C7C3BFB009EC335 /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */; };
 		943024ED1BBA27E600807AD6 /* VerificationCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 943024EC1BBA27E600807AD6 /* VerificationCodeManager.m */; };
-		943172A41D8017E700AAD1BE /* TestItems in Resources */ = {isa = PBXBuildFile; fileRef = 943172A31D8017E700AAD1BE /* TestItems */; };
+		943172A61D801E7400AAD1BE /* TestItems in Resources */ = {isa = PBXBuildFile; fileRef = 943172A51D801E7400AAD1BE /* TestItems */; };
 		9432B5591BDA62C900F82705 /* ItemPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */; };
 		9432B5691BDA867000F82705 /* AgencyPerformancesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5641BDA867000F82705 /* AgencyPerformancesViewController.m */; };
 		9432B56A1BDA867000F82705 /* AgencyItemResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5671BDA867000F82705 /* AgencyItemResponse.m */; };
@@ -262,7 +262,7 @@
 		9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
 		943024EB1BBA27E600807AD6 /* VerificationCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeManager.h; sourceTree = "<group>"; };
 		943024EC1BBA27E600807AD6 /* VerificationCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeManager.m; sourceTree = "<group>"; };
-		943172A31D8017E700AAD1BE /* TestItems */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestItems; sourceTree = "<group>"; };
+		943172A51D801E7400AAD1BE /* TestItems */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestItems; path = Resources/TestItems; sourceTree = "<group>"; };
 		9432B5571BDA62C900F82705 /* ItemPreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPreferenceCell.h; sourceTree = "<group>"; };
 		9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPreferenceCell.m; sourceTree = "<group>"; };
 		9432B5631BDA867000F82705 /* AgencyPerformancesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyPerformancesViewController.h; sourceTree = "<group>"; };
@@ -1567,7 +1567,7 @@
 		94A137291B8EEB1F00D8DDF6 /* ArtisticAucation */ = {
 			isa = PBXGroup;
 			children = (
-				943172A31D8017E700AAD1BE /* TestItems */,
+				943172A51D801E7400AAD1BE /* TestItems */,
 				94E937B61BA3DF8D00FC6C48 /* Define.h */,
 				945FA7B31BCFA0610014D77E /* Payment */,
 				94E937B31BA3DB6B00FC6C48 /* Resources */,
@@ -1915,7 +1915,7 @@
 				948AE1671C16D83100D17429 /* OK.png in Resources */,
 				948AE1601C16D83100D17429 /* AssetsPickerChecked~iOS6@2x.png in Resources */,
 				940D61EF1BE79C060021D199 /* RealNameCerViewController.xib in Resources */,
-				943172A41D8017E700AAD1BE /* TestItems in Resources */,
+				943172A61D801E7400AAD1BE /* TestItems in Resources */,
 				948AE15D1C16D83100D17429 /* 2.png in Resources */,
 				948AE15C1C16D83100D17429 /* 1.png in Resources */,
 				948AE15E1C16D83100D17429 /* addImage.png in Resources */,

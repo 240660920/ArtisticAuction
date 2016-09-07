@@ -95,8 +95,13 @@ dispatch_queue_t uploadQueue;
 
 -(UIImage *)occasionImage
 {
+#ifdef TestMode
+    return [UIImage imageNamed:@"aucationItem_PlaceHolderImage"];
+#else
     UIImage *image = [[UIImage alloc]initWithData:[NSData dataWithContentsOfFile:OccasionImagePath]];
     return image;
+#endif
+
 }
 
 -(void)deleteOccasionImage
