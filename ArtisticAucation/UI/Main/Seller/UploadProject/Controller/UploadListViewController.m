@@ -37,6 +37,11 @@
     _dataSourceArray = [[NSMutableArray alloc]init];
     [_dataSourceArray addObjectsFromArray:[UploadItemManager localItems]];
     
+    //专场图片
+    if ([[UploadItemManager sharedInstance]occasionImage]) {
+        [self reloadOccasionImageView:[[UploadItemManager sharedInstance]occasionImage]];
+    }
+    
     self.addImageButton.layer.masksToBounds = YES;
     self.addImageButton.layer.borderColor = TableViewSeparateColor.CGColor;
     self.addImageButton.layer.borderWidth = 0.5;
@@ -148,8 +153,10 @@
             
             [[NSNotificationCenter defaultCenter]postNotificationName:@"ReloadMyOccasionsList" object:nil];
             
-            
+            //清除拍品缓存
             [UploadItemManager removeAllItems];
+            //清除专场图片缓存
+            [[UploadItemManager sharedInstance]deleteOccasionImage];
             
             [self.dataSourceArray removeAllObjects];
             [self.table reloadData];
@@ -272,14 +279,19 @@
         ALAssetRepresentation *al = [assets[0] defaultRepresentation];
         vc.image = [[UIImage imageWithCGImage:[al fullResolutionImage]]fixOrientationOfOrientation:al.orientation];
         [vc setEditImageBlock:^(UIImage *editedImage) {
-            self.occasionImageView.image = editedImage;
-            
-            CGRect frame = self.occasionImageView.frame;
-            frame.size.width = editedImage.size.width / editedImage.size.height * frame.size.height;
-            self.occasionImageView.frame = frame;
+            [self reloadOccasionImageView:editedImage];
         }];
         [self.navigationController pushViewController:vc animated:NO];
     }];
+}
+
+-(void)reloadOccasionImageView:(UIImage *)image
+{
+    self.occasionImageView.image = image;
+    
+    CGRect frame = self.occasionImageView.frame;
+    frame.size.width = image.size.width / image.size.height * frame.size.height;
+    self.occasionImageView.frame = frame;
 }
 
 - (void)didReceiveMemoryWarning {

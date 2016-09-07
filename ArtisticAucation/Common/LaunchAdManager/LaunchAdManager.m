@@ -66,14 +66,16 @@
             module.img_47inch = response.data.img_47inch;
             module.img_55inch = response.data.img_55inch;
             
-            
+
             LaunchAdArchieveModule *localModule = [NSKeyedUnarchiver unarchiveObjectWithFile:LaunchAdArchievePath];
             if (iPhone5Screen) {
                 if (![module.img_4inch isEqualToString:localModule.img_4inch]) {
                     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[module.img_4inch completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                         
                     } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                        
+                        if (image) {
+                            [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
+                        }
                     }];
                 }
             }
@@ -82,7 +84,9 @@
                     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[module.img_47inch completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                         
                     } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                        
+                        if (image) {
+                            [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
+                        }
                     }];
                 }
             }
@@ -91,13 +95,14 @@
                     [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[module.img_55inch completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                         
                     } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                        
+                        if (image) {
+                            [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
+                        }
                     }];
                 }
             }
             
             
-            [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
         }
         
     } failed:^(ASIFormDataRequest *request) {

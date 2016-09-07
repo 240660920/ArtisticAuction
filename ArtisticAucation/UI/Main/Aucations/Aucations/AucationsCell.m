@@ -50,8 +50,8 @@
     switch (status) {
         case DisplayTypePreDisplay:
             self.remindBtn.hidden = NO;
-            self.goAuction.hidden = NO;
-            self.onGoingLabel.hidden = NO;
+            self.goAuction.hidden = YES;
+            self.onGoingLabel.hidden = YES;
             self.timeLabel.hidden = NO;
             break;
         case DisplayTypeOngoing:

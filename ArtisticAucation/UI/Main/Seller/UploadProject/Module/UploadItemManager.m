@@ -10,6 +10,8 @@
 
 #define UploadItemFolderPath     [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[NSString stringWithFormat:@"UploadItems_%@",[UserInfo sharedInstance].userId]]
 
+#define OccasionImagePath [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:[NSString stringWithFormat:@"UploadOccasionImage_%@",[UserInfo sharedInstance].userId]]
+
 UploadItemManager *uploadManager;
 dispatch_queue_t uploadQueue;
 
@@ -54,6 +56,22 @@ dispatch_queue_t uploadQueue;
     [[NSFileManager defaultManager]removeItemAtPath:UploadItemFolderPath error:nil];
 }
 
+#ifdef TestMode
++(NSMutableArray *)localItems
+{
+    NSMutableArray *items = [[NSMutableArray alloc]init];
+    NSArray *localItemNames = [[NSBundle mainBundle]pathsForResourcesOfType:nil inDirectory:@"TestItems"];
+    NSArray *_names = [localItemNames sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 intValue] > [obj2 intValue];
+    }];
+    [_names enumerateObjectsUsingBlock:^(NSString *fileName, NSUInteger idx, BOOL * _Nonnull stop) {
+        UploadItem *item = [NSKeyedUnarchiver unarchiveObjectWithFile:fileName];
+        [items addObject:item];
+    }];
+    
+    return items;
+}
+#else
 +(NSMutableArray *)localItems
 {
     NSMutableArray *items = [[NSMutableArray alloc]init];
@@ -67,6 +85,23 @@ dispatch_queue_t uploadQueue;
     }];
     
     return items;
+}
+#endif
+
+-(void)saveOccasionImage:(UIImage *)image
+{
+    [[NSFileManager defaultManager]createFileAtPath:OccasionImagePath contents:UIImagePNGRepresentation(image) attributes:nil];
+}
+
+-(UIImage *)occasionImage
+{
+    UIImage *image = [[UIImage alloc]initWithData:[NSData dataWithContentsOfFile:OccasionImagePath]];
+    return image;
+}
+
+-(void)deleteOccasionImage
+{
+    [[NSFileManager defaultManager]removeItemAtPath:OccasionImagePath error:nil];
 }
 
 @end

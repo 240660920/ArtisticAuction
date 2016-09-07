@@ -22,4 +22,10 @@
 
 +(void)removeAllItems;
 
+-(void)saveOccasionImage:(UIImage *)image;
+
+-(UIImage *)occasionImage;
+
+-(void)deleteOccasionImage;
+
 @end
