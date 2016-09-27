@@ -155,7 +155,7 @@
             if (leftTimeInterval > 0) {
                 [self.refreshTimer invalidate];
                 self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(requestData) userInfo:nil repeats:NO];
-                [self.refreshTimer setFireDate:[[NSDate date] dateByAddingTimeInterval:leftTimeInterval]];
+                [self.refreshTimer setFireDate:[[NSDate date] dateByAddingTimeInterval:leftTimeInterval + 2]];
             }
             else{
                 [self.refreshTimer invalidate];

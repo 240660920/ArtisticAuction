@@ -612,6 +612,7 @@
 		94B876A41BA26DFC00B6B720 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		94B876B51BA26E6C00B6B720 /* SellerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SellerViewController.h; sourceTree = "<group>"; };
 		94B876B61BA26E6C00B6B720 /* SellerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SellerViewController.m; sourceTree = "<group>"; };
+		94B982621D8F83CF00F58D9F /* ArtisticAuction.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ArtisticAuction.entitlements; sourceTree = "<group>"; };
 		94C668EB1BDE03C80083AFBF /* MyCollectedLotsListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectedLotsListResponse.h; sourceTree = "<group>"; };
 		94C668EC1BDE03C80083AFBF /* MyCollectedLotsListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectedLotsListResponse.m; sourceTree = "<group>"; };
 		94C668EE1BDE1DCE0083AFBF /* MyCollectedPerformancesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectedPerformancesResponse.h; sourceTree = "<group>"; };
@@ -1547,6 +1548,7 @@
 		94A1371E1B8EEB1F00D8DDF6 = {
 			isa = PBXGroup;
 			children = (
+				94B982621D8F83CF00F58D9F /* ArtisticAuction.entitlements */,
 				94A137291B8EEB1F00D8DDF6 /* ArtisticAucation */,
 				94A137431B8EEB1F00D8DDF6 /* ArtisticAucationTests */,
 				94A137281B8EEB1F00D8DDF6 /* Products */,
@@ -1865,16 +1867,21 @@
 				TargetAttributes = {
 					94A137261B8EEB1F00D8DDF6 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 7QXXF2UZ5Z;
+						DevelopmentTeam = U4P35974U6;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
 					};
 					94A1373F1B8EEB1F00D8DDF6 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 3WK6U529RV;
+						DevelopmentTeam = U4P35974U6;
+						ProvisioningStyle = Manual;
 						TestTargetID = 94A137261B8EEB1F00D8DDF6;
 					};
 				};
@@ -2195,10 +2202,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (73L7JYF73Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (73L7JYF73Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (2BUEK97Q8K)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = U4P35974U6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2218,7 +2226,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "db516a91-5667-4f74-9ee0-0a5ae71bfa2e";
+				PROVISIONING_PROFILE = "597c9b1f-1db8-45e9-b217-525f44d0af6b";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2240,10 +2249,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (73L7JYF73Z)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (73L7JYF73Z)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = U4P35974U6;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2256,7 +2266,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "db516a91-5667-4f74-9ee0-0a5ae71bfa2e";
+				PROVISIONING_PROFILE = "32c7daf1-2788-4132-b82a-6fc994bd60a3";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2270,8 +2280,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
+				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (2BUEK97Q8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U4P35974U6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2317,7 +2329,8 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
 				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "597c9b1f-1db8-45e9-b217-525f44d0af6b";
+				PROVISIONING_PROFILE = "996889bf-fd1e-4610-ba5f-d66426de3c3d";
+				PROVISIONING_PROFILE_SPECIFIER = GGWHDev;
 			};
 			name = Debug;
 		};
@@ -2329,8 +2342,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (2BUEK97Q8K)";
+				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (73L7JYF73Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2376,7 +2391,8 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
 				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "597c9b1f-1db8-45e9-b217-525f44d0af6b";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -2386,6 +2402,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U4P35974U6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2408,6 +2425,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = U4P35974U6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

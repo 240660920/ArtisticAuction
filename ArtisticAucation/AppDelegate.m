@@ -27,6 +27,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    NSLog(@"%@",[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]);
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     LoginViewController *loginViewController = [[LoginViewController alloc]init];
@@ -116,6 +118,10 @@
     [APService registerDeviceToken:deviceToken];
 }
 
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    NSLog(@"%@",error);
+}
 
 #pragma mark - 极光推送
 - (void)networkDidSetup:(NSNotification *)notification {

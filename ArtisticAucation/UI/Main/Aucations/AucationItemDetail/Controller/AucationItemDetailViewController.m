@@ -171,13 +171,13 @@
         return [AucationDetailTopView heightForRowWithTitle:self.item.name];
     }
     else if (indexPath.row == 2){
-        return [AucationItemDescriptionCell heightForText:[self.item.features componentsSeparatedByString:@";"][0]];
+        return [AucationItemDescriptionCell heightForText:[self.item.features componentsSeparatedByString:@";&"][0]];
     }
     else if (indexPath.row == 3){
-        return [AucationItemDescriptionCell heightForText:[self.item.features componentsSeparatedByString:@";"][1]];
+        return [AucationItemDescriptionCell heightForText:[self.item.features componentsSeparatedByString:@";&"][1]];
     }
     else if (indexPath.row == 4){
-        return [AucationItemDescriptionCell heightForText:[self.item.features componentsSeparatedByString:@";"][2]];
+        return [AucationItemDescriptionCell heightForText:[self.item.features componentsSeparatedByString:@";&"][2]];
     }
     else if (indexPath.row == 5){
         return [AucationItemDescriptionCell heightForText:self.item.desc];
@@ -278,7 +278,7 @@
             cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.titlelabel.text = @"材质：";
-            cell.contentLabel.text = self.item.features.length == 0 ? @"暂无" : [self.item.features componentsSeparatedByString:@";"][0];
+            cell.contentLabel.text = self.item.features.length == 0 ? @"暂无" : [self.item.features componentsSeparatedByString:@";&"][0];
             return cell;
         }
             break;
@@ -288,7 +288,7 @@
             cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.titlelabel.text = @"尺寸：";
-            cell.contentLabel.text = self.item.features.length == 0 ? @"暂无" : [self.item.features componentsSeparatedByString:@";"][1];
+            cell.contentLabel.text = self.item.features.length == 0 ? @"暂无" : [self.item.features componentsSeparatedByString:@";&"][1];
             return cell;
         }
             break;
@@ -298,7 +298,7 @@
             cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.titlelabel.text = @"作者及简介：";
-            cell.contentLabel.text = self.item.features.length == 0 ? @"暂无" : [self.item.features componentsSeparatedByString:@";"][2];
+            cell.contentLabel.text = self.item.features.length == 0 ? @"暂无" : [self.item.features componentsSeparatedByString:@";&"][2];
             return cell;
         }
             break;
