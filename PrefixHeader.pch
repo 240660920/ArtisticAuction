@@ -15,7 +15,7 @@
 #import <Masonry/Masonry.h>
 #import "UIView+MBProgress.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <SBJson/SBJson4.h>
+#import <SBJSON.h>
 #import "JSONKit.h"
 #import "UserInfo.h"
 #import "Define.h"

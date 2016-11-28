@@ -25,7 +25,6 @@
 		9417C65F1C450ABB00C32422 /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */; };
 		9427BF3A1C7C3BFB009EC335 /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */; };
 		943024ED1BBA27E600807AD6 /* VerificationCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 943024EC1BBA27E600807AD6 /* VerificationCodeManager.m */; };
-		943172A61D801E7400AAD1BE /* TestItems in Resources */ = {isa = PBXBuildFile; fileRef = 943172A51D801E7400AAD1BE /* TestItems */; };
 		9432B5591BDA62C900F82705 /* ItemPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */; };
 		9432B5691BDA867000F82705 /* AgencyPerformancesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5641BDA867000F82705 /* AgencyPerformancesViewController.m */; };
 		9432B56A1BDA867000F82705 /* AgencyItemResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5671BDA867000F82705 /* AgencyItemResponse.m */; };
@@ -35,6 +34,7 @@
 		94409D361C10408700064A04 /* AucationItemDetailResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94409D351C10408700064A04 /* AucationItemDetailResponse.m */; };
 		944366C71C0990DB005D6C75 /* WeixinPayModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 944366C61C0990DB005D6C75 /* WeixinPayModule.m */; };
 		9447BB4D1C3E906B007667DF /* AgencyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9447BB4C1C3E906B007667DF /* AgencyHeaderView.m */; };
+		944AF7FC1DDE97C300CE108C /* TestItems in Resources */ = {isa = PBXBuildFile; fileRef = 944AF7FB1DDE97C300CE108C /* TestItems */; };
 		945290841BD5EEB1000BE139 /* SettlementModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 945290831BD5EEB1000BE139 /* SettlementModule.m */; };
 		945290961BD6658C000BE139 /* WeixinPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 945290951BD6658C000BE139 /* WeixinPayManager.m */; };
 		945290991BD68019000BE139 /* MyCollectedAgencyListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 945290981BD68019000BE139 /* MyCollectedAgencyListResponse.m */; };
@@ -262,7 +262,6 @@
 		9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
 		943024EB1BBA27E600807AD6 /* VerificationCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeManager.h; sourceTree = "<group>"; };
 		943024EC1BBA27E600807AD6 /* VerificationCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeManager.m; sourceTree = "<group>"; };
-		943172A51D801E7400AAD1BE /* TestItems */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestItems; path = Resources/TestItems; sourceTree = "<group>"; };
 		9432B5571BDA62C900F82705 /* ItemPreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPreferenceCell.h; sourceTree = "<group>"; };
 		9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPreferenceCell.m; sourceTree = "<group>"; };
 		9432B5631BDA867000F82705 /* AgencyPerformancesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyPerformancesViewController.h; sourceTree = "<group>"; };
@@ -281,6 +280,7 @@
 		944366C61C0990DB005D6C75 /* WeixinPayModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeixinPayModule.m; sourceTree = "<group>"; };
 		9447BB4B1C3E906B007667DF /* AgencyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyHeaderView.h; sourceTree = "<group>"; };
 		9447BB4C1C3E906B007667DF /* AgencyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyHeaderView.m; sourceTree = "<group>"; };
+		944AF7FB1DDE97C300CE108C /* TestItems */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestItems; sourceTree = "<group>"; };
 		945290821BD5EEB1000BE139 /* SettlementModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettlementModule.h; sourceTree = "<group>"; };
 		945290831BD5EEB1000BE139 /* SettlementModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettlementModule.m; sourceTree = "<group>"; };
 		945290941BD6658C000BE139 /* WeixinPayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeixinPayManager.h; sourceTree = "<group>"; };
@@ -1569,7 +1569,6 @@
 		94A137291B8EEB1F00D8DDF6 /* ArtisticAucation */ = {
 			isa = PBXGroup;
 			children = (
-				943172A51D801E7400AAD1BE /* TestItems */,
 				94E937B61BA3DF8D00FC6C48 /* Define.h */,
 				945FA7B31BCFA0610014D77E /* Payment */,
 				94E937B31BA3DB6B00FC6C48 /* Resources */,
@@ -1701,6 +1700,7 @@
 		94E937B31BA3DB6B00FC6C48 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				944AF7FB1DDE97C300CE108C /* TestItems */,
 				948331481C1985D4002625B9 /* PropertyList.plist */,
 			);
 			path = Resources;
@@ -1922,7 +1922,7 @@
 				948AE1671C16D83100D17429 /* OK.png in Resources */,
 				948AE1601C16D83100D17429 /* AssetsPickerChecked~iOS6@2x.png in Resources */,
 				940D61EF1BE79C060021D199 /* RealNameCerViewController.xib in Resources */,
-				943172A61D801E7400AAD1BE /* TestItems in Resources */,
+				944AF7FC1DDE97C300CE108C /* TestItems in Resources */,
 				948AE15D1C16D83100D17429 /* 2.png in Resources */,
 				948AE15C1C16D83100D17429 /* 1.png in Resources */,
 				948AE15E1C16D83100D17429 /* addImage.png in Resources */,
@@ -2249,8 +2249,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (73L7JYF73Z)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = U4P35974U6;
@@ -2282,70 +2282,8 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
 				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (2BUEK97Q8K)";
 				DEVELOPMENT_TEAM = U4P35974U6;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence/SMS_SDK",
-					"$(SRCROOT)/ArtisticAucation/UI/Payment/openssl",
-					"$(SRCROOT)/../",
-					"$(PROJECT_DIR)/ArtisticAucation/alipay",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay/alipay",
-				);
-				GCC_INPUT_FILETYPE = automatic;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"$(SDKROOT)/usr/include/libxml2\"",
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/MD5Digest\"",
-					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
-					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
-					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
-					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
-					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
-					"$(SRCROOT)/ArtisticAucation/Payment/**",
-				);
-				INFOPLIST_FILE = ArtisticAucation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence/Weixin",
-					"$(PROJECT_DIR)/ArtisticAucation/Common/JPush/lib",
-					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
-					"$(PROJECT_DIR)/ArtisticAucation/UI/Payment",
-					"$(PROJECT_DIR)",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
-				);
-				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "996889bf-fd1e-4610-ba5f-d66426de3c3d";
-				PROVISIONING_PROFILE_SPECIFIER = GGWHDev;
-			};
-			name = Debug;
-		};
-		94A1374C1B8EEB1F00D8DDF6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (73L7JYF73Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2392,7 +2330,69 @@
 				);
 				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = GGWHDev;
+			};
+			name = Debug;
+		};
+		94A1374C1B8EEB1F00D8DDF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
+				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
+				DEVELOPMENT_TEAM = U4P35974U6;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence/SMS_SDK",
+					"$(SRCROOT)/ArtisticAucation/UI/Payment/openssl",
+					"$(SRCROOT)/../",
+					"$(PROJECT_DIR)/ArtisticAucation/alipay",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay/alipay",
+				);
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MD5Digest\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
+					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
+					"$(SRCROOT)/ArtisticAucation/Payment/**",
+				);
+				INFOPLIST_FILE = ArtisticAucation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence/Weixin",
+					"$(PROJECT_DIR)/ArtisticAucation/Common/JPush/lib",
+					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
+					"$(PROJECT_DIR)/ArtisticAucation/UI/Payment",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
+				);
+				PRODUCT_NAME = ArtisticAuction;
+				PROVISIONING_PROFILE = "a6174f0b-ab6b-4052-8d4e-36aa79377f60";
+				PROVISIONING_PROFILE_SPECIFIER = GGWHAdHoc;
 			};
 			name = Release;
 		};

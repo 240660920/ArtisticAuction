@@ -31,6 +31,7 @@
     
     
     self.scrollView.frame = CGRectMake(0, 0, Screen_Width, 9.0/16.0 * Screen_Width);
+    self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navigation"]];
     
     self.frame = CGRectMake(0, 0, Screen_Width, Screen_Width * ADImageRatio + SegmentHeight);
 }

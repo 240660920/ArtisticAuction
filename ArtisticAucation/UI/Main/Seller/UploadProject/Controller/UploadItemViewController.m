@@ -139,7 +139,7 @@
     [self.view endEditing:YES];
 
     uploadHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    uploadHud.labelText = @"0%";
+    uploadHud.label.text = @"0%";
     
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
@@ -149,7 +149,7 @@
     params[@"cname"] = item.name;
     params[@"feature"] = item.features;
     params[@"description"] = item.desc;
-    
+    params[@"webtype"] = @"";
     
     NSString *url = [NSString stringWithFormat:@"%@%@",ServerUrl,@"company/addVerCommodity"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:url]];
@@ -172,9 +172,9 @@
         AABaseJSONModelResponse *response = [[AABaseJSONModelResponse alloc]initWithString:weakRequest.responseString error:nil];
         if (response && response.result.resultCode.intValue == 0) {
             
-            uploadHud.labelText = @"100%";
+            uploadHud.label.text = @"100%";
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [uploadHud hide:NO];
+                [uploadHud hideAnimated:NO];
                 [self.view showHudAndAutoDismiss:@"审核将在两个工作日内完成"];
             });
             
@@ -201,7 +201,7 @@
         sendedBytes += (int)bytes;
         float progress = (float)sendedBytes / (float)totalBytes;
         if (progress <= 1 && progress >= 0) {
-            uploadHud.labelText = [NSString stringWithFormat:@"%.0f%%",progress * 100];
+            uploadHud.label.text = [NSString stringWithFormat:@"%.0f%%",progress * 100];
         }
     }
 

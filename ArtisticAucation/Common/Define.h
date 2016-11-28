@@ -9,7 +9,7 @@
 #ifndef ArtisticAucation_Define_h
 #define ArtisticAucation_Define_h
 
-#define TestMode
+//#define TestMode
 
 #ifdef TestMode //测试环境
 
@@ -22,7 +22,7 @@
 
 #define ServerUrl @"http://www.jiahengwentou.com:80/auction/"
 
-#define UploadMinCount 15
+#define UploadMinCount 10
 
 #endif
 

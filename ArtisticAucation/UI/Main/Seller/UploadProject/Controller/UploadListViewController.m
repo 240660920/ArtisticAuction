@@ -72,6 +72,10 @@
         [self.view showHudAndAutoDismiss:@"请选择专场图片"];
         return;
     }
+    else if ([self itemNameDuplicated]){
+        [self.view showHudAndAutoDismiss:@"拍品名称不能重复"];
+        return;
+    }
     
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"拍场及拍品信息一经提交将无法修改" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确认提交", nil];
     [alert show];
@@ -144,9 +148,9 @@
     [request setCompletionBlock:^{
         AABaseJSONModelResponse *response = [[AABaseJSONModelResponse alloc]initWithString:weakRequest.responseString error:nil];
         if (response && response.result.resultCode.intValue == 0) {
-            progressHud.labelText = @"100%";
+            progressHud.label.text = @"100%";
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [progressHud hide:NO];
+                [progressHud hideAnimated:NO];
                 
                 [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"审核将在两个工作日内完成"];
             });
@@ -169,12 +173,12 @@
             });
         }
         else{
-            [progressHud hide:NO];
-            [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"开设新专场失败"];
+            [progressHud hideAnimated:NO];
+            [self.view showHudAndAutoDismiss:@"开设新专场失败"];
         }
     }];
     [request setFailedBlock:^{
-        [progressHud hide:NO];
+        [progressHud hideAnimated:NO];
         [self.view showHudAndAutoDismiss:NetworkErrorPrompt];
     }];
     
@@ -196,7 +200,7 @@
     if (progress > 1 || progress < 0) {
         progress = 1;
     }
-    progressHud.labelText = [NSString stringWithFormat:@"%.0f%%",progress * 100];
+    progressHud.label.text = [NSString stringWithFormat:@"%.0f%%",progress * 100];
 }
 
 #pragma mark TabelView delegate
@@ -292,6 +296,10 @@
     CGRect frame = self.occasionImageView.frame;
     frame.size.width = image.size.width / image.size.height * frame.size.height;
     self.occasionImageView.frame = frame;
+    
+    if (image) {
+        self.addImageButton.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -350,6 +358,19 @@
     [self.table reloadData];
 }
 
-
+-(BOOL)itemNameDuplicated
+{
+    __block BOOL duplicated = NO;
+    
+    [self.dataSourceArray enumerateObjectsUsingBlock:^(UploadItem *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.dataSourceArray enumerateObjectsUsingBlock:^(UploadItem *obj_, NSUInteger idx_, BOOL * _Nonnull stop_) {
+            if ((obj != obj_) && ([obj.name isEqualToString:obj_.name])) {
+                duplicated = YES;
+            }
+        }];
+    }];
+    
+    return duplicated;
+}
 
 @end

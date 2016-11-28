@@ -18,13 +18,13 @@
 -(void)showLoadingHudWithText:(NSString *)text
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-    hud.labelText = text;
+    hud.label.text = text;
 }
 
 -(void)showHud:(NSString *)hudString
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-    hud.labelText = hudString;
+    hud.label.text = hudString;
     hud.mode = MBProgressHUDModeText;
 }
 
@@ -33,16 +33,16 @@
     [self hideAllHud];
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
-    hud.labelText = hudString;
+    hud.label.text = hudString;
     hud.mode = MBProgressHUDModeText;
-    [hud hide:YES afterDelay:1.5];
+    [hud hideAnimated:YES afterDelay:1.5];
 }
 
 -(void)hideAllHud
 {
     for (UIView *v in self.subviews) {
         if ([v isKindOfClass:[MBProgressHUD class]]) {
-            [(MBProgressHUD *)v hide:NO];
+            [(MBProgressHUD *)v hideAnimated:NO];
         }
     }
 }
