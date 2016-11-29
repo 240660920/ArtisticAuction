@@ -63,8 +63,13 @@
         MyCollectedLotsListResponse *response = [[MyCollectedLotsListResponse alloc]initWithString:request.responseString error:nil];
         [self.dataSource addObjectsFromArray:response.data];
         
-        [self.table reloadData];
         
+        [self.dataSource sortUsingComparator:^NSComparisonResult(MyCollectedLotItem *obj1, MyCollectedLotItem *obj2) {
+            return obj1.createtime.intValue > obj2.createtime.intValue ? NSOrderedAscending : NSOrderedDescending;
+        }];
+        
+        [self.table reloadData];
+
         
     } failed:^(ASIFormDataRequest *request) {
         [self.view showHudAndAutoDismiss:NetworkErrorPrompt];

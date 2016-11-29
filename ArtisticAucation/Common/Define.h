@@ -9,7 +9,7 @@
 #ifndef ArtisticAucation_Define_h
 #define ArtisticAucation_Define_h
 
-//#define TestMode
+#define TestMode
 
 #ifdef TestMode //测试环境
 
