@@ -185,7 +185,7 @@
             });
         }
         else{
-            [self.view showHudAndAutoDismiss:response.result.msg];
+            [self.view showHudAndAutoDismiss:response.result.msg.length ? response.result.msg : @"上传失败"];
         }
     }];
     [request setFailedBlock:^{
