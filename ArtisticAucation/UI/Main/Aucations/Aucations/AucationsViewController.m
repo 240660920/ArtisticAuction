@@ -21,8 +21,6 @@
 #import "AAWebViewController.h"
 #import "AucationItemDetailViewController.h"
 
-NSInteger onlineAmount; //在线人数，从服务端获取
-
 @interface AucationsViewController ()<UIGestureRecognizerDelegate>
 {
     UISwipeGestureRecognizer *_leftGesture;
@@ -33,7 +31,6 @@ NSInteger onlineAmount; //在线人数，从服务端获取
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)AucationsHeader *headView;
 @property(nonatomic,strong)UILabel *onlineLabel;
-@property(nonatomic,strong)NSTimer *timerForOnlineAmount;
 
 @property(nonatomic,strong)NSMutableArray *dataSourceArray;
 
@@ -47,6 +44,8 @@ NSInteger onlineAmount; //在线人数，从服务端获取
     
     self.title = @"拍卖";
     self.navigationItem.leftBarButtonItems = nil;
+    
+    self.adLabel.hidden = NO;
     
     //获取广告
     [self requestAdvertisement];
@@ -138,11 +137,6 @@ NSInteger onlineAmount; //在线人数，从服务端获取
             
             [self.tableView reloadData];
             
-            
-            onlineAmount = response.online.integerValue;
-            [self.timerForOnlineAmount invalidate];
-            self.timerForOnlineAmount = nil;
-            [self.timerForOnlineAmount fire];
         }
         else{
             [self.tableView reloadData];
@@ -334,17 +328,6 @@ NSInteger onlineAmount; //在线人数，从服务端获取
 
 
 #pragma mark Private Methods
--(void)refreshOnlineAmount
-{
-    NSInteger from = onlineAmount - (int)onlineAmount * 0.1;
-    NSInteger to = onlineAmount + (int)onlineAmount * 0.1;
-    NSInteger amount = (int)(from + (arc4random() % (to - from + 1)));
-    
-    self.onlineLabel.text = [NSString stringWithFormat:@"在线人数:%d",amount];
-}
-
-
-
 
 
 #pragma mark Properties
@@ -354,15 +337,16 @@ NSInteger onlineAmount; //在线人数，从服务端获取
         _adLabel = [UILabel new];
         _adLabel.textColor = [UIColor whiteColor];
         _adLabel.textAlignment = NSTextAlignmentCenter;
-        _adLabel.font = [UIFont systemFontOfSize:14];
-        _adLabel.backgroundColor = RedColor;
+        _adLabel.font = [UIFont systemFontOfSize:13];
+        _adLabel.backgroundColor = [UIColor colorWithRed:153.0/255.0 green:15.0/255.0 blue:38.0/255.0 alpha:0.6];
         _adLabel.text = @"让艺术品走进你家我家";
-        [self.view addSubview:_adLabel];
+        
+        [self.view insertSubview:_adLabel aboveSubview:self.tableView];
         
         [_adLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.view);
-            make.height.equalTo(@30);
-            make.top.equalTo(self.onlineLabel.mas_bottom);
+            make.height.equalTo(@20);
+            make.top.equalTo(self.view);
         }];
     }
     return _adLabel;
@@ -410,37 +394,10 @@ NSInteger onlineAmount; //在线人数，从服务端获取
         
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self.view);
-            make.top.equalTo(self.adLabel.mas_bottom).offset(-5);
-        }];
-    }
-    return _tableView;
-}
-
--(UILabel *)onlineLabel
-{
-    if (!_onlineLabel) {
-        _onlineLabel = [[UILabel alloc]init];
-        _onlineLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navigation"]];
-        _onlineLabel.font = [UIFont systemFontOfSize:12];
-        _onlineLabel.textColor = BlackColor;
-        _onlineLabel.textAlignment = NSTextAlignmentCenter;
-        [self.view addSubview:_onlineLabel];
-        
-        [_onlineLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(self.view);
-            make.height.equalTo(@20);
             make.top.equalTo(self.view);
         }];
     }
-    return _onlineLabel;
-}
-
--(NSTimer *)timerForOnlineAmount
-{
-    if (!_timerForOnlineAmount) {
-        _timerForOnlineAmount = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(refreshOnlineAmount) userInfo:nil repeats:YES];
-    }
-    return _timerForOnlineAmount;
+    return _tableView;
 }
 
 @end

@@ -9,9 +9,9 @@
 #import "JSONModel.h"
 
 typedef enum : NSUInteger {
-    kAdTypeURL = 0,
     kAdTypeOccasion = 1,
     kAdTypeCommodity = 2,
+    kAdTypeURL = 3,
 } kAdvertisementType;
 
 @protocol AdModel <NSObject>

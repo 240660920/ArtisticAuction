@@ -116,7 +116,7 @@
     UploadItem *item = self.item ? self.item : [[UploadItem alloc]init];
     item.name = self.nameTf.text;
     item.price = self.priceTf.text;
-    item.desc = self.descTf.text;
+    item.desc = self.descTf.text.length == 0 ? @"" : self.descTf.text;
     item.property = self.propertyString;
     item.features = featureStr;
     item.images = self.images;
@@ -402,11 +402,15 @@
     if (section == 0) {
         UIView *v = [[UIView alloc]init];
         
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 45)];
+        UITextView *label = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 45)];
         label.text = @"如有疑问请拨打173-0148-1205";
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = BlackColor;
+        label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont systemFontOfSize:12];
+        label.editable = NO;
+        label.dataDetectorTypes = UIDataDetectorTypePhoneNumber;
+        label.textContainerInset = UIEdgeInsetsMake(15, 0, 0, 0);
         [v addSubview:label];
         
         if (self.index > 0) {

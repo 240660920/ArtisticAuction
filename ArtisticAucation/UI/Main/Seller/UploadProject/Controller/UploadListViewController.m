@@ -165,6 +165,7 @@
             [self.dataSourceArray removeAllObjects];
             [self.table reloadData];
             self.occasionImageView.image = nil;
+            self.addImageButton.hidden = NO;
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 
@@ -293,10 +294,12 @@
 {
     self.occasionImageView.image = image;
     
+    [[UploadItemManager sharedInstance]saveOccasionImage:image];
+    
     CGRect frame = self.occasionImageView.frame;
     frame.size.width = image.size.width / image.size.height * frame.size.height;
     self.occasionImageView.frame = frame;
-    
+
     if (image) {
         self.addImageButton.hidden = YES;
     }

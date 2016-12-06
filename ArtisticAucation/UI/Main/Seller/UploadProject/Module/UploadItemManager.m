@@ -90,18 +90,16 @@ dispatch_queue_t uploadQueue;
 
 -(void)saveOccasionImage:(UIImage *)image
 {
+    if ([[NSFileManager defaultManager]fileExistsAtPath:OccasionImagePath]) {
+        [[NSFileManager defaultManager]removeItemAtPath:OccasionImagePath error:nil];
+    }
     [[NSFileManager defaultManager]createFileAtPath:OccasionImagePath contents:UIImagePNGRepresentation(image) attributes:nil];
 }
 
 -(UIImage *)occasionImage
 {
-#ifdef TestMode
-    return [UIImage imageNamed:@"aucationItem_PlaceHolderImage"];
-#else
     UIImage *image = [[UIImage alloc]initWithData:[NSData dataWithContentsOfFile:OccasionImagePath]];
     return image;
-#endif
-
 }
 
 -(void)deleteOccasionImage
