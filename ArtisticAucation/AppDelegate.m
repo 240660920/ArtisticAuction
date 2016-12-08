@@ -43,7 +43,7 @@
     [self.window makeKeyAndVisible];
     
     
-    [self requestAd];
+    [self requestLaunchAdImage];
     
 
     //微信
@@ -258,9 +258,9 @@ fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler
     [request startAsynchronous];
 }
 
--(void)requestAd
+-(void)requestLaunchAdImage
 {
-    [LaunchAdManager requestAd];
+    [LaunchAdManager requestLaunchAdImage];
     
     [LaunchAdManager showIfNeeded];
 }

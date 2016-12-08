@@ -193,7 +193,7 @@
                 _tableView.tableHeaderView = _tableHeaderView;
                 [_tableView reloadData];
             }];
-            
+
             //提醒按钮、进入拍卖大厅按钮(进入拍场的view是固定在底部的，table的位置要根据它调整)
             if (response.data.status.intValue == DisplayTypePreDisplay) {
                 self.tableHeaderView.remindBtn.hidden = NO;
@@ -392,6 +392,7 @@
     if (!_bottomView) {
         _bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 49, Screen_Width, 49)];
         _bottomView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        _bottomView.backgroundColor = [UIColor colorWithPatternImage:[[UIImage imageNamed:@"navigation"] stretchableImageWithLeftCapWidth:0 topCapHeight:0]];
         [self.view addSubview:_bottomView];
         
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -403,6 +404,10 @@
         btn.layer.masksToBounds = YES;
         btn.layer.cornerRadius = 5;
         [_bottomView addSubview:btn];
+        
+        UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 1 / [UIScreen mainScreen].scale)];
+        line.backgroundColor = TableViewSeparateColor;
+        [_bottomView addSubview:line];
     }
     return _bottomView;
 }

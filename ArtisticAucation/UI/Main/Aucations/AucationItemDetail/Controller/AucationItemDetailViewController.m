@@ -536,6 +536,11 @@
         [_bidView setBidBlock:^(NSString *price) {
             [[BidManager sharedInstance]preDisplayBid:price oid:weakself.item.oid cid:weakself.item.cid];
         }];
+        
+        
+        UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 1 / [UIScreen mainScreen].scale)];
+        line.backgroundColor = TableViewSeparateColor;
+        [_bidView addSubview:line];
     }
     return _bidView;
 }
@@ -567,6 +572,10 @@
             make.centerX.centerY.equalTo(_enterHallView);
             make.height.equalTo(@35);
         }];
+        
+        UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 1 / [UIScreen mainScreen].scale)];
+        line.backgroundColor = TableViewSeparateColor;
+        [_enterHallView addSubview:line];
     }
     return _enterHallView;
 }

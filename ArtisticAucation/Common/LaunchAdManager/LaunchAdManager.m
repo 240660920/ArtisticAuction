@@ -19,20 +19,21 @@
 +(void)showIfNeeded
 {
     LaunchAdArchieveModule *module = [NSKeyedUnarchiver unarchiveObjectWithFile:LaunchAdArchievePath];
-    BOOL shouldShow = NO;
     NSString *imgUrl = nil;
     if (iPhone5Screen) {
-        shouldShow = module.img_4inch.length > 0;
         imgUrl = module.img_4inch;
     }
     else if (iPhone6Screen){
-        shouldShow = module.img_47inch.length > 0;
         imgUrl = module.img_47inch;
     }
     else if (iPhone6PlusScreen){
-        shouldShow = module.img_55inch.length > 0;
         imgUrl = module.img_55inch;
     }
+    
+    
+    
+    BOOL shouldShow = imgUrl.length > 0 ? YES : NO;
+    
     
     if (shouldShow) {
         
@@ -55,7 +56,7 @@
     }
 }
 
-+(void)requestAd
++(void)requestLaunchAdImage
 {
     [HttpManager requestWithAPI:@"user/getHomePagePic" params:nil requestMethod:@"GET" completion:^(ASIFormDataRequest *request) {
         
@@ -66,40 +67,40 @@
             module.img_47inch = response.data.img_47inch;
             module.img_55inch = response.data.img_55inch;
             
-
-            LaunchAdArchieveModule *localModule = [NSKeyedUnarchiver unarchiveObjectWithFile:LaunchAdArchievePath];
+            
+            NSString *propertyName;
             if (iPhone5Screen) {
-                if (![module.img_4inch isEqualToString:localModule.img_4inch]) {
-                    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[module.img_4inch completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                        
-                    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                        [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
-                    }];
-                }
+                propertyName = @"img_4inch";
             }
             else if (iPhone6Screen){
-                if (![module.img_47inch isEqualToString:localModule.img_47inch]) {
-                    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[module.img_47inch completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                        
-                    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                        [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
-
-                    }];
-                }
+                propertyName = @"img_47inch";
             }
             else if (iPhone6PlusScreen){
-                if (![module.img_55inch isEqualToString:localModule.img_55inch]) {
-                    [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[module.img_55inch completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                        
-                    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-                        [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
-
-                    }];
-                }
+                propertyName = @"img_55inch";
             }
             
             
+
+            LaunchAdArchieveModule *localModule = [NSKeyedUnarchiver unarchiveObjectWithFile:LaunchAdArchievePath];
+            
+            
+            if (![[module valueForKey:propertyName] isEqualToString:[localModule valueForKey:propertyName]]) {
+                [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[[module valueForKey:propertyName] completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                    
+                } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                    if (image) {
+                        [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
+                    }
+                    else{
+                        [[NSFileManager defaultManager]removeItemAtPath:LaunchAdArchievePath error:nil];
+                    }
+                }];
+            }
         }
+        else{
+            [[NSFileManager defaultManager]removeItemAtPath:LaunchAdArchievePath error:nil];
+        }
+        
         
     } failed:^(ASIFormDataRequest *request) {
         

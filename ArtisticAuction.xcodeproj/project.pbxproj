@@ -911,8 +911,10 @@
 		9416F4C81BA03AA5005ACBA2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				94B876A81BA26E4000B6B720 /* Aucations */,
+				9452F2A21BE8549A0080502A /* Aucations */,
 				94B330051C2BEBAC00A04347 /* AucationItems */,
+				946100AD1BD7C2340040FA42 /* AucationItemDetail */,
+				949718F41BD873FB00F7425B /* PerformanceOfAgency */,
 				94B876AA1BA26E4000B6B720 /* Seller */,
 				94B8769E1BA26D4900B6B720 /* Search */,
 				94B876A91BA26E4000B6B720 /* PersonalCenter */,
@@ -1006,7 +1008,8 @@
 				94A37F401BFF6A6600FB89DC /* AucationHallViewController.h */,
 				94A37F411BFF6A6600FB89DC /* AucationHallViewController.m */,
 			);
-			path = Aucations;
+			name = Aucations;
+			path = Aucations/Aucations;
 			sourceTree = "<group>";
 		};
 		9452F2B51BE85B0E0080502A /* Controller */ = {
@@ -1251,7 +1254,7 @@
 				9452F2B91BE85B0E0080502A /* View */,
 			);
 			name = AucationItemDetail;
-			path = AucationDetail;
+			path = Aucations/AucationDetail;
 			sourceTree = "<group>";
 		};
 		946AFF7E1D6BE2B00060F1C9 /* LaunchAdManager */ = {
@@ -1542,7 +1545,7 @@
 				9432B5681BDA867000F82705 /* View */,
 			);
 			name = PerformanceOfAgency;
-			path = AgenciList;
+			path = Aucations/AgenciList;
 			sourceTree = "<group>";
 		};
 		94A1371E1B8EEB1F00D8DDF6 = {
@@ -1653,16 +1656,6 @@
 				94B876A11BA26DB600B6B720 /* BaseViewController.m */,
 			);
 			path = BaseController;
-			sourceTree = "<group>";
-		};
-		94B876A81BA26E4000B6B720 /* Aucations */ = {
-			isa = PBXGroup;
-			children = (
-				9452F2A21BE8549A0080502A /* Aucations */,
-				949718F41BD873FB00F7425B /* PerformanceOfAgency */,
-				946100AD1BD7C2340040FA42 /* AucationItemDetail */,
-			);
-			path = Aucations;
 			sourceTree = "<group>";
 		};
 		94B876A91BA26E4000B6B720 /* PersonalCenter */ = {

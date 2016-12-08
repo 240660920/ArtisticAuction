@@ -12,6 +12,6 @@
 
 +(void)showIfNeeded;
 
-+(void)requestAd;
++(void)requestLaunchAdImage;
 
 @end
