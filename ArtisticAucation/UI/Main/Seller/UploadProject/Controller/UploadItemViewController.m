@@ -91,7 +91,7 @@
         }
         
         
-        [featureStr appendString:obj.text.length == 0 ? @" " : obj.text];
+        [featureStr appendString:obj.text];
         [featureStr appendString:@";&"];
     }];
     featureStr = (NSMutableString *)[featureStr substringToIndex:featureStr.length - 2];
@@ -116,7 +116,7 @@
     UploadItem *item = self.item ? self.item : [[UploadItem alloc]init];
     item.name = self.nameTf.text;
     item.price = self.priceTf.text;
-    item.desc = self.descTf.text.length == 0 ? @"" : self.descTf.text;
+    item.desc = self.descTf.text.length == 0 ? @" " : self.descTf.text;
     item.property = self.propertyString;
     item.features = featureStr;
     item.images = self.images;

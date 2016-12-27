@@ -43,7 +43,7 @@
 
         UIImageView *imageView = [[UIImageView alloc]init];
         imageView.frame = background.bounds;
-        [imageView sd_setImageWithURL:[NSURL URLWithString:[imgUrl completeImageUrlString]]];
+        [imageView setImage:[[SDImageCache sharedImageCache] imageFromDiskCacheForKey:@"LaunchAdImage"]];
         [background addSubview:imageView];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -90,15 +90,21 @@
                 } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
                     if (image) {
                         [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
+                        
+                        [[SDImageCache sharedImageCache]storeImage:image forKey:@"LaunchAdImage" toDisk:YES];
                     }
                     else{
                         [[NSFileManager defaultManager]removeItemAtPath:LaunchAdArchievePath error:nil];
+                        
+                        [[SDImageCache sharedImageCache]removeImageForKey:@"LaunchAdImage"];
                     }
                 }];
             }
         }
         else{
             [[NSFileManager defaultManager]removeItemAtPath:LaunchAdArchievePath error:nil];
+            
+            [[SDImageCache sharedImageCache]removeImageForKey:@"LaunchAdImage"];
         }
         
         
