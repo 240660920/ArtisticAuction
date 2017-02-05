@@ -192,6 +192,8 @@
     
     } failed:^(ASIFormDataRequest *request) {
         [self.table reloadData];
+        
+        [self.view showHudAndAutoDismiss:NetworkErrorPrompt];
     }];
 }
 

@@ -122,7 +122,7 @@
         AucationItemDetailResponse *response = [[AucationItemDetailResponse alloc]initWithString:request.responseString error:nil];
         
         self.item = response.data;
-        
+
         if (self.item.status.intValue == DisplayTypePreDisplay) {
             self.bidView.hidden = NO;
             self.enterHallView.hidden = YES;
@@ -307,7 +307,7 @@
             cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.titlelabel.text = @"拍品赏析：";
-            cell.contentLabel.text = self.item.desc;
+            cell.contentLabel.text = self.item.desc.length == 0 ? @"暂无" : self.item.desc;
             
             return cell;
         }

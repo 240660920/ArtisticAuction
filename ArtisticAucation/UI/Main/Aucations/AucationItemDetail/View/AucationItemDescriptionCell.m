@@ -26,10 +26,14 @@
 */
 
 +(CGFloat)heightForText:(NSString *)text
-{
+{    
     CGFloat titleHeight = [@"123" boundingRectWithSize:CGSizeMake(Screen_Width - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : AucationItemDescFont} context:nil].size.height;
     
-    return [text boundingRectWithSize:CGSizeMake(Screen_Width - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : AucationItemDescFont} context:nil].size.height + titleHeight + 15 + 5 + 15;
+    if (text.length == 0) {
+        text = @"暂无";
+    }
+    
+    return [text boundingRectWithSize:CGSizeMake(Screen_Width - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : AucationItemDescFont} context:nil].size.height + titleHeight + 10 + 5 + 10;
 }
 
 -(void)layoutSubviews
@@ -52,7 +56,6 @@
 {
     if (!_titlelabel) {
         _titlelabel = [[UILabel alloc]init];
-        _titlelabel.text = @"拍品介绍 ：";
         _titlelabel.font = AucationItemDescFont;
         _titlelabel.textColor = BlackColor;
         [self.contentView addSubview:_titlelabel];

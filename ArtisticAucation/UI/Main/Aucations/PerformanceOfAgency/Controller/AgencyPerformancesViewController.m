@@ -47,7 +47,6 @@
     [self requestData];
     [self requestAgencyDetail];
     
-    self.table.tableHeaderView = self.headerView;
 }
 
 -(void)requestData
@@ -88,6 +87,8 @@
        
         AgencyItemResponse *item = [[AgencyItemResponse alloc]initWithString:request.responseString error:nil];
         
+        self.table.tableHeaderView = self.headerView;
+        
         self.headerView.likeButton.selected = item.data.likeType.boolValue;
         [self.headerView.likeButton setTitle:item.data.likeTotals forState:UIControlStateNormal];
         
@@ -107,7 +108,7 @@
         }];
         
     } failed:^(ASIFormDataRequest *request) {
-        
+        [self.view showHudAndAutoDismiss:NetworkErrorPrompt];
     }];
 }
 
