@@ -21,6 +21,11 @@
     
     self.backImageV.layer.masksToBounds = YES;
     self.backImageV.layer.cornerRadius = AucationItemCornerRadius;
+    
+    
+    UILabel *bottomLine = [[UILabel alloc]initWithFrame:CGRectMake(0, [[self class] heightForRow] - 1 / [UIScreen mainScreen].scale, Screen_Width, 1 / [UIScreen mainScreen].scale)];
+    bottomLine.backgroundColor = [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1];
+    [self addSubview:bottomLine];
 }
 
 -(void)layoutSubviews

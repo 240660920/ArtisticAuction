@@ -125,6 +125,13 @@
     return 20;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
+    v.backgroundColor = [UIColor clearColor];
+    return v;
+}
+
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];

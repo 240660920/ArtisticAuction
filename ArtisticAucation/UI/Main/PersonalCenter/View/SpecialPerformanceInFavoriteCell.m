@@ -89,7 +89,7 @@
 {
     if (!_performanceImageView) {
         _performanceImageView = [[UIImageView alloc]init];
-        _performanceImageView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"navigation"]];
+        _performanceImageView.backgroundColor = [UIColor clearColor];
         _performanceImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_performanceImageView];
     }
