@@ -237,27 +237,31 @@
 
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    if (section == 0) {
-        UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 20, 20)];
-        return v;
-    }
-    return [[UIView alloc]init];
-}
-
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 20;
-    }
-    return 0.01;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 10;
+    return 1 / [UIScreen mainScreen].scale;
+    
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *v = [[UIView alloc]init];
+    v.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
+    return v;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *v = [[UIView alloc]init];
+    v.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
+    return v;
+}
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -302,7 +306,7 @@
         _table.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _table.delegate = self;
         _table.dataSource = self;
-        _table.rowHeight = AucationItemCellHeight;
+        _table.rowHeight = [AucationsCell heightForRow];
         _table.backgroundView = [UIView backgroundView];
         _table.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_table registerNib:[UINib nibWithNibName:@"AucationsCell" bundle:nil] forCellReuseIdentifier:@"AucationsCell"];
