@@ -17,6 +17,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "Remind.h"
 #import "AucationHallViewController.h"
+#import "AuctionHallViewController.h"
 #import "AdResponse.h"
 #import "AAWebViewController.h"
 #import "AucationItemDetailViewController.h"
@@ -267,8 +268,12 @@
     
     [cell setHallBlock:^(void){
         //进入拍卖大厅
-        AucationHallViewController *vc = [[AucationHallViewController alloc]initWithOid:model.oid agencyName:model.agencyName occasionName:model.occasionName];
-        AucationDataModel *auctionModel = [self filteredArray][indexPath.section];
+//        AucationHallViewController *vc = [[AucationHallViewController alloc]initWithOid:model.oid agencyName:model.agencyName occasionName:model.occasionName];
+        AuctionHallViewController *vc = [[AuctionHallViewController alloc]init];
+        vc.oid = model.oid;
+        vc.occasionName = model.occasionName;
+        vc.agencyName = model.agencyName;
+        
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }];

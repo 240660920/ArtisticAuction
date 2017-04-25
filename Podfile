@@ -11,3 +11,4 @@ pod 'MD5Digest'
 pod ‘FSMediaPicker’
 pod ‘MJRefresh’
 pod ‘BJImageCropper’
+pod 'MQTTClient'
