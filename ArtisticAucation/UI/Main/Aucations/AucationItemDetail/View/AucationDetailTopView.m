@@ -7,10 +7,13 @@
 //
 
 #import "AucationDetailTopView.h"
+#import "FullScreenScrollView.h"
 
 #define TitleFont [UIFont systemFontOfSize:16]
 
 @interface AucationDetailTopView ()
+
+@property(nonatomic,strong)FullScreenScrollView *fullScreenScrollView;
 
 @end
 
@@ -68,11 +71,18 @@
 
 
 
--(AucationItemImagesScrollView *)imageScrollView
+-(AAImagesScrollView *)imageScrollView
 {
     if (!_imageScrollView) {
-        _imageScrollView = [[AucationItemImagesScrollView alloc]init];
+        _imageScrollView = [[AAImagesScrollView alloc]init];
         [self addSubview:_imageScrollView];
+        
+        __weak __typeof(self)weakself = self;
+        [_imageScrollView setTapBlock:^(NSArray *imgUrls, NSInteger currentIndex, id dataModel) {
+            weakself.fullScreenScrollView.imageUrls = imgUrls;
+            weakself.fullScreenScrollView.currentIndex = currentIndex;
+            [weakself.fullScreenScrollView show];
+        }];
     }
     return _imageScrollView;
 }
@@ -120,6 +130,14 @@
         [self addSubview:_subview];
     }
     return _subview;
+}
+
+-(FullScreenScrollView *)fullScreenScrollView
+{
+    if (!_fullScreenScrollView) {
+        _fullScreenScrollView = [[FullScreenScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height)];
+    }
+    return _fullScreenScrollView;
 }
 
 @end

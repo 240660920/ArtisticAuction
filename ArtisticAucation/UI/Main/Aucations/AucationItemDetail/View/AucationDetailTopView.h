@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AucationDetailTopViewSubview.h"
 #import "AucationItemsListResponse.h"
-#import "AucationItemImagesScrollView.h"
+#import "AAImagesScrollView.h"
 
 @interface AucationDetailTopView : UIView
 
-@property(nonatomic,strong)AucationItemImagesScrollView *imageScrollView;
+@property(nonatomic,strong)AAImagesScrollView *imageScrollView;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)UILabel *promptLabel;
 @property(nonatomic,strong)UILabel *priceLabel;

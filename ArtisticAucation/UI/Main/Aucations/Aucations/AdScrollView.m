@@ -35,7 +35,7 @@
     AdModel *model = self.responseModule.data[self.currentIndex];
     
     if (self.tapBlock) {
-        self.tapBlock(model);
+        self.tapBlock(self.imageUrls,self.currentIndex,model);
     }
 }
 

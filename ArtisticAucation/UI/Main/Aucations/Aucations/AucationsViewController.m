@@ -365,7 +365,10 @@
         _headView.delegate = self;
         
         __weak __typeof(self)weakself = self;
-        [_headView.scrollView setTapBlock:^(AdModel *adModel) {
+
+        
+        [_headView.scrollView setTapBlock:^(NSArray *imgUrls, NSInteger currentIndex, id dataModel) {
+            AdModel *adModel = (AdModel *)dataModel;
             [weakself pushWithAdModel:adModel];
         }];
     }

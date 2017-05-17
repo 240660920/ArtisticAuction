@@ -6,15 +6,12 @@
 //  Copyright © 2016年 xieran. All rights reserved.
 //
 
-#import "AucationItemImagesScrollView.h"
+#import "AAImagesScrollView.h"
 #import "AdResponse.h"
 
-@interface AdScrollView : AucationItemImagesScrollView
+@interface AdScrollView : AAImagesScrollView
 
 @property(nonatomic,strong)AdResponse *responseModule;
 
-@property(nonatomic,copy)void(^tapBlock)(AdModel *adModel);
-
--(void)setTapBlock:(void (^)(AdModel *))tapBlock;
 
 @end

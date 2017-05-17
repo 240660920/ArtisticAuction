@@ -209,7 +209,7 @@
 		94ED2BFD1B9C57F3002B0E3F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ED2BFC1B9C57F3002B0E3F /* libz.dylib */; };
 		94ED2BFF1B9C57F8002B0E3F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ED2BFE1B9C57F8002B0E3F /* libsqlite3.0.dylib */; };
 		94ED2C011B9C5805002B0E3F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94ED2C001B9C5805002B0E3F /* libc++.dylib */; };
-		94F022B51BFB043000FAD28F /* AucationItemImagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F022B41BFB043000FAD28F /* AucationItemImagesScrollView.m */; };
+		94F022B51BFB043000FAD28F /* AAImagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F022B41BFB043000FAD28F /* AAImagesScrollView.m */; };
 		A8DA06FE1B9EBA9800475C7D /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DA06FD1B9EBA9800475C7D /* HttpManager.m */; };
 		A8DA11E51BD6356E004740B2 /* SearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DA11E41BD6356E004740B2 /* SearchResultModel.m */; };
 		A8DB36C01BB0082500D4E83D /* FMUString.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB36BF1BB0082500D4E83D /* FMUString.m */; };
@@ -693,8 +693,8 @@
 		94ED2BFC1B9C57F3002B0E3F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		94ED2BFE1B9C57F8002B0E3F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		94ED2C001B9C5805002B0E3F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		94F022B31BFB043000FAD28F /* AucationItemImagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AucationItemImagesScrollView.h; sourceTree = "<group>"; };
-		94F022B41BFB043000FAD28F /* AucationItemImagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AucationItemImagesScrollView.m; sourceTree = "<group>"; };
+		94F022B31BFB043000FAD28F /* AAImagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAImagesScrollView.h; sourceTree = "<group>"; };
+		94F022B41BFB043000FAD28F /* AAImagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAImagesScrollView.m; sourceTree = "<group>"; };
 		A15634401ACC26CF32E849DF /* libPods-ArtisticAuction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtisticAuction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DA06FC1B9EBA9800475C7D /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpManager.h; sourceTree = "<group>"; };
 		A8DA06FD1B9EBA9800475C7D /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpManager.m; sourceTree = "<group>"; };
@@ -1172,8 +1172,8 @@
 				9452F2C01BE85B0E0080502A /* AucationDetailTopViewSubview.h */,
 				9452F2C11BE85B0E0080502A /* AucationDetailTopViewSubview.m */,
 				9452F2C21BE85B0E0080502A /* AucationDetailTopViewSubview.xib */,
-				94F022B31BFB043000FAD28F /* AucationItemImagesScrollView.h */,
-				94F022B41BFB043000FAD28F /* AucationItemImagesScrollView.m */,
+				94F022B31BFB043000FAD28F /* AAImagesScrollView.h */,
+				94F022B41BFB043000FAD28F /* AAImagesScrollView.m */,
 				94662EA01C151E32008F2325 /* FullScreenScrollView.h */,
 				94662EA11C151E32008F2325 /* FullScreenScrollView.m */,
 				94DCD2571C59ED4F0063E229 /* BottomBidView.h */,
@@ -2288,7 +2288,7 @@
 				945355FB1BCE2CBE00EEAA14 /* LoginResponse.m in Sources */,
 				947BBC951C5B872300A0DDE4 /* SBJSON.m in Sources */,
 				9413A3FA1EC9E71200E840FB /* AuctionHallTableViewCell.m in Sources */,
-				94F022B51BFB043000FAD28F /* AucationItemImagesScrollView.m in Sources */,
+				94F022B51BFB043000FAD28F /* AAImagesScrollView.m in Sources */,
 				9427BF3A1C7C3BFB009EC335 /* ForgetPwdViewController.m in Sources */,
 				9481EF5B1ECAF08B00A5A0E6 /* AuctionHallBaseModel.m in Sources */,
 				947DB9E91BD486F700404958 /* PayViewController.m in Sources */,

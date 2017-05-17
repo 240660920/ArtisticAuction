@@ -9,6 +9,7 @@
 #import "AuctionHallViewController.h"
 #import "AucationItemDetailViewController.h"
 #import "AucationItemsListViewController.h"
+#import "AAImagesScrollView.h"
 #import "AuctionHallStateView.h"
 #import "AuctionHallTitleView.h"
 #import "AuctionHallInputView.h"
@@ -25,7 +26,7 @@
 
 @property(nonatomic,strong)MQTTSessionManager *mqttManager;
 
-@property(nonatomic,strong)UIImageView *imgView;
+@property(nonatomic,strong)AAImagesScrollView *imgScrollView;
 @property(nonatomic,strong)UITableView *table;
 
 @property(nonatomic,strong)NSMutableArray *viewModels;
@@ -142,7 +143,7 @@
         make.height.equalTo(@100);
     }];
     
-    [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.imgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.top.equalTo(self.titleView.mas_bottom);
         make.height.equalTo(@(Screen_Width - 100));
@@ -150,7 +151,7 @@
     
     [self.stateView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.top.equalTo(self.imgView.mas_bottom);
+        make.top.equalTo(self.imgScrollView.mas_bottom);
         make.height.equalTo(@55);
     }];
     
@@ -339,16 +340,18 @@
     return _bottomView;
 }
 
--(UIImageView *)imgView
+-(AAImagesScrollView *)imgScrollView
 {
-    if (!_imgView) {
-        _imgView = [[UIImageView alloc]init];
-        [_imgView setContentMode:UIViewContentModeScaleAspectFit];
-        [self.view addSubview:_imgView];
+    if (_imgScrollView) {
+        _imgScrollView = [[AAImagesScrollView alloc]init];
         
-        [_imgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapImgView)]];
+        __weak __typeof(self)weakself = self;
+        [_imgScrollView setTapBlock:^(NSArray *imgUrls, NSInteger currentIndex, id dataModel) {
+            __strong __typeof(self)strongSelf = weakself;
+            [strongSelf enterItemList];
+        }];
     }
-    return _imgView;
+    return _imgScrollView;
 }
 
 -(UITableView *)table

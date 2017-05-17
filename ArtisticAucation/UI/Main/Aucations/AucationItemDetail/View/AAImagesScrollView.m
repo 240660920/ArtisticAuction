@@ -6,9 +6,9 @@
 //  Copyright © 2015年 xieran. All rights reserved.
 //
 
-#import "AucationItemImagesScrollView.h"
+#import "AAImagesScrollView.h"
 
-@interface AucationItemImagesScrollView()<UIScrollViewDelegate>
+@interface AAImagesScrollView()<UIScrollViewDelegate>
 {
 
 }
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation AucationItemImagesScrollView
+@implementation AAImagesScrollView
 
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
@@ -126,10 +126,9 @@
 #pragma mark Private 
 -(void)tap
 {
-    self.fullScreenScrollView = [[FullScreenScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height)];
-    self.fullScreenScrollView.imageUrls = self.imageUrls;
-    self.fullScreenScrollView.currentIndex = self.currentIndex;
-    [self.fullScreenScrollView show];
+    if (self.tapBlock) {
+        self.tapBlock(self.imageUrls, self.currentIndex, nil);
+    }
 }
 
 -(void)autoCycle

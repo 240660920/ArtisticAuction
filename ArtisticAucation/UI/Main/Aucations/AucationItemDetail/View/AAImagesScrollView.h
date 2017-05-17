@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FullScreenScrollView.h"
 
-@interface AucationItemImagesScrollView : UIView
+@interface AAImagesScrollView : UIView
 
 @property(nonatomic,retain)NSArray *imageUrls;
 @property(nonatomic,strong)UIPageControl *pageControl;
 @property(nonatomic,strong)UIScrollView *scrollView;
-@property(nonatomic,strong)FullScreenScrollView *fullScreenScrollView;
 @property(nonatomic,strong)NSTimer *timer;
 @property(nonatomic,assign)NSInteger currentIndex;
+
+@property(nonatomic,copy)void(^tapBlock)(NSArray *imgUrls,NSInteger currentIndex,id dataModel);
+
+-(void)setTapBlock:(void (^)(NSArray *imgUrls, NSInteger currentIndex, id dataModel))tapBlock;
 
 @end
