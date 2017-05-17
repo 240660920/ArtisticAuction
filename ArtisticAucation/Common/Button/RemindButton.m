@@ -17,10 +17,12 @@
     if (!selected) {
         [self setTitle:@"提醒" forState:UIControlStateNormal];
         [self setImage:[UIImage imageNamed:@"remind_clock"] forState:UIControlStateNormal];
+        [self.titleLabel setFont:[UIFont systemFontOfSize:14]];
     }
     else{
         [self setTitle:@"已设置提醒" forState:UIControlStateNormal];
         [self setImage:nil forState:UIControlStateNormal];
+        [self.titleLabel setFont:[UIFont systemFontOfSize:12]];
     }
 }
 

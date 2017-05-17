@@ -268,7 +268,7 @@
     
     [cell setHallBlock:^(void){
         //进入拍卖大厅
-//        AucationHallViewController *vc = [[AucationHallViewController alloc]initWithOid:model.oid agencyName:model.agencyName occasionName:model.occasionName];
+        //AucationHallViewController *vc = [[AucationHallViewController alloc]initWithOid:model.oid agencyName:model.agencyName occasionName:model.occasionName];
         AuctionHallViewController *vc = [[AuctionHallViewController alloc]init];
         vc.oid = model.oid;
         vc.occasionName = model.occasionName;

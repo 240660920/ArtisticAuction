@@ -15,12 +15,16 @@
 
 #define ServerUrl @"http://www.jiahengwentou.com:8080/auction/"
 
+#define Port @"8080"
+
 #define UploadMinCount 0
 
 
 #else  //正式环境
 
 #define ServerUrl @"http://www.jiahengwentou.com:80/auction/"
+
+#define Port @"80"
 
 #define UploadMinCount 10
 

@@ -10,4 +10,8 @@
 
 @interface AuctionHallStateView : UIView
 
+@property(nonatomic,copy)void(^tapItemListBlock)(void);
+
+- (IBAction)itemList:(id)sender;
+
 @end

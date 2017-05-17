@@ -20,6 +20,7 @@
 
 -(void)initContactInfo:(LoginResponse *)loginResponse;
 
+@property(nonatomic,copy)NSString *guid;
 @property(nonatomic,copy)NSString *userId;
 @property(nonatomic,copy)NSString *password;
 @property(nonatomic,copy)NSString *realName;

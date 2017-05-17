@@ -16,6 +16,19 @@
 		940F5B141B9C809C00EEA5C1 /* UIView+MBProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 940F5B131B9C809C00EEA5C1 /* UIView+MBProgress.m */; };
 		941231161D7569E800B79746 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941231141D7569E800B79746 /* MOBFoundation.framework */; };
 		941231171D7569E800B79746 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 941231151D7569E800B79746 /* SMS_SDK.framework */; };
+		9413A3EA1EC9C66F00E840FB /* AuctionHallInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A3DD1EC9C66F00E840FB /* AuctionHallInputView.m */; };
+		9413A3EB1EC9C66F00E840FB /* AuctionHallInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9413A3DE1EC9C66F00E840FB /* AuctionHallInputView.xib */; };
+		9413A3EC1EC9C66F00E840FB /* AuctionHallStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A3E01EC9C66F00E840FB /* AuctionHallStateView.m */; };
+		9413A3ED1EC9C66F00E840FB /* AuctionHallStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9413A3E11EC9C66F00E840FB /* AuctionHallStateView.xib */; };
+		9413A3EE1EC9C66F00E840FB /* AuctionHallTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A3E31EC9C66F00E840FB /* AuctionHallTitleView.m */; };
+		9413A3EF1EC9C66F00E840FB /* AuctionHallTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9413A3E41EC9C66F00E840FB /* AuctionHallTitleView.xib */; };
+		9413A3F01EC9C66F00E840FB /* AuctionHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A3E71EC9C66F00E840FB /* AuctionHallViewController.m */; };
+		9413A3F31EC9C86000E840FB /* AuctionHallCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A3F21EC9C86000E840FB /* AuctionHallCellViewModel.m */; };
+		9413A3FA1EC9E71200E840FB /* AuctionHallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A3F91EC9E71200E840FB /* AuctionHallTableViewCell.m */; };
+		9413A4001EC9EB8200E840FB /* AuctionHallItemIntrolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A3FF1EC9EB8200E840FB /* AuctionHallItemIntrolCell.m */; };
+		9413A4031EC9EBAE00E840FB /* AuctionHallSystemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A4021EC9EBAE00E840FB /* AuctionHallSystemCell.m */; };
+		9413A4061EC9EBBD00E840FB /* AuctionHallChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A4051EC9EBBD00E840FB /* AuctionHallChatCell.m */; };
+		9413A4091EC9EBC900E840FB /* AuctionHallBidCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9413A4081EC9EBC900E840FB /* AuctionHallBidCell.m */; };
 		941666281BDA17300092431A /* CommonRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941666271BDA17300092431A /* CommonRequests.m */; };
 		9416662B1BDA1A660092431A /* UIViewController+LoginAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416662A1BDA1A660092431A /* UIViewController+LoginAlert.m */; };
 		941666321BDA25820092431A /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 941666311BDA25820092431A /* LikeButton.m */; };
@@ -23,6 +36,7 @@
 		9416F4CC1BA03ACA005ACBA2 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9416F4CA1BA03ACA005ACBA2 /* MainViewController.m */; };
 		9416F4CD1BA03ACA005ACBA2 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9416F4CB1BA03ACA005ACBA2 /* MainViewController.xib */; };
 		9417C65F1C450ABB00C32422 /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */; };
+		94243CD91ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94243CD81ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m */; };
 		9427BF3A1C7C3BFB009EC335 /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */; };
 		943024ED1BBA27E600807AD6 /* VerificationCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 943024EC1BBA27E600807AD6 /* VerificationCodeManager.m */; };
 		9432B5591BDA62C900F82705 /* ItemPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */; };
@@ -121,6 +135,11 @@
 		94805C3B1BBA674C007BB7BF /* VerificationCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94805C3A1BBA674C007BB7BF /* VerificationCodeButton.m */; };
 		94805C401BBA8BB3007BB7BF /* ModifyInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94805C3F1BBA8BB3007BB7BF /* ModifyInfoResponse.m */; };
 		94811EC21C14743700D9C837 /* RemindButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94811EC11C14743700D9C837 /* RemindButton.m */; };
+		9481EF4F1ECAEF1F00A5A0E6 /* AuctionHallItemIntrolModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9481EF4E1ECAEF1F00A5A0E6 /* AuctionHallItemIntrolModel.m */; };
+		9481EF521ECAEFB400A5A0E6 /* AuctionHallSystemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9481EF511ECAEFB400A5A0E6 /* AuctionHallSystemModel.m */; };
+		9481EF551ECAEFC000A5A0E6 /* AuctionHallChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9481EF541ECAEFC000A5A0E6 /* AuctionHallChatModel.m */; };
+		9481EF581ECAEFCB00A5A0E6 /* AuctionHallBidModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9481EF571ECAEFCB00A5A0E6 /* AuctionHallBidModel.m */; };
+		9481EF5B1ECAF08B00A5A0E6 /* AuctionHallBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9481EF5A1ECAF08B00A5A0E6 /* AuctionHallBaseModel.m */; };
 		948331491C1985D4002625B9 /* PropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 948331481C1985D4002625B9 /* PropertyList.plist */; };
 		9486EE271BE73FE900CEE486 /* BiddenLotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486EE201BE73FE900CEE486 /* BiddenLotsViewController.m */; };
 		9486EE281BE73FE900CEE486 /* MyLotsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9486EE221BE73FE900CEE486 /* MyLotsBaseViewController.m */; };
@@ -159,13 +178,6 @@
 		9495FA391BEF0AD1007CF0E8 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495FA381BEF0AD1007CF0E8 /* LoginManager.m */; };
 		949820AF1C3E3C1100C86835 /* MyLotsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949820AD1C3E3C1100C86835 /* MyLotsCell.m */; };
 		949820B01C3E3C1100C86835 /* MyLotsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949820AE1C3E3C1100C86835 /* MyLotsCell.xib */; };
-		949ADA3D1EAEE3FB00DE1BA1 /* AuctionHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949ADA3B1EAEE3FB00DE1BA1 /* AuctionHallViewController.m */; };
-		949ADA401EAEE41F00DE1BA1 /* AuctionHallStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 949ADA3F1EAEE41F00DE1BA1 /* AuctionHallStateView.m */; };
-		949ADA421EAEE43100DE1BA1 /* AuctionHallStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949ADA411EAEE43100DE1BA1 /* AuctionHallStateView.xib */; };
-		949ADA451EAEE6E200DE1BA1 /* AuctionHallTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 949ADA441EAEE6E200DE1BA1 /* AuctionHallTitleView.m */; };
-		949ADA471EAEE6F100DE1BA1 /* AuctionHallTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949ADA461EAEE6F100DE1BA1 /* AuctionHallTitleView.xib */; };
-		949ADA4A1EAEEDDA00DE1BA1 /* AuctionHallInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 949ADA491EAEEDDA00DE1BA1 /* AuctionHallInputView.m */; };
-		949ADA4C1EAEEDFE00DE1BA1 /* AuctionHallInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949ADA4B1EAEEDFE00DE1BA1 /* AuctionHallInputView.xib */; };
 		94A1372D1B8EEB1F00D8DDF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1372C1B8EEB1F00D8DDF6 /* main.m */; };
 		94A137301B8EEB1F00D8DDF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1372F1B8EEB1F00D8DDF6 /* AppDelegate.m */; };
 		94A137381B8EEB1F00D8DDF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A137371B8EEB1F00D8DDF6 /* Images.xcassets */; };
@@ -252,6 +264,29 @@
 		940F5B131B9C809C00EEA5C1 /* UIView+MBProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MBProgress.m"; sourceTree = "<group>"; };
 		941231141D7569E800B79746 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		941231151D7569E800B79746 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		9413A3DC1EC9C66F00E840FB /* AuctionHallInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallInputView.h; sourceTree = "<group>"; };
+		9413A3DD1EC9C66F00E840FB /* AuctionHallInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallInputView.m; sourceTree = "<group>"; };
+		9413A3DE1EC9C66F00E840FB /* AuctionHallInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionHallInputView.xib; sourceTree = "<group>"; };
+		9413A3DF1EC9C66F00E840FB /* AuctionHallStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallStateView.h; sourceTree = "<group>"; };
+		9413A3E01EC9C66F00E840FB /* AuctionHallStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallStateView.m; sourceTree = "<group>"; };
+		9413A3E11EC9C66F00E840FB /* AuctionHallStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionHallStateView.xib; sourceTree = "<group>"; };
+		9413A3E21EC9C66F00E840FB /* AuctionHallTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallTitleView.h; sourceTree = "<group>"; };
+		9413A3E31EC9C66F00E840FB /* AuctionHallTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallTitleView.m; sourceTree = "<group>"; };
+		9413A3E41EC9C66F00E840FB /* AuctionHallTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionHallTitleView.xib; sourceTree = "<group>"; };
+		9413A3E61EC9C66F00E840FB /* AuctionHallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallViewController.h; sourceTree = "<group>"; };
+		9413A3E71EC9C66F00E840FB /* AuctionHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallViewController.m; sourceTree = "<group>"; };
+		9413A3F11EC9C86000E840FB /* AuctionHallCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallCellViewModel.h; sourceTree = "<group>"; };
+		9413A3F21EC9C86000E840FB /* AuctionHallCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallCellViewModel.m; sourceTree = "<group>"; };
+		9413A3F81EC9E71200E840FB /* AuctionHallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallTableViewCell.h; sourceTree = "<group>"; };
+		9413A3F91EC9E71200E840FB /* AuctionHallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallTableViewCell.m; sourceTree = "<group>"; };
+		9413A3FE1EC9EB8200E840FB /* AuctionHallItemIntrolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallItemIntrolCell.h; sourceTree = "<group>"; };
+		9413A3FF1EC9EB8200E840FB /* AuctionHallItemIntrolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallItemIntrolCell.m; sourceTree = "<group>"; };
+		9413A4011EC9EBAE00E840FB /* AuctionHallSystemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallSystemCell.h; sourceTree = "<group>"; };
+		9413A4021EC9EBAE00E840FB /* AuctionHallSystemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallSystemCell.m; sourceTree = "<group>"; };
+		9413A4041EC9EBBD00E840FB /* AuctionHallChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallChatCell.h; sourceTree = "<group>"; };
+		9413A4051EC9EBBD00E840FB /* AuctionHallChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallChatCell.m; sourceTree = "<group>"; };
+		9413A4071EC9EBC900E840FB /* AuctionHallBidCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallBidCell.h; sourceTree = "<group>"; };
+		9413A4081EC9EBC900E840FB /* AuctionHallBidCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallBidCell.m; sourceTree = "<group>"; };
 		941666261BDA17300092431A /* CommonRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonRequests.h; sourceTree = "<group>"; };
 		941666271BDA17300092431A /* CommonRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonRequests.m; sourceTree = "<group>"; };
 		941666291BDA1A660092431A /* UIViewController+LoginAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LoginAlert.h"; sourceTree = "<group>"; };
@@ -265,6 +300,8 @@
 		9416F4CB1BA03ACA005ACBA2 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		9417C65D1C450ABB00C32422 /* UIImage+FixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixOrientation.h"; sourceTree = "<group>"; };
 		9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixOrientation.m"; sourceTree = "<group>"; };
+		94243CD71ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AddHallViewModel.h"; sourceTree = "<group>"; };
+		94243CD81ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AddHallViewModel.m"; sourceTree = "<group>"; };
 		9427BF371C7C3BFB009EC335 /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
 		9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
 		943024EB1BBA27E600807AD6 /* VerificationCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeManager.h; sourceTree = "<group>"; };
@@ -530,6 +567,16 @@
 		94805C3F1BBA8BB3007BB7BF /* ModifyInfoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyInfoResponse.m; sourceTree = "<group>"; };
 		94811EC01C14743700D9C837 /* RemindButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemindButton.h; sourceTree = "<group>"; };
 		94811EC11C14743700D9C837 /* RemindButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemindButton.m; sourceTree = "<group>"; };
+		9481EF4D1ECAEF1F00A5A0E6 /* AuctionHallItemIntrolModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallItemIntrolModel.h; sourceTree = "<group>"; };
+		9481EF4E1ECAEF1F00A5A0E6 /* AuctionHallItemIntrolModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallItemIntrolModel.m; sourceTree = "<group>"; };
+		9481EF501ECAEFB400A5A0E6 /* AuctionHallSystemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallSystemModel.h; sourceTree = "<group>"; };
+		9481EF511ECAEFB400A5A0E6 /* AuctionHallSystemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallSystemModel.m; sourceTree = "<group>"; };
+		9481EF531ECAEFC000A5A0E6 /* AuctionHallChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallChatModel.h; sourceTree = "<group>"; };
+		9481EF541ECAEFC000A5A0E6 /* AuctionHallChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallChatModel.m; sourceTree = "<group>"; };
+		9481EF561ECAEFCB00A5A0E6 /* AuctionHallBidModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallBidModel.h; sourceTree = "<group>"; };
+		9481EF571ECAEFCB00A5A0E6 /* AuctionHallBidModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallBidModel.m; sourceTree = "<group>"; };
+		9481EF591ECAF08B00A5A0E6 /* AuctionHallBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallBaseModel.h; sourceTree = "<group>"; };
+		9481EF5A1ECAF08B00A5A0E6 /* AuctionHallBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallBaseModel.m; sourceTree = "<group>"; };
 		948331481C1985D4002625B9 /* PropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyList.plist; sourceTree = "<group>"; };
 		9486EE1F1BE73FE900CEE486 /* BiddenLotsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiddenLotsViewController.h; sourceTree = "<group>"; };
 		9486EE201BE73FE900CEE486 /* BiddenLotsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiddenLotsViewController.m; sourceTree = "<group>"; };
@@ -588,17 +635,6 @@
 		949820AC1C3E3C1100C86835 /* MyLotsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLotsCell.h; sourceTree = "<group>"; };
 		949820AD1C3E3C1100C86835 /* MyLotsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLotsCell.m; sourceTree = "<group>"; };
 		949820AE1C3E3C1100C86835 /* MyLotsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyLotsCell.xib; sourceTree = "<group>"; };
-		949ADA3B1EAEE3FB00DE1BA1 /* AuctionHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallViewController.m; sourceTree = "<group>"; };
-		949ADA3C1EAEE3FB00DE1BA1 /* AuctionHallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallViewController.h; sourceTree = "<group>"; };
-		949ADA3E1EAEE41F00DE1BA1 /* AuctionHallStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallStateView.h; sourceTree = "<group>"; };
-		949ADA3F1EAEE41F00DE1BA1 /* AuctionHallStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallStateView.m; sourceTree = "<group>"; };
-		949ADA411EAEE43100DE1BA1 /* AuctionHallStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionHallStateView.xib; sourceTree = "<group>"; };
-		949ADA431EAEE6E200DE1BA1 /* AuctionHallTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallTitleView.h; sourceTree = "<group>"; };
-		949ADA441EAEE6E200DE1BA1 /* AuctionHallTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallTitleView.m; sourceTree = "<group>"; };
-		949ADA461EAEE6F100DE1BA1 /* AuctionHallTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionHallTitleView.xib; sourceTree = "<group>"; };
-		949ADA481EAEEDDA00DE1BA1 /* AuctionHallInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallInputView.h; sourceTree = "<group>"; };
-		949ADA491EAEEDDA00DE1BA1 /* AuctionHallInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallInputView.m; sourceTree = "<group>"; };
-		949ADA4B1EAEEDFE00DE1BA1 /* AuctionHallInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionHallInputView.xib; sourceTree = "<group>"; };
 		94A137271B8EEB1F00D8DDF6 /* ArtisticAuction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtisticAuction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A1372B1B8EEB1F00D8DDF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94A1372C1B8EEB1F00D8DDF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -891,6 +927,8 @@
 				9463819B1BFD73DE00E7D96D /* NSString+randomString.m */,
 				9417C65D1C450ABB00C32422 /* UIImage+FixOrientation.h */,
 				9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */,
+				94243CD71ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.h */,
+				94243CD81ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -902,6 +940,75 @@
 				941231151D7569E800B79746 /* SMS_SDK.framework */,
 			);
 			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		9413A3DB1EC9C66F00E840FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9413A3F71EC9E6CC00E840FB /* Cell */,
+				9413A3DC1EC9C66F00E840FB /* AuctionHallInputView.h */,
+				9413A3DD1EC9C66F00E840FB /* AuctionHallInputView.m */,
+				9413A3DE1EC9C66F00E840FB /* AuctionHallInputView.xib */,
+				9413A3DF1EC9C66F00E840FB /* AuctionHallStateView.h */,
+				9413A3E01EC9C66F00E840FB /* AuctionHallStateView.m */,
+				9413A3E11EC9C66F00E840FB /* AuctionHallStateView.xib */,
+				9413A3E21EC9C66F00E840FB /* AuctionHallTitleView.h */,
+				9413A3E31EC9C66F00E840FB /* AuctionHallTitleView.m */,
+				9413A3E41EC9C66F00E840FB /* AuctionHallTitleView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9413A3E51EC9C66F00E840FB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9413A3E61EC9C66F00E840FB /* AuctionHallViewController.h */,
+				9413A3E71EC9C66F00E840FB /* AuctionHallViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9413A3E81EC9C66F00E840FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9413A3F11EC9C86000E840FB /* AuctionHallCellViewModel.h */,
+				9413A3F21EC9C86000E840FB /* AuctionHallCellViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9413A3E91EC9C66F00E840FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9481EF591ECAF08B00A5A0E6 /* AuctionHallBaseModel.h */,
+				9481EF5A1ECAF08B00A5A0E6 /* AuctionHallBaseModel.m */,
+				9481EF4D1ECAEF1F00A5A0E6 /* AuctionHallItemIntrolModel.h */,
+				9481EF4E1ECAEF1F00A5A0E6 /* AuctionHallItemIntrolModel.m */,
+				9481EF501ECAEFB400A5A0E6 /* AuctionHallSystemModel.h */,
+				9481EF511ECAEFB400A5A0E6 /* AuctionHallSystemModel.m */,
+				9481EF531ECAEFC000A5A0E6 /* AuctionHallChatModel.h */,
+				9481EF541ECAEFC000A5A0E6 /* AuctionHallChatModel.m */,
+				9481EF561ECAEFCB00A5A0E6 /* AuctionHallBidModel.h */,
+				9481EF571ECAEFCB00A5A0E6 /* AuctionHallBidModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9413A3F71EC9E6CC00E840FB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9413A3F81EC9E71200E840FB /* AuctionHallTableViewCell.h */,
+				9413A3F91EC9E71200E840FB /* AuctionHallTableViewCell.m */,
+				9413A3FE1EC9EB8200E840FB /* AuctionHallItemIntrolCell.h */,
+				9413A3FF1EC9EB8200E840FB /* AuctionHallItemIntrolCell.m */,
+				9413A4011EC9EBAE00E840FB /* AuctionHallSystemCell.h */,
+				9413A4021EC9EBAE00E840FB /* AuctionHallSystemCell.m */,
+				9413A4041EC9EBBD00E840FB /* AuctionHallChatCell.h */,
+				9413A4051EC9EBBD00E840FB /* AuctionHallChatCell.m */,
+				9413A4071EC9EBC900E840FB /* AuctionHallBidCell.h */,
+				9413A4081EC9EBC900E840FB /* AuctionHallBidCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		941666251BDA171C0092431A /* CommonRequests */ = {
@@ -1570,17 +1677,10 @@
 		949ADA3A1EAEE3C900DE1BA1 /* AuctionHall */ = {
 			isa = PBXGroup;
 			children = (
-				949ADA3C1EAEE3FB00DE1BA1 /* AuctionHallViewController.h */,
-				949ADA3B1EAEE3FB00DE1BA1 /* AuctionHallViewController.m */,
-				949ADA3E1EAEE41F00DE1BA1 /* AuctionHallStateView.h */,
-				949ADA3F1EAEE41F00DE1BA1 /* AuctionHallStateView.m */,
-				949ADA411EAEE43100DE1BA1 /* AuctionHallStateView.xib */,
-				949ADA431EAEE6E200DE1BA1 /* AuctionHallTitleView.h */,
-				949ADA441EAEE6E200DE1BA1 /* AuctionHallTitleView.m */,
-				949ADA461EAEE6F100DE1BA1 /* AuctionHallTitleView.xib */,
-				949ADA481EAEEDDA00DE1BA1 /* AuctionHallInputView.h */,
-				949ADA491EAEEDDA00DE1BA1 /* AuctionHallInputView.m */,
-				949ADA4B1EAEEDFE00DE1BA1 /* AuctionHallInputView.xib */,
+				9413A3E91EC9C66F00E840FB /* Model */,
+				9413A3DB1EC9C66F00E840FB /* View */,
+				9413A3E81EC9C66F00E840FB /* ViewModel */,
+				9413A3E51EC9C66F00E840FB /* Controller */,
 			);
 			name = AuctionHall;
 			path = Aucations/AuctionHall;
@@ -1943,9 +2043,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E063021BC6526C00294D08 /* PushConfig.plist in Resources */,
-				949ADA4C1EAEEDFE00DE1BA1 /* AuctionHallInputView.xib in Resources */,
 				949820B01C3E3C1100C86835 /* MyLotsCell.xib in Resources */,
-				949ADA471EAEE6F100DE1BA1 /* AuctionHallTitleView.xib in Resources */,
 				9452F2B11BE8549A0080502A /* AucationsCell.xib in Resources */,
 				947BBC8F1C5B872300A0DDE4 /* AlipaySDK.bundle in Resources */,
 				9452F2C81BE85B0E0080502A /* AucationDetailTopViewSubview.xib in Resources */,
@@ -1957,14 +2055,16 @@
 				940D61EF1BE79C060021D199 /* RealNameCerViewController.xib in Resources */,
 				944AF7FC1DDE97C300CE108C /* TestItems in Resources */,
 				948AE15D1C16D83100D17429 /* 2.png in Resources */,
-				949ADA421EAEE43100DE1BA1 /* AuctionHallStateView.xib in Resources */,
 				948AE15C1C16D83100D17429 /* 1.png in Resources */,
 				948AE15E1C16D83100D17429 /* addImage.png in Resources */,
 				948AE1681C16D83100D17429 /* ZYQAssetPicker.Bundle in Resources */,
 				A8DCB7B01BC8B294006E5A08 /* SearchResultCell.xib in Resources */,
+				9413A3EF1EC9C66F00E840FB /* AuctionHallTitleView.xib in Resources */,
+				9413A3ED1EC9C66F00E840FB /* AuctionHallStateView.xib in Resources */,
 				948AE0971C16864A00D17429 /* UploadListViewController.xib in Resources */,
 				948AE0791C166A2E00D17429 /* ModifyPasswordViewController.xib in Resources */,
 				948AE1631C16D83100D17429 /* complete.png in Resources */,
+				9413A3EB1EC9C66F00E840FB /* AuctionHallInputView.xib in Resources */,
 				9416F4CD1BA03ACA005ACBA2 /* MainViewController.xib in Resources */,
 				A8DB868C1BE7299100F2F468 /* OpenupSessionViewController.xib in Resources */,
 				945E4A7A1BEB82BA00D624F7 /* SellerViewController.xib in Resources */,
@@ -2051,6 +2151,7 @@
 				945FA81A1BCFA0610014D77E /* AlipayOrder.m in Sources */,
 				945FA81B1BCFA0610014D77E /* base64.m in Sources */,
 				94662EA21C151E32008F2325 /* FullScreenScrollView.m in Sources */,
+				9481EF4F1ECAEF1F00A5A0E6 /* AuctionHallItemIntrolModel.m in Sources */,
 				946AFF811D6BE2E50060F1C9 /* LaunchAdManager.m in Sources */,
 				945FA8201BCFA0610014D77E /* openssl_wrapper.m in Sources */,
 				947BBC971C5B872300A0DDE4 /* SBJsonParser.m in Sources */,
@@ -2067,12 +2168,15 @@
 				94B330171C2BEBAC00A04347 /* SessionHeader.m in Sources */,
 				940F5B0C1B9C70BC00EEA5C1 /* UserInfo.m in Sources */,
 				94B876A21BA26DB600B6B720 /* BaseViewController.m in Sources */,
+				94243CD91ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m in Sources */,
 				94DCD26F1C5A48BC0063E229 /* BidManager.m in Sources */,
 				94DCD2591C59ED4F0063E229 /* BottomBidView.m in Sources */,
 				94C668ED1BDE03C80083AFBF /* MyCollectedLotsListResponse.m in Sources */,
+				9413A3F01EC9C66F00E840FB /* AuctionHallViewController.m in Sources */,
 				94CF727C1BC7A42500E94D34 /* JSONKit.m in Sources */,
 				94571F7A1C51467A00A20339 /* AdResponse.m in Sources */,
 				948AE0931C16864A00D17429 /* PropertyListViewController.m in Sources */,
+				9481EF521ECAEFB400A5A0E6 /* AuctionHallSystemModel.m in Sources */,
 				946AFF871D6BEAEC0060F1C9 /* LaunchAdArchieveModule.m in Sources */,
 				948AE0961C16864A00D17429 /* UploadListViewController.m in Sources */,
 				9486EE2A1BE73FE900CEE486 /* PaidLotsViewController.m in Sources */,
@@ -2113,8 +2217,11 @@
 				947DB9CD1BD0DDC500404958 /* SpecialPerformanceInFavoritesController.m in Sources */,
 				945FA81F1BCFA0610014D77E /* NSDataEx.m in Sources */,
 				948AE0981C16864A00D17429 /* UploadItem.m in Sources */,
+				9413A4061EC9EBBD00E840FB /* AuctionHallChatCell.m in Sources */,
 				9416662B1BDA1A660092431A /* UIViewController+LoginAlert.m in Sources */,
+				9481EF581ECAEFCB00A5A0E6 /* AuctionHallBidModel.m in Sources */,
 				941666281BDA17300092431A /* CommonRequests.m in Sources */,
+				9413A3F31EC9C86000E840FB /* AuctionHallCellViewModel.m in Sources */,
 				947BBC911C5B872300A0DDE4 /* AlixPayOrder.m in Sources */,
 				A8DB36C01BB0082500D4E83D /* FMUString.m in Sources */,
 				94B330141C2BEBAC00A04347 /* AucationItemsListResponse.m in Sources */,
@@ -2123,14 +2230,15 @@
 				9432B5591BDA62C900F82705 /* ItemPreferenceCell.m in Sources */,
 				9486EE291BE73FE900CEE486 /* NotPaidLotsViewController.m in Sources */,
 				9463819C1BFD73DE00E7D96D /* NSString+randomString.m in Sources */,
+				9413A4091EC9EBC900E840FB /* AuctionHallBidCell.m in Sources */,
 				945469FA1C09666200CAD2B4 /* AddressInfo.m in Sources */,
 				9456CBAC1CCDF043002A7FF8 /* AdScrollView.m in Sources */,
 				9452F2C31BE85B0E0080502A /* AucationItemDetailViewController.m in Sources */,
 				9417C65F1C450ABB00C32422 /* UIImage+FixOrientation.m in Sources */,
 				941666321BDA25820092431A /* LikeButton.m in Sources */,
-				949ADA401EAEE41F00DE1BA1 /* AuctionHallStateView.m in Sources */,
+				9413A3EC1EC9C66F00E840FB /* AuctionHallStateView.m in Sources */,
 				948AE0991C16864A00D17429 /* UploadItemManager.m in Sources */,
-				949ADA451EAEE6E200DE1BA1 /* AuctionHallTitleView.m in Sources */,
+				9413A3EE1EC9C66F00E840FB /* AuctionHallTitleView.m in Sources */,
 				94652FE61BC8AE18004EBBC5 /* UIView+background.m in Sources */,
 				945C77641BFE08390091B6FC /* Remind.m in Sources */,
 				9460D0651BE5EE4900B5E9A3 /* AgencyBaseResponse.m in Sources */,
@@ -2139,6 +2247,7 @@
 				945FA81E1BCFA0610014D77E /* MD5DataSigner.m in Sources */,
 				94B330121C2BEBAC00A04347 /* AucationItemCell.m in Sources */,
 				947BBC981C5B872300A0DDE4 /* SBJsonWriter.m in Sources */,
+				9413A4001EC9EB8200E840FB /* AuctionHallItemIntrolCell.m in Sources */,
 				947C74B91C0BEA1E000EC72D /* ImageViewWithDealState.m in Sources */,
 				94B876A61BA26DFC00B6B720 /* SearchViewController.m in Sources */,
 				945290841BD5EEB1000BE139 /* SettlementModule.m in Sources */,
@@ -2160,9 +2269,9 @@
 				9460D05F1BE5EE1E00B5E9A3 /* AucationBaseResponse.m in Sources */,
 				94571F7E1C514A3800A20339 /* AAWebViewController.m in Sources */,
 				A8E27CF91C2D311200836D08 /* EightProModel.m in Sources */,
-				949ADA4A1EAEEDDA00DE1BA1 /* AuctionHallInputView.m in Sources */,
 				9452F2C61BE85B0E0080502A /* AucationDetailTopView.m in Sources */,
 				945469F41C09635600CAD2B4 /* EditContactInfoViewController.m in Sources */,
+				9413A4031EC9EBAE00E840FB /* AuctionHallSystemCell.m in Sources */,
 				947BBC961C5B872300A0DDE4 /* SBJsonBase.m in Sources */,
 				A8DB869B1BE753FF00F2F468 /* OpenUpCell.m in Sources */,
 				94C668F01BDE1DCE0083AFBF /* MyCollectedPerformancesResponse.m in Sources */,
@@ -2177,10 +2286,11 @@
 				94DCD26C1C5A3A840063E229 /* QuickPricePickerView.m in Sources */,
 				9456E63F1BE4C21900FC0C38 /* NSArray+StringSeparateByComma.m in Sources */,
 				945355FB1BCE2CBE00EEAA14 /* LoginResponse.m in Sources */,
-				949ADA3D1EAEE3FB00DE1BA1 /* AuctionHallViewController.m in Sources */,
 				947BBC951C5B872300A0DDE4 /* SBJSON.m in Sources */,
+				9413A3FA1EC9E71200E840FB /* AuctionHallTableViewCell.m in Sources */,
 				94F022B51BFB043000FAD28F /* AucationItemImagesScrollView.m in Sources */,
 				9427BF3A1C7C3BFB009EC335 /* ForgetPwdViewController.m in Sources */,
+				9481EF5B1ECAF08B00A5A0E6 /* AuctionHallBaseModel.m in Sources */,
 				947DB9E91BD486F700404958 /* PayViewController.m in Sources */,
 				9447BB4D1C3E906B007667DF /* AgencyHeaderView.m in Sources */,
 				9452F2AF1BE8549A0080502A /* AucationListResponse.m in Sources */,
@@ -2188,6 +2298,8 @@
 				940F5B081B9C709800EEA5C1 /* LoginViewController.m in Sources */,
 				947B4EE71BAC4AD80083E203 /* PersonalCenterViewController.m in Sources */,
 				945FA8211BCFA0610014D77E /* RSADataSigner.m in Sources */,
+				9413A3EA1EC9C66F00E840FB /* AuctionHallInputView.m in Sources */,
+				9481EF551ECAEFC000A5A0E6 /* AuctionHallChatModel.m in Sources */,
 				94A37F421BFF6A6600FB89DC /* AucationHallViewController.m in Sources */,
 				94543E8A1BF46051004C2062 /* AATextView.m in Sources */,
 				945FA81D1BCFA0610014D77E /* DataVerifier.m in Sources */,

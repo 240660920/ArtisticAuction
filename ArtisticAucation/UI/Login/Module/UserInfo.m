@@ -67,4 +67,20 @@ UserInfo *userInfo;
     return [[NSUserDefaults standardUserDefaults]integerForKey:@"LoginType"];
 }
 
+-(NSString *)guid
+{
+    if (self.loginType == kLoginTypePhone) {
+        return [UserInfo sharedInstance].phone;
+    }
+    else if (self.loginType == kLoginTypeWeixin){
+        return [UserInfo sharedInstance].userId;
+    }
+    else if (self.loginType == kLoginTypeTraveller){
+        return [NSUUID UUID].UUIDString;
+    }
+    else{
+        return nil;
+    }
+}
+
 @end
