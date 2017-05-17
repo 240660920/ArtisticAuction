@@ -37,6 +37,7 @@
 		9416F4CD1BA03ACA005ACBA2 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9416F4CB1BA03ACA005ACBA2 /* MainViewController.xib */; };
 		9417C65F1C450ABB00C32422 /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */; };
 		94243CD91ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94243CD81ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m */; };
+		94243CDF1ECC30BF00509F1A /* AuctionHallCountDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94243CDE1ECC30BF00509F1A /* AuctionHallCountDownView.m */; };
 		9427BF3A1C7C3BFB009EC335 /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */; };
 		943024ED1BBA27E600807AD6 /* VerificationCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 943024EC1BBA27E600807AD6 /* VerificationCodeManager.m */; };
 		9432B5591BDA62C900F82705 /* ItemPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */; };
@@ -302,6 +303,8 @@
 		9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixOrientation.m"; sourceTree = "<group>"; };
 		94243CD71ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+AddHallViewModel.h"; sourceTree = "<group>"; };
 		94243CD81ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+AddHallViewModel.m"; sourceTree = "<group>"; };
+		94243CDD1ECC30BF00509F1A /* AuctionHallCountDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionHallCountDownView.h; sourceTree = "<group>"; };
+		94243CDE1ECC30BF00509F1A /* AuctionHallCountDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionHallCountDownView.m; sourceTree = "<group>"; };
 		9427BF371C7C3BFB009EC335 /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
 		9427BF381C7C3BFB009EC335 /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
 		943024EB1BBA27E600807AD6 /* VerificationCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeManager.h; sourceTree = "<group>"; };
@@ -955,6 +958,8 @@
 				9413A3E21EC9C66F00E840FB /* AuctionHallTitleView.h */,
 				9413A3E31EC9C66F00E840FB /* AuctionHallTitleView.m */,
 				9413A3E41EC9C66F00E840FB /* AuctionHallTitleView.xib */,
+				94243CDD1ECC30BF00509F1A /* AuctionHallCountDownView.h */,
+				94243CDE1ECC30BF00509F1A /* AuctionHallCountDownView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2251,6 +2256,7 @@
 				947C74B91C0BEA1E000EC72D /* ImageViewWithDealState.m in Sources */,
 				94B876A61BA26DFC00B6B720 /* SearchViewController.m in Sources */,
 				945290841BD5EEB1000BE139 /* SettlementModule.m in Sources */,
+				94243CDF1ECC30BF00509F1A /* AuctionHallCountDownView.m in Sources */,
 				9493900F1BB00D7500D63A72 /* RegistResponse.m in Sources */,
 				947DB9C31BD0942200404958 /* WeixinLoginResponse.m in Sources */,
 				94805C401BBA8BB3007BB7BF /* ModifyInfoResponse.m in Sources */,

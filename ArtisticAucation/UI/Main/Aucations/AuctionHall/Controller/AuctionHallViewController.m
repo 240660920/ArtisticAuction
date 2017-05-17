@@ -16,6 +16,7 @@
 #import "AuctionHallCellViewModel.h"
 #import "AuctionHallTableViewCell.h"
 #import "NSMutableArray+AddHallViewModel.h"
+#import "AuctionHallCountDownView.h"
 #import <MQTTClient/MQTTSessionManager.h>
 
 @interface AuctionHallViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MQTTSessionManagerDelegate>
@@ -23,6 +24,7 @@
 @property(nonatomic,strong)AuctionHallTitleView *titleView;
 @property(nonatomic,strong)AuctionHallStateView *stateView;
 @property(nonatomic,strong)AuctionHallInputView *bottomView;
+@property(nonatomic,strong)AuctionHallCountDownView *countDownView;
 
 @property(nonatomic,strong)MQTTSessionManager *mqttManager;
 
@@ -122,6 +124,19 @@
     
     
     [self enterHall];
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.countDownView showWithSecond:10];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.countDownView stop];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.countDownView showWithSecond:5];
+    });
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -164,6 +179,10 @@
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.height.equalTo(@44);
+    }];
+    
+    [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.imgScrollView);
     }];
 }
 
@@ -342,8 +361,9 @@
 
 -(AAImagesScrollView *)imgScrollView
 {
-    if (_imgScrollView) {
+    if (!_imgScrollView) {
         _imgScrollView = [[AAImagesScrollView alloc]init];
+        [self.view addSubview:_imgScrollView];
         
         __weak __typeof(self)weakself = self;
         [_imgScrollView setTapBlock:^(NSArray *imgUrls, NSInteger currentIndex, id dataModel) {
@@ -352,6 +372,16 @@
         }];
     }
     return _imgScrollView;
+}
+
+-(AuctionHallCountDownView *)countDownView
+{
+    if (!_countDownView) {
+        _countDownView = [[AuctionHallCountDownView alloc]init];
+        _countDownView.layer.opacity = 0;
+        [self.view addSubview:_countDownView];
+    }
+    return _countDownView;
 }
 
 -(UITableView *)table
