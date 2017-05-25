@@ -12,5 +12,6 @@
 
 @property(nonatomic,copy)NSString *userName;
 @property(nonatomic,copy)NSString *time;
+@property(nonatomic,copy)NSString *chatContent;
 
 @end

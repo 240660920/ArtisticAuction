@@ -33,8 +33,8 @@
 {
     [super setViewModel:viewModel];
     
-    if ([viewModel isMemberOfClass:[AuctionHallSyetemViewModel class]]) {
-        AuctionHallSyetemViewModel *_viewModel = (AuctionHallSyetemViewModel *)viewModel;
+    if ([viewModel isMemberOfClass:[AuctionHallSystemViewModel class]]) {
+        AuctionHallSystemViewModel *_viewModel = (AuctionHallSystemViewModel *)viewModel;
         
         self.label.text = _viewModel.dataModel.text;
     }
@@ -46,7 +46,7 @@
         _label = [[UILabel alloc]init];
         _label.textColor = BlackColor;
         _label.numberOfLines = 0;
-        _label.font = [[AuctionHallSyetemViewModel class]textFont];
+        _label.font = [[AuctionHallSystemViewModel class]textFont];
         [self.contentView addSubview:_label];
     }
     return _label;

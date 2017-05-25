@@ -13,26 +13,32 @@
 #import "AuctionHallStateView.h"
 #import "AuctionHallTitleView.h"
 #import "AuctionHallInputView.h"
+#import "AuctionHallCurrentItemModel.h"
 #import "AuctionHallCellViewModel.h"
 #import "AuctionHallTableViewCell.h"
 #import "NSMutableArray+AddHallViewModel.h"
 #import "AuctionHallCountDownView.h"
-#import <MQTTClient/MQTTSessionManager.h>
+#import "BidManager.h"
+#import "AuctionHallItemIntroTimer.h"
+#import <MQTTClient/MQTTClient.h>
 
-@interface AuctionHallViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MQTTSessionManagerDelegate>
+@interface AuctionHallViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MQTTSessionDelegate>
 
 @property(nonatomic,strong)AuctionHallTitleView *titleView;
 @property(nonatomic,strong)AuctionHallStateView *stateView;
 @property(nonatomic,strong)AuctionHallInputView *bottomView;
 @property(nonatomic,strong)AuctionHallCountDownView *countDownView;
 
-@property(nonatomic,strong)MQTTSessionManager *mqttManager;
+@property(nonatomic,strong)AuctionHallItemIntroTimer *itemIntroTimer;
+
+@property(nonatomic,strong)AuctionHallCurrentItemModel *itemModel;
+
+@property(nonatomic,strong)MQTTSession *mqttSession;
 
 @property(nonatomic,strong)AAImagesScrollView *imgScrollView;
 @property(nonatomic,strong)UITableView *table;
 
 @property(nonatomic,strong)NSMutableArray *viewModels;
-@property(nonatomic,copy)  NSString *cid;
 
 @end
 
@@ -40,6 +46,10 @@
 
 -(void)dealloc
 {
+    [self.mqttSession removeObserver:self forKeyPath:@"status"];
+    
+    [self.mqttSession disconnect];
+    
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidChangeFrameNotification object:nil];
 }
 
@@ -63,61 +73,7 @@
     
     _viewModels = [[NSMutableArray alloc]init];
     
-    for (int i = 0; i < 100; i++) {
-        if (i % 4 == 0) {
-            AuctionHallItemIntrolModel *dataModel = [[AuctionHallItemIntrolModel alloc]init];
-            
-            NSMutableString *str = [[NSMutableString alloc]init];
-            for (int j = 0; j < i; j++) {
-                [str appendString:@"A"];
-            }
-            
-            dataModel.text = [str copy];
-            
-            
-            AuctionHallItemIntroViewModel *viewModel = [[AuctionHallItemIntroViewModel alloc]init];
-            viewModel.dataModel = dataModel;
-            
-            [self.viewModels addViewModel:viewModel];
-        }
-        else if (i % 4 == 1){
-            AuctionHallSystemModel *dataModel = [[AuctionHallSystemModel alloc]init];
-            
-            NSMutableString *str = [[NSMutableString alloc]init];
-            for (int j = 0; j < i; j++) {
-                [str appendString:@"B"];
-            }
-            
-            dataModel.text = [str copy];
-        
-            
-            AuctionHallSyetemViewModel *viewModel = [[AuctionHallSyetemViewModel alloc]init];
-            viewModel.dataModel = dataModel;
-            
-            [self.viewModels addViewModel:viewModel];
-        }
-        else{
-            AuctionHallChatModel *dataModel = [[AuctionHallChatModel alloc]init];
 
-            NSMutableString *str = [[NSMutableString alloc]init];
-            for (int j = 0; j < i; j++) {
-                [str appendString:@"C"];
-            }
-            
-            dataModel.text = [str copy];
-            
-            dataModel.userName = @"123123123";
-            
-            dataModel.time = @"2015-08-25 10:00:00";
-            
-            AuctionHallChatViewModel *viewModel = [[AuctionHallChatViewModel alloc]init];
-            viewModel.dataModel = dataModel;
-            
-            [self.viewModels addViewModel:viewModel];
-        }
-    }
-    
-    
 
 
     [self configAutoLayout];
@@ -125,18 +81,6 @@
     
     [self enterHall];
     
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.countDownView showWithSecond:10];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.countDownView stop];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.countDownView showWithSecond:5];
-    });
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -231,33 +175,205 @@
 {
     NSString *guid = [UserInfo sharedInstance].guid;
     
-    [HttpManager requestWithAPI:@"user/userEnterLobby" params:@{@"guid" : guid , @"oid" : self.oid} requestMethod:@"GET" completion:^(ASIFormDataRequest *request) {
-        NSLog(@"%@",request.responseString);
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"oid"] = self.oid;
+    if (guid) {
+        params[@"guid"] = guid;
+    }
+    
+    [HttpManager requestWithAPI:@"user/userEnterLobby" params:params requestMethod:@"GET" completion:^(ASIFormDataRequest *request) {
+
+        AABaseJSONModelResponse *rsp = [[AABaseJSONModelResponse alloc]initWithString:request.responseString error:nil];
+        
+        //成功
+        if (rsp.result.resultCode.intValue == 0) {
+            [self mqttConnect];
+        }
+        //失败
+        else{
+            [self.view showHudAndAutoDismiss:rsp.result.msg];
+        }
+    
     } failed:^(ASIFormDataRequest *request) {
-        NSLog(@"%@",request.responseString);
+        [self.view showHudAndAutoDismiss:@"连接失败"];
     }];
 }
 
 -(void)mqttConnect
 {
-    self.mqttManager = [[MQTTSessionManager alloc]init];
-    self.mqttManager.delegate = self;
+    // 创建一个传输对象
+    MQTTCFSocketTransport *transport = [[MQTTCFSocketTransport alloc] init];
+    transport.host = IP_Address;
+    transport.port = 61613;
+
+    self.mqttSession = [[MQTTSession alloc] init];
+    self.mqttSession.transport = transport;
+    self.mqttSession.delegate = self;
+    // 设置终端ID(可以根据后台的详细详情进行设置)
+    self.mqttSession.clientId = [UserInfo sharedInstance].guid;
+    [self.mqttSession setUserName:@"admin"];
+    [self.mqttSession setPassword:@"password"];
     
-    dispatch_async(dispatch_queue_create("", DISPATCH_QUEUE_SERIAL), ^{
-        [self.mqttManager connectTo:ServerUrl port:Port.intValue tls:NO keepalive:60 clean:YES auth:NO user:nil pass:nil willTopic:@"" will:nil willQos:MQTTQosLevelAtMostOnce willRetainFlag:NO withClientId:[UIDevice currentDevice].identifierForVendor.UUIDString];
+
+    [self.mqttSession addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 会话链接并设置超时时间
+        MQTTConnectHandler hanlder = ^(NSError *error){
+            if (error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.view showHudAndAutoDismiss:error.description];
+                });
+            }
+        };
+        [self.mqttSession setConnectHandler:hanlder];
+        [self.mqttSession connectAndWaitTimeout:30];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 订阅主题, qosLevel是一个枚举值,指的是消息的发布质量
+            // 注意:订阅主题不能放到子线程进行,否则block不会回调
+            [self.mqttSession subscribeToTopic:self.oid atLevel:MQTTQosLevelAtMostOnce subscribeHandler:^(NSError *error, NSArray<NSNumber *> *gQoss) {
+                if (error) {
+                    NSLog(@"连接失败 = %@", error.localizedDescription);
+                }else{
+                    NSLog(@"链接成功 = %@", gQoss);
+                }
+            }];
+        });
     });
 }
 
--(void)handleMessage:(NSData *)data onTopic:(NSString *)topic retained:(BOOL)retained
+- (void)newMessage:(MQTTSession *)session
+              data:(NSData *)data
+           onTopic:(NSString *)topic
+               qos:(MQTTQosLevel)qos
+          retained:(BOOL)retained
+               mid:(unsigned int)mid
 {
-    //cid
+    NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString *str = [[NSString alloc] initWithData:data encoding:encoding];
+    
+    MQTTMessageBaseModel *model = [[MQTTMessageBaseModel alloc]initWithString:str error:nil];
+    //type=1 拍品信息
+    if (model.type.intValue == kMQTTMessageTypeItem) {
+        AuctionHallCurrentItemModel *itemModel = [[AuctionHallCurrentItemModel alloc]initWithString:str error:nil];
+        self.itemModel = itemModel;
+        
+        //图片
+        [self.imgScrollView setImageUrls:itemModel.data.image];
+        
+        //更新信息
+        self.stateView.nameLabel.text = itemModel.data.cname;
+        self.stateView.priceLabel.text = itemModel.data.endprice;
+        
+        self.bottomView.startPrice = [NSString stringWithFormat:@"%d",itemModel.data.endprice.intValue + 100];
+        
+        //开始推拍品介绍
+        self.itemIntroTimer.model = itemModel;
+    }
+    else if (model.type.intValue == kMQTTMessageTypeChat){
+        AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]init];
+        chatModel.chatContent = model.message;
+        chatModel.userName = [model.tel stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
+        chatModel.time = model.date;
+        
+        AuctionHallChatViewModel *viewModel = [[AuctionHallChatViewModel alloc]init];
+        viewModel.dataModel = chatModel;
+        [self.viewModels addViewModel:viewModel];
+        
+        [self.table reloadData];
+        
+        [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    }
 }
+
+-(void)bid:(NSString *)price
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"userid"] = [UserInfo sharedInstance].userId;
+    params[@"cid"] = self.itemModel.data.cid;
+    params[@"phone"] = [BidManager sharedInstance].phone;
+    params[@"username"] = [BidManager sharedInstance].userName;
+    params[@"price"] = [price copy];
+    
+    [HttpManager requestWithAPI:@"company/userBid" params:params requestMethod:@"GET" completion:^(ASIFormDataRequest *request) {
+       
+        AABaseJSONModelResponse *rsp = [[AABaseJSONModelResponse alloc]initWithString:request.responseString error:nil];
+        if (rsp.result.resultCode.intValue == 0) {
+            
+            AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]init];
+            bidModel.price = price;
+            bidModel.userName = [[BidManager sharedInstance].phone stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
+            bidModel.time = [FMUString timeSinceDate:[NSDate date] format:@"yyyy-MM-dd HH:mm:ss"];
+            
+            AuctionHallBidViewModel *viewModel = [[AuctionHallBidViewModel alloc]init];
+            viewModel.dataModel = bidModel;
+            [self.viewModels addViewModel:viewModel];
+            
+            [self.table reloadData];
+            [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+
+        }
+        else{
+            [self.view showHudAndAutoDismiss:@"出价失败"];
+        }
+        
+    } failed:^(ASIFormDataRequest *request) {
+        [self.view showHudAndAutoDismiss:@"出价失败"];
+    }];
+}
+
+-(void)sendChatContent:(NSString *)chatContent
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"userid"] = [UserInfo sharedInstance].userId;
+    params[@"cid"] = self.itemModel.data.cid;
+    params[@"message"] = chatContent;
+    params[@"phone"] = [BidManager sharedInstance].phone;
+    
+    
+    [HttpManager requestWithAPI:@"user/userSendMessage" params:params requestMethod:@"GET" completion:^(ASIFormDataRequest *request) {
+        
+        AABaseJSONModelResponse *rsp = [[AABaseJSONModelResponse alloc]initWithString:request.responseString error:nil];
+        if (rsp.result.resultCode.intValue == 0) {
+            NSLog(@"发生成功");
+        }
+        else{
+            [self.view showHudAndAutoDismiss:@"发送失败"];
+        }
+        
+    } failed:^(ASIFormDataRequest *request) {
+        [self.view showHudAndAutoDismiss:@"发送失败"];
+    }];
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (object == self.mqttSession) {
+        switch (self.mqttSession.status) {
+            case MQTTSessionStatusConnecting:
+                
+                break;
+            case MQTTSessionStatusConnected:
+                
+                break;
+            case MQTTSessionStatusClosed:
+                
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
+
+
 
 -(void)tapImgView
 {
-    if (self.cid) {
+    if (self.itemModel.data.cid) {
         AucationItemDetailViewController *vc = [[AucationItemDetailViewController alloc]init];
-        vc.cid = self.cid;
+        vc.cid = self.itemModel.data.cid;
         vc.shouldHideBottomView = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -351,9 +467,31 @@
         _bottomView = [[NSBundle mainBundle]loadNibNamed:@"AuctionHallInputView" owner:nil options:nil][0];
         [self.view addSubview:_bottomView];
         
-        
+        WS(weakSelf);
         [_bottomView setBidBlock:^(NSString *price){
-            NSLog(@"%@",price);
+            [weakSelf bid:price];
+        }];
+        
+        [_bottomView setSendChatBlock:^(NSString *chatContent){
+            [weakSelf sendChatContent:chatContent];
+        }];
+        
+
+        
+        [_bottomView setShouldBeginEditingBlock:^BOOL{
+            if (![BidManager sharedInstance].phone ||
+                ![BidManager sharedInstance].userName) {
+                
+                if ([UserInfo sharedInstance].loginType == kLoginTypeTraveller) {
+                    [weakSelf.view showHudAndAutoDismiss:@"请先登录"];
+                }
+                else{
+                    [[BidManager sharedInstance]showInputNameAndPhoneAlert];
+                }
+                
+                return NO;
+            }
+            return YES;
         }];
     }
     return _bottomView;
@@ -364,7 +502,7 @@
     if (!_imgScrollView) {
         _imgScrollView = [[AAImagesScrollView alloc]init];
         [self.view addSubview:_imgScrollView];
-        
+
         __weak __typeof(self)weakself = self;
         [_imgScrollView setTapBlock:^(NSArray *imgUrls, NSInteger currentIndex, id dataModel) {
             __strong __typeof(self)strongSelf = weakself;
@@ -395,6 +533,25 @@
         [self.view addSubview:_table];
     }
     return _table;
+}
+
+-(AuctionHallItemIntroTimer *)itemIntroTimer
+{
+    if (!_itemIntroTimer) {
+        _itemIntroTimer = [[AuctionHallItemIntroTimer alloc]init];
+        
+        WS(weakSelf);
+        [_itemIntroTimer setInsertModelBlock:^(NSString *text){
+            AuctionHallItemIntrolModel *introModel = [[AuctionHallItemIntrolModel alloc]init];
+            introModel.text = text;
+            
+            AuctionHallItemIntroViewModel *viewModel = [[AuctionHallItemIntroViewModel alloc]init];
+            viewModel.dataModel = introModel;
+            [weakSelf.viewModels addViewModel:viewModel];
+            [weakSelf.table reloadData];
+        }];
+    }
+    return _itemIntroTimer;
 }
 
 @end

@@ -54,46 +54,16 @@ BidManager *bidManager;
 {
     BOOL shouldShow = NO;
     
-    
-    NSString *phone = nil;
-    NSString *username = nil;
-    
-    if ([UserInfo sharedInstance].loginType == kLoginTypePhone) {
-        phone = [UserInfo sharedInstance].phone;
-    }
-    else{
-        phone = [[NSUserDefaults standardUserDefaults]objectForKey:BidPhoneKey];
-    }
-    username = [[NSUserDefaults standardUserDefaults]objectForKey:BidUsernameKey];
 
-    if (phone.length > 0 && username.length == 0) {
-        shouldShow = YES;
-        [self showNameAlert];
-    }
-    else if (phone.length == 0 && username.length == 0){
+    if (self.phone.length == 0 || self.userName.length == 0){
         shouldShow = YES;
         [self showInputNameAndPhoneAlert];
     }
+    else{
+        [self bidWithPhone:self.phone userName:self.userName];
+    }
     
     return shouldShow;
-}
-
--(void)showNameAlert
-{
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请输入姓名" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert show];
-    
-    [alert handleClickedButton:^(NSInteger buttonIndex) {
-        if (buttonIndex == 1) {
-            if ([alert textFieldAtIndex:0].text.length == 0) {
-                [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"请输入姓名"];
-            }
-            else{
-                [self bidWithPhone:[UserInfo sharedInstance].phone userName:[alert textFieldAtIndex:0].text];
-            }
-        }
-    }];
 }
 
 -(void)showInputNameAndPhoneAlert
@@ -104,11 +74,13 @@ BidManager *bidManager;
     UITextField *tf0 = [alert textFieldAtIndex:0];
     tf0.keyboardType = UIKeyboardTypeNamePhonePad;
     tf0.placeholder = @"请输入姓名";
+    tf0.text = self.userName;
     
     UITextField *tf1 = [alert textFieldAtIndex:1];
     tf1.keyboardType = UIKeyboardTypeNumberPad;
     tf1.placeholder = @"请输入手机号码";
     tf1.secureTextEntry = NO;
+    tf1.text = self.phone;
     
     [alert show];
     [alert handleClickedButton:^(NSInteger buttonIndex) {
@@ -123,7 +95,8 @@ BidManager *bidManager;
                 [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"请输入姓名"];
             }
             else{
-                [self bidWithPhone:tf1.text userName:tf0.text];
+                self.userName = tf0.text;
+                self.phone    = tf1.text;
                 
                 [[NSUserDefaults standardUserDefaults]setObject:tf0.text forKey:BidUsernameKey];
                 [[NSUserDefaults standardUserDefaults]setObject:tf1.text forKey:BidPhoneKey];
@@ -164,6 +137,26 @@ BidManager *bidManager;
     } failed:^(ASIFormDataRequest *request) {
         [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:NetworkRequestErrorDomain];
     }];
+}
+
+
+-(NSString *)userName
+{
+    if (!_userName) {
+        _userName = [[NSUserDefaults standardUserDefaults]objectForKey:BidUsernameKey];
+    }
+    return _userName;
+}
+
+-(NSString *)phone
+{
+    if ([UserInfo sharedInstance].phone) {
+        _phone = [[UserInfo sharedInstance].phone copy];
+    }
+    else{
+        _phone = [[NSUserDefaults standardUserDefaults]objectForKey:BidPhoneKey];
+    }
+    return _phone;
 }
 
 @end

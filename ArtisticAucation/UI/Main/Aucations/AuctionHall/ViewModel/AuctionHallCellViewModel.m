@@ -66,7 +66,7 @@
 
 @end
 
-@implementation AuctionHallSyetemViewModel
+@implementation AuctionHallSystemViewModel
 
 -(Class)cellClass
 {
@@ -97,7 +97,7 @@
 {
     if (_cellHeight == 0) {
         CGFloat textHeight = 0;
-        textHeight = [self.dataModel.text boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height;
+        textHeight = [self.dataModel.chatContent boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height;
         
         NSString *userName = self.dataModel.userName;
         CGFloat subtitleHeight = [userName boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] subtitleFont]} context:nil].size.height + 2;
@@ -118,6 +118,24 @@
 -(Class)cellClass
 {
     return [AuctionHallBidCell class];
+}
+
+-(CGFloat)cellHeight
+{
+    if (_cellHeight == 0) {
+        CGFloat textHeight = 0;
+        textHeight = [self.dataModel.price boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height;
+        
+        NSString *userName = self.dataModel.userName;
+        CGFloat subtitleHeight = [userName boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] subtitleFont]} context:nil].size.height + 2;
+        _cellHeight = textHeight + subtitleHeight + 3 * self.verticalMargin;
+    }
+    return _cellHeight;
+}
+
++(UIFont *)subtitleFont
+{
+    return [UIFont systemFontOfSize:12];
 }
 
 @end

@@ -47,9 +47,11 @@
     if ([viewModel isMemberOfClass:[AuctionHallChatViewModel class]]) {
         AuctionHallChatViewModel *_viewModel = (AuctionHallChatViewModel *)viewModel;
         
-        self.label.text = _viewModel.dataModel.text;
-        self.userNameLabel.text = _viewModel.dataModel.userName;
-        self.timeLabel.text = _viewModel.dataModel.time;
+        AuctionHallChatModel *dataModel = _viewModel.dataModel;
+        
+        self.label.text = dataModel.chatContent;
+        self.userNameLabel.text = dataModel.userName;
+        self.timeLabel.text = dataModel.time;
         
     }
     

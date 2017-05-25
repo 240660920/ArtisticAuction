@@ -20,6 +20,13 @@ UserInfo *userInfo;
         userInfo = [[UserInfo alloc]init];
         userInfo.userId = [[NSUserDefaults standardUserDefaults]objectForKey:@"userid"];
         userInfo.occasionList = [[NSMutableArray alloc]init];
+
+        if ([[NSUserDefaults standardUserDefaults]integerForKey:@"LoginType"]) {
+            userInfo.loginType = [[NSUserDefaults standardUserDefaults]integerForKey:@"LoginType"];
+        }
+        else{
+            userInfo.loginType = kLoginTypeTraveller;
+        }
     }
     return userInfo;
 }
@@ -58,13 +65,10 @@ UserInfo *userInfo;
 
 -(void)setLoginType:(LoginType)loginType
 {
-    [[NSUserDefaults standardUserDefaults]setObject:@(loginType) forKey:@"LoginType"];
+    _loginType = loginType;
+    
+    [[NSUserDefaults standardUserDefaults]setInteger:loginType forKey:@"LoginType"];
     [[NSUserDefaults standardUserDefaults]synchronize];
-}
-
--(LoginType )loginType
-{
-    return [[NSUserDefaults standardUserDefaults]integerForKey:@"LoginType"];
 }
 
 -(NSString *)guid
@@ -79,7 +83,7 @@ UserInfo *userInfo;
         return [NSUUID UUID].UUIDString;
     }
     else{
-        return nil;
+        return @"";
     }
 }
 

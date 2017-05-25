@@ -9,11 +9,13 @@
 #ifndef ArtisticAucation_Define_h
 #define ArtisticAucation_Define_h
 
+#define IP_Address @"123.57.162.152"
+
 #define TestMode
 
 #ifdef TestMode //测试环境
 
-#define ServerUrl @"http://www.jiahengwentou.com:8080/auction/"
+#define ServerUrl_Base @"http://www.jiahengwentou.com:8080"
 
 #define Port @"8080"
 
@@ -22,7 +24,7 @@
 
 #else  //正式环境
 
-#define ServerUrl @"http://www.jiahengwentou.com:80/auction/"
+#define ServerUrl_Base @"http://www.jiahengwentou.com:80"
 
 #define Port @"80"
 
@@ -30,7 +32,7 @@
 
 #endif
 
-
+#define ServerUrl [NSString stringWithFormat:@"%@/auction/",ServerUrl_Base]
 
 
 
@@ -89,6 +91,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 //占位图
 #define AucationItem_PlaceHolderImage [UIImage imageNamed:@"aucationItem_PlaceHolderImage"]
+
+
+//出价时的用户名和手机号
+#define BidPhoneKey [NSString stringWithFormat:@"BidPhone&userid=%@",[UserInfo sharedInstance].userId]
+#define BidUsernameKey [NSString stringWithFormat:@"BidUsername&userid=%@",[UserInfo sharedInstance].userId]
+
 
 
 typedef enum : NSUInteger {

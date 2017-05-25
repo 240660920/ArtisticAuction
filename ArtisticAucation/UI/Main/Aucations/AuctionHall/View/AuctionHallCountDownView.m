@@ -22,6 +22,7 @@
 {
     if (self = [super init]) {
         self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
+        self.userInteractionEnabled = NO;
     }
     return self;
 }

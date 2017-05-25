@@ -10,4 +10,6 @@
 
 @interface AuctionHallSystemModel : AuctionHallBaseModel
 
+@property(nonatomic,copy)NSString *text;
+
 @end

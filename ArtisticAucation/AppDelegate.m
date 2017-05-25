@@ -79,9 +79,7 @@
     if ([UserInfo sharedInstance].loginType == kLoginTypePhone) {
         [LoginManager login:kLoginTypePhone autoLogin:YES params:nil successBlock:^{
             
-        } failedBlock:^(NSString *errorMsg) {
-            [[UserInfo sharedInstance]setLoginType:kLoginTypeNone];
-            
+        } failedBlock:^(NSString *errorMsg) {            
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录失败，请重新登录" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
             [alert handleClickedButton:^(NSInteger buttonIndex) {
@@ -204,8 +202,6 @@ fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler
         [request setCompletionBlock:^{
             NSDictionary *rstDic = [weakRequest.responseString objectFromJSONString];
             if (rstDic[@"errcode"]) {
-                [[UserInfo sharedInstance]setLoginType:kLoginTypeNone];
-
                 [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"微信登录失败"];
                 return ;
             }
@@ -251,8 +247,6 @@ fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler
     [request setFailedBlock:^{
         [MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
         
-        [[UserInfo sharedInstance]setLoginType:kLoginTypeNone];
-
         [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"登录失败，请重新登录"];
     }];
     [request startAsynchronous];

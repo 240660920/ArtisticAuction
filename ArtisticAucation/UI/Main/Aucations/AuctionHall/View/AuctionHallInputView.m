@@ -13,7 +13,6 @@
 
 }
 
-
 @end
 
 @implementation AuctionHallInputView
@@ -68,10 +67,32 @@
     return YES;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return self.shouldBeginEditingBlock();
+}
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+    
+    if (textField == self.chatTf) {
+        
+        if (self.sendChatBlock && [self.chatTf.text stringByReplacingOccurrencesOfString:@" " withString:@""].length > 0) {
+            self.sendChatBlock(self.chatTf.text);
+        }
+        
+        self.chatTf.text = nil;
+    }
+    
     return YES;
+}
+
+-(void)setStartPrice:(NSString *)startPrice
+{
+    _startPrice = [startPrice copy];
+    
+    self.priceTf.text = _startPrice;
 }
 
 - (IBAction)priceMinus:(id)sender {
@@ -114,6 +135,11 @@
     }
     else{
         if (self.chatTf.hidden) {
+            BOOL shouldBid = self.shouldBeginEditingBlock();
+            if (!shouldBid) {
+                return;
+            }
+            
             [self.chatTf becomeFirstResponder];
             
             self.chatTf.hidden = NO;
@@ -133,6 +159,15 @@
 - (IBAction)bid:(id)sender {
     if (![FMUString isNumberVaild:self.priceTf.text] || self.priceTf.text.intValue % 100 != 0) {
         [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"出价必须是100的倍数"];
+        return;
+    }
+    if (self.priceTf.text.intValue <= self.startPrice.intValue) {
+        [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"出价不得低于当前价格"];
+        return;
+    }
+    
+    BOOL shouldBid = self.shouldBeginEditingBlock();
+    if (!shouldBid) {
         return;
     }
     

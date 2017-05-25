@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#define BidPhoneKey [NSString stringWithFormat:@"preBidPhone&userid=%@",[UserInfo sharedInstance].userId]
-#define BidUsernameKey [NSString stringWithFormat:@"preBidUsername&userid=%@",[UserInfo sharedInstance].userId]
-
 @interface BidManager : NSObject
 
+@property(nonatomic,copy)NSString *userName;
+@property(nonatomic,copy)NSString *phone;
 
 +(BidManager *)sharedInstance;
 
 -(void)preDisplayBid:(NSString *)price oid:(NSString *)oid cid:(NSString *)cid;
+
+-(void)showInputNameAndPhoneAlert;
 
 @end

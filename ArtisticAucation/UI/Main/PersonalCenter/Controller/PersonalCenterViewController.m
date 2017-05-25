@@ -199,7 +199,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        [UserInfo sharedInstance].loginType = kLoginTypeNone;
+        [UserInfo sharedInstance].loginType = kLoginTypeTraveller;
         [UserInfo saveUserId:@"" username:@"" passwordMd5:@""];
         [self.tabBarController.navigationController popToRootViewControllerAnimated:YES];
     }

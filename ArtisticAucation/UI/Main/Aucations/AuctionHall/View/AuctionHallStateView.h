@@ -11,6 +11,8 @@
 @interface AuctionHallStateView : UIView
 
 @property(nonatomic,copy)void(^tapItemListBlock)(void);
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 
 - (IBAction)itemList:(id)sender;
 

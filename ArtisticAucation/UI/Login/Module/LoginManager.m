@@ -94,9 +94,6 @@
     [UserInfo sharedInstance].realName     = response.data.realname;
     [UserInfo sharedInstance].phone        = response.data.phone;
     [UserInfo sharedInstance].password     = response.data.password;
-    if (loginType == kLoginTypeWeixin) { //微信登录 phone就是userid
-        [UserInfo sharedInstance].phone = [NSString stringWithFormat:@"微信用户%@",response.data.userid];
-    }
     [UserInfo sharedInstance].userId       = response.data.userid;
     [UserInfo sharedInstance].identifyCertifyState = response.data.realtype.intValue;
     [UserInfo sharedInstance].agencyName = response.data.occasionName;

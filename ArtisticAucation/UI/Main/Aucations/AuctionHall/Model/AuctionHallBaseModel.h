@@ -10,6 +10,4 @@
 
 @interface AuctionHallBaseModel : AABaseJSONModelResponse
 
-@property(nonatomic,copy)NSString *text;
-
 @end

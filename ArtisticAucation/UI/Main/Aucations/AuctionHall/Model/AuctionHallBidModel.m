@@ -10,4 +10,9 @@
 
 @implementation AuctionHallBidModel
 
+-(NSString *)price
+{
+    return [NSString stringWithFormat:@"¥%@",_price];
+}
+
 @end

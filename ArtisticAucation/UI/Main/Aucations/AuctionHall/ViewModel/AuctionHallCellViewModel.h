@@ -49,7 +49,7 @@
 @end
 
 //倒计时、结束 等系统事件
-@interface AuctionHallSyetemViewModel : AuctionHallCellViewModel<AuctionHallCellModelProtocol>
+@interface AuctionHallSystemViewModel : AuctionHallCellViewModel<AuctionHallCellModelProtocol>
 
 @property(nonatomic,strong)AuctionHallSystemModel *dataModel;
 

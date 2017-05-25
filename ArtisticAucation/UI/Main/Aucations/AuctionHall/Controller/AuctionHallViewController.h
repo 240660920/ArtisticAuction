@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    kMQTTMessageTypeItem = 1,
+    kMQTTMessageTypeChat = 2,
+} MQTTMessageType;
+
 @interface AuctionHallViewController : UIViewController
 
 @property(nonatomic,copy)NSString *oid;
