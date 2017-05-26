@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^WeixinLoginSuccessBlock)(NSString *);
+typedef void(^WeixinLoginFailureBlock)(void);
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @property(nonatomic,copy)NSString *code; //微信登陆使用的code
 
 @property(nonatomic,copy)WeixinLoginSuccessBlock weixinLoginSuccessBlock;
+@property(nonatomic,copy)WeixinLoginFailureBlock weixinLoginFailureBlock;
 
 @end
 

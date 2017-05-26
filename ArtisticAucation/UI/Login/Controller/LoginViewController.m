@@ -53,9 +53,7 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    
-    [UserInfo clearUserInfo];
+    [super viewDidAppear:animated];    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -170,41 +168,46 @@
 }
 
 - (IBAction)weixinLogin{
-//    if (![WXApi isWXAppSupportApi]) {
-//        [self.view showHudAndAutoDismiss:@"该设备不支持微信登录"];
-//        return;
-//    }
-//    if (![WXApi isWXAppInstalled]) {
-//        [self.view showHudAndAutoDismiss:@"请先安装微信"];
-//        return;
-//    }
     
-    [self.view showLoadingHud];
-        
     SendAuthReq* req =[[SendAuthReq alloc ] init ];
     req.scope = @"snsapi_userinfo" ;
     req.state = @"123" ;
     //第三方向微信终端发送一个SendAuthReq消息结构
-    [WXApi sendAuthReq:req viewController:self delegate:self];
     
-    
+    /*先设置回调*/
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    [appDelegate setWeixinLoginSuccessBlock:^(NSString *username){
-    
-        [LoginManager login:kLoginTypeWeixin autoLogin:NO params:[[NSMutableDictionary alloc]initWithObjects:@[@"1",username] forKeys:@[@"type",@"username"]] successBlock:^{
-            
-            [self.view hideAllHud];
+    [appDelegate setWeixinLoginSuccessBlock:^(NSString *uniqueId){
+        
+        [self.view hideAllHud];
+        
+        [UserInfo sharedInstance].weixinUniqueId = [uniqueId copy];
+        
+        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+        params[@"type"] = @"1";
+        params[@"username"] = [uniqueId copy];
+        
+        [LoginManager login:kLoginTypeWeixin autoLogin:NO params:params successBlock:^{
                         
-            self.subview.passwordTf.text = nil;
-            
             [self pushToTabbarController];
-            
+
         } failedBlock:^(NSString *errorMsg) {
-            
-            [self.view showHudAndAutoDismiss:NetworkErrorPrompt];
-            
+            [self.view showHudAndAutoDismiss:@"微信登录失败"];
         }];
+        
+        
+        
     }];
+    [appDelegate setWeixinLoginFailureBlock:^(){
+        [self.view hideAllHud];
+    }];
+    /**/
+
+    
+    //向微信发请求
+    if (![WXApi sendAuthReq:req viewController:self delegate:self]) {
+        [self.view showHudAndAutoDismiss:@"微信登录失败"];
+    }
+
 }
 
 - (IBAction)travelerLogin{

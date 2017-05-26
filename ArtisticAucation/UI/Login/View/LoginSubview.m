@@ -143,8 +143,8 @@
         _usernameTf.placeholder = @"手机号";
         [_usernameTf setValue:[UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
         [_usernameTf setValue:[UIFont systemFontOfSize:14] forKeyPath:@"_placeholderLabel.font"];
-        if ([[NSUserDefaults standardUserDefaults]stringForKey:@"username"].length > 0) {
-            [_usernameTf setText:[[NSUserDefaults standardUserDefaults] stringForKey:@"username"]];
+        if ([UserInfo sharedInstance].phone.length > 0) {
+            [_usernameTf setText:[UserInfo sharedInstance].phone];
         }
         _usernameTf.returnKeyType = UIReturnKeyDone;
         _usernameTf.keyboardType = UIKeyboardTypeNumberPad;

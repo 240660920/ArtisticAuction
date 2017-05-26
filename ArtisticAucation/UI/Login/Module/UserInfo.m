@@ -12,20 +12,16 @@
 
 UserInfo *userInfo;
 
+#define UserInfoArchivePath [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]stringByAppendingPathComponent:@"UserInfo"]
+
 @implementation UserInfo
 
 +(UserInfo *)sharedInstance
 {
     if (!userInfo) {
-        userInfo = [[UserInfo alloc]init];
-        userInfo.userId = [[NSUserDefaults standardUserDefaults]objectForKey:@"userid"];
-        userInfo.occasionList = [[NSMutableArray alloc]init];
-
-        if ([[NSUserDefaults standardUserDefaults]integerForKey:@"LoginType"]) {
-            userInfo.loginType = [[NSUserDefaults standardUserDefaults]integerForKey:@"LoginType"];
-        }
-        else{
-            userInfo.loginType = kLoginTypeTraveller;
+        userInfo = [NSKeyedUnarchiver unarchiveObjectWithFile:UserInfoArchivePath];
+        if (!userInfo) {
+            userInfo = [[UserInfo alloc]init];
         }
     }
     return userInfo;
@@ -33,20 +29,48 @@ UserInfo *userInfo;
 
 +(void)clearUserInfo
 {
-    [UserInfo sharedInstance].userId = nil;
-    [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"userid"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    userInfo = nil;
+    
+    [[NSFileManager defaultManager]removeItemAtPath:UserInfoArchivePath error:nil];
 }
 
-+(void)saveUserId:(NSString *)userid username:(NSString *)username passwordMd5:(NSString *)passwordMd5
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    [[NSUserDefaults standardUserDefaults]setObject:userid forKey:@"userid"];
-    [[NSUserDefaults standardUserDefaults]setObject:username forKey:@"username"];
-    [[NSUserDefaults standardUserDefaults]setObject:passwordMd5 forKey:@"password"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    if (self = [super init]) {
+        self.guid = [aDecoder decodeObjectForKey:@"guid"];
+        self.userId = [aDecoder decodeObjectForKey:@"userId"];
+        self.password = [aDecoder decodeObjectForKey:@"password"];
+        self.realName = [aDecoder decodeObjectForKey:@"realName"];
+        self.phone = [aDecoder decodeObjectForKey:@"phone"];
+        self.performanceName = [aDecoder decodeObjectForKey:@"performanceName"];
+        self.weixinUniqueId = [aDecoder decodeObjectForKey:@"weixinUniqueId"];
+        self.agencyName = [aDecoder decodeObjectForKey:@"agencyName"];
+        self.aid = [aDecoder decodeObjectForKey:@"aid"];
+        self.agencyImage = [aDecoder decodeObjectForKey:@"agencyImage"];
+        self.identifyCertifyState = [[aDecoder decodeObjectForKey:@"IdentityCertifyState"]intValue];
+        self.loginType = [[aDecoder decodeObjectForKey:@"loginType"]intValue];
+        NSLog(@"%d",self.loginType);
+    }
+    return self;
 }
 
--(void)initContactInfo:(LoginResponse *)loginResponse
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_guid forKey:@"guid"];
+    [aCoder encodeObject:_userId forKey:@"userId"];
+    [aCoder encodeObject:_password forKey:@"password"];
+    [aCoder encodeObject:_realName forKey:@"realName"];
+    [aCoder encodeObject:_phone forKey:@"phone"];
+    [aCoder encodeObject:_performanceName forKey:@"performanceName"];
+    [aCoder encodeObject:_weixinUniqueId forKey:@"weixinUniqueId"];
+    [aCoder encodeObject:_agencyName forKey:@"agencyName"];
+    [aCoder encodeObject:_aid forKey:@"aid"];
+    [aCoder encodeObject:_agencyImage forKey:@"agencyImage"];
+    [aCoder encodeObject:@(_identifyCertifyState) forKey:@"IdentityCertifyState"];
+    [aCoder encodeObject:@(_loginType) forKey:@"loginType"];
+}
+
+-(void)addContactInfo:(LoginResponse *)loginResponse
 {
     NSArray *names = loginResponse.data.contactNames;
     NSArray *phoneNums = loginResponse.data.contactPhoneNums;
@@ -63,13 +87,11 @@ UserInfo *userInfo;
     }
 }
 
--(void)setLoginType:(LoginType)loginType
+-(void)archive
 {
-    _loginType = loginType;
-    
-    [[NSUserDefaults standardUserDefaults]setInteger:loginType forKey:@"LoginType"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    [NSKeyedArchiver archiveRootObject:self toFile:UserInfoArchivePath];
 }
+
 
 -(NSString *)guid
 {

@@ -284,6 +284,9 @@
         
         [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     }
+    else if (model.type.intValue == kMQTTMessageTypeCountDown){
+        
+    }
 }
 
 -(void)bid:(NSString *)price

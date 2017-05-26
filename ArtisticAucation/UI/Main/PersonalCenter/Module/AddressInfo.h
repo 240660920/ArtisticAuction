@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AddressInfo : NSObject
+@interface AddressInfo : NSObject<NSCoding>
 
 @property(nonatomic,copy)NSString *name;
 @property(nonatomic,copy)NSString *phoneNum;

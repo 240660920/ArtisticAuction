@@ -198,9 +198,9 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) {
-        [UserInfo sharedInstance].loginType = kLoginTypeTraveller;
-        [UserInfo saveUserId:@"" username:@"" passwordMd5:@""];
+    if (buttonIndex == 0) {        
+        [UserInfo clearUserInfo];
+
         [self.tabBarController.navigationController popToRootViewControllerAnimated:YES];
     }
 }

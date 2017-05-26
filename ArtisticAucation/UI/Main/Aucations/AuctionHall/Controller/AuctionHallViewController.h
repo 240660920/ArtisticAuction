@@ -11,6 +11,7 @@
 typedef enum : NSUInteger {
     kMQTTMessageTypeItem = 1,
     kMQTTMessageTypeChat = 2,
+    kMQTTMessageTypeCountDown = 3,
 } MQTTMessageType;
 
 @interface AuctionHallViewController : UIViewController

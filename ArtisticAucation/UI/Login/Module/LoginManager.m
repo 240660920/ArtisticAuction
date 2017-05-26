@@ -17,8 +17,8 @@
     if (loginType == kLoginTypePhone) {
         if (autoLogin == YES) {
             params = [[NSMutableDictionary alloc]init];
-            params[@"phoneNum"] = [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
-            params[@"password"] = [[NSUserDefaults standardUserDefaults]objectForKey:@"password"];
+            params[@"phoneNum"] = [UserInfo sharedInstance].phone;
+            params[@"password"] = [UserInfo sharedInstance].password;
             params[@"type"] = @"0";
         }
         
@@ -30,7 +30,8 @@
                 [self setUserInfoWithLoginResponse:response username:params[@"phoneNum"] password:params[@"password"] loginType:loginType];
                 
                 [UserInfo sharedInstance].loginType = kLoginTypePhone;
-                [UserInfo saveUserId:response.data.userid username:response.data.phone passwordMd5:params[@"password"]];
+                
+                [[UserInfo sharedInstance]archive];
                 
                 successBlock();
             }
@@ -54,16 +55,23 @@
     }
     //微信登录
     else if (loginType == kLoginTypeWeixin){
+        if (autoLogin) {
+            params = [[NSMutableDictionary alloc]init];
+            params[@"type"] = @"1";
+            params[@"username"] = [UserInfo sharedInstance].weixinUniqueId;
+        }
+        
         [HttpManager requestWithAPI:@"user/userLogin" params:params requestMethod:@"POST" completion:^(ASIFormDataRequest *request) {
             
             LoginResponse *response = [[LoginResponse alloc]initWithString:request.responseString error:nil];
             if (response && response.result.resultCode.intValue == 0) {
                 
-                [self setUserInfoWithLoginResponse:response username:params[@"username"] password:@"" loginType:loginType];
+                [self setUserInfoWithLoginResponse:response username:params[@"username"] password:@"" loginType:kLoginTypeWeixin];
                 
                 [UserInfo sharedInstance].loginType = kLoginTypeWeixin;
-                [UserInfo saveUserId:@"" username:@"" passwordMd5:@""];
                 
+                [[UserInfo sharedInstance]archive];
+
                 successBlock();
             }
             else{
@@ -83,7 +91,8 @@
     else if (loginType == kLoginTypeTraveller){
         
         [UserInfo sharedInstance].loginType = kLoginTypeTraveller;
-        [UserInfo saveUserId:@"" username:@"" passwordMd5:@""];
+
+        [[UserInfo sharedInstance]archive];
 
         successBlock();
     }
@@ -98,7 +107,7 @@
     [UserInfo sharedInstance].identifyCertifyState = response.data.realtype.intValue;
     [UserInfo sharedInstance].agencyName = response.data.occasionName;
     
-    [[UserInfo sharedInstance]initContactInfo:response];
+    [[UserInfo sharedInstance]addContactInfo:response];
 }
 
 @end

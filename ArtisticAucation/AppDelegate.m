@@ -76,8 +76,9 @@
     
     
     //自动登录
-    if ([UserInfo sharedInstance].loginType == kLoginTypePhone) {
-        [LoginManager login:kLoginTypePhone autoLogin:YES params:nil successBlock:^{
+    LoginType loginType = [UserInfo sharedInstance].loginType;
+    if (loginType == kLoginTypePhone || loginType == kLoginTypeWeixin) {
+        [LoginManager login:loginType autoLogin:YES params:nil successBlock:^{
             
         } failedBlock:^(NSString *errorMsg) {            
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"登录失败，请重新登录" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -197,22 +198,29 @@ fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler
         
         
         
+        [[UIApplication sharedApplication].keyWindow showLoadingHud];
+        
         ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WeixinAppId,WeixinAppSecret,self.code]]];
         __weak ASIHTTPRequest *weakRequest = request;
         [request setCompletionBlock:^{
+            [[UIApplication sharedApplication].keyWindow hideAllHud];
+            
             NSDictionary *rstDic = [weakRequest.responseString objectFromJSONString];
             if (rstDic[@"errcode"]) {
                 [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"微信登录失败"];
+                self.weixinLoginFailureBlock();
                 return ;
             }
             
             if (rstDic[@"access_token"] && rstDic[@"openid"]) {
-                NSString *accessToken = rstDic[@"access_token"];
                 NSString *openId = rstDic[@"openid"];
-                [self requestWeixinInfo:accessToken openId:openId];
+                self.weixinLoginSuccessBlock(openId);
+                
+                
             }
         }];
         [request setFailedBlock:^{
+            [[UIApplication sharedApplication].keyWindow hideAllHud];
             [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"微信登陆失败"];
         }];
         [request startAsynchronous];
@@ -230,6 +238,7 @@ fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler
     }
 }
 
+/*获取微信用户信息
 -(void)requestWeixinInfo:(NSString *)accessToken openId:(NSString *)openid
 {
     NSString *urlStr = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",accessToken,openid];
@@ -245,12 +254,13 @@ fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler
         }
     }];
     [request setFailedBlock:^{
-        [MBProgressHUD hideAllHUDsForView:[UIApplication sharedApplication].keyWindow animated:YES];
+        [[UIApplication sharedApplication].keyWindow hideAllHud];
         
         [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"登录失败，请重新登录"];
     }];
     [request startAsynchronous];
 }
+*/
 
 -(void)requestLaunchAdImage
 {

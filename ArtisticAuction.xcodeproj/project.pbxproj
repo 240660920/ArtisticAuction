@@ -1973,12 +1973,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94A1374A1B8EEB1F00D8DDF6 /* Build configuration list for PBXNativeTarget "ArtisticAuction" */;
 			buildPhases = (
-				E324F4BCCDDA17D69079B922 /* 📦 Check Pods Manifest.lock */,
+				E324F4BCCDDA17D69079B922 /* [CP] Check Pods Manifest.lock */,
 				94A137231B8EEB1F00D8DDF6 /* Sources */,
 				94A137241B8EEB1F00D8DDF6 /* Frameworks */,
 				94A137251B8EEB1F00D8DDF6 /* Resources */,
-				E0D6FA799DF6EEC5A9656E17 /* 📦 Embed Pods Frameworks */,
-				87830E2CFD025C2CE0055ACB /* 📦 Copy Pods Resources */,
+				E0D6FA799DF6EEC5A9656E17 /* [CP] Embed Pods Frameworks */,
+				87830E2CFD025C2CE0055ACB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2116,14 +2116,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		87830E2CFD025C2CE0055ACB /* 📦 Copy Pods Resources */ = {
+		87830E2CFD025C2CE0055ACB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2131,14 +2131,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E0D6FA799DF6EEC5A9656E17 /* 📦 Embed Pods Frameworks */ = {
+		E0D6FA799DF6EEC5A9656E17 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2146,19 +2146,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E324F4BCCDDA17D69079B922 /* 📦 Check Pods Manifest.lock */ = {
+		E324F4BCCDDA17D69079B922 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2456,8 +2456,70 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
 				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ran xie (2BUEK97Q8K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = U4P35974U6;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence/SMS_SDK",
+					"$(SRCROOT)/ArtisticAucation/UI/Payment/openssl",
+					"$(SRCROOT)/../",
+					"$(PROJECT_DIR)/ArtisticAucation/alipay",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay/alipay",
+				);
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MD5Digest\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
+					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
+					"$(SRCROOT)/ArtisticAucation/Payment/**",
+				);
+				INFOPLIST_FILE = ArtisticAucation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence/Weixin",
+					"$(PROJECT_DIR)/ArtisticAucation/Common/JPush/lib",
+					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
+					"$(PROJECT_DIR)/ArtisticAucation/UI/Payment",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
+				);
+				PRODUCT_NAME = ArtisticAuction;
+				PROVISIONING_PROFILE = "407942a5-628e-4439-b85c-8d6f45b647e0";
+				PROVISIONING_PROFILE_SPECIFIER = GGWHDev;
+			};
+			name = Debug;
+		};
+		94A1374C1B8EEB1F00D8DDF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
+				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2504,69 +2566,7 @@
 				);
 				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = GGWHDev;
-			};
-			name = Debug;
-		};
-		94A1374C1B8EEB1F00D8DDF6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_ENTITLEMENTS = ArtisticAuction.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
-				DEVELOPMENT_TEAM = U4P35974U6;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence/SMS_SDK",
-					"$(SRCROOT)/ArtisticAucation/UI/Payment/openssl",
-					"$(SRCROOT)/../",
-					"$(PROJECT_DIR)/ArtisticAucation/alipay",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay/alipay",
-				);
-				GCC_INPUT_FILETYPE = automatic;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"$(SDKROOT)/usr/include/libxml2\"",
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/MD5Digest\"",
-					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
-					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
-					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
-					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
-					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
-					"$(SRCROOT)/ArtisticAucation/Payment/**",
-				);
-				INFOPLIST_FILE = ArtisticAucation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence/Weixin",
-					"$(PROJECT_DIR)/ArtisticAucation/Common/JPush/lib",
-					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
-					"$(PROJECT_DIR)/ArtisticAucation/UI/Payment",
-					"$(PROJECT_DIR)",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
-				);
-				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "a6174f0b-ab6b-4052-8d4e-36aa79377f60";
-				PROVISIONING_PROFILE_SPECIFIER = GGWHAdHoc;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
