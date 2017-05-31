@@ -207,7 +207,7 @@
 #pragma mark TabelView delegate
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    self.navigationItem.rightBarButtonItem.customButton.enabled = self.dataSourceArray.count > 0;
+    self.navigationItem.rightBarButtonItem.customButton.enabled = self.dataSourceArray.count > 0 && self.occasionImageView.image;
     [self.addButton setTitle:[NSString stringWithFormat:@"添加拍品(%lu/%d件)",(unsigned long)self.dataSourceArray.count,UploadMaxCount] forState:UIControlStateNormal];
     if (self.dataSourceArray.count == UploadMaxCount) {
         self.addButton.enabled = NO;
@@ -303,6 +303,10 @@
     if (image) {
         self.addImageButton.hidden = YES;
     }
+    
+    
+    self.navigationItem.rightBarButtonItem.customButton.enabled = self.dataSourceArray.count > 0 && self.occasionImageView.image;
+
 }
 
 - (void)didReceiveMemoryWarning {

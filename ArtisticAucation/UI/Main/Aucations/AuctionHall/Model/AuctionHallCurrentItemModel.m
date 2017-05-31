@@ -17,7 +17,20 @@
 +(JSONKeyMapper *)keyMapper
 {
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"analyse" : @"description" ,
-                                                                 @"occasion" : @"occname"}];
+                                                                 @"occasion" : @"occname",
+                                                                 @"userInfo" : @"phoneNum"}];
+}
+
+-(NSString *)phone
+{
+    if (_phone) {
+        return _phone;
+    }
+    else if ([self.userInfo componentsSeparatedByString:@"&"].count > 0) {
+        NSString *ph = [self.userInfo componentsSeparatedByString:@"&"][0];
+        _phone = [ph copy];
+    }
+    return _phone ? _phone : @"";
 }
 
 @end

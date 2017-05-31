@@ -72,7 +72,7 @@
 -(NSTimer *)timer
 {
     if (!_timer) {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:2 repeats:YES block:^(NSTimer * _Nonnull timer) {
             NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%ld",(long)self.second] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:30]}];
             NSAttributedString *str = [[NSAttributedString alloc]initWithString:@"s" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:20]}];
             [attrStr appendAttributedString:str];

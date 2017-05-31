@@ -252,11 +252,16 @@
     NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSString *str = [[NSString alloc] initWithData:data encoding:encoding];
     
+    NSLog(@"--------%@",str);
+    
     MQTTMessageBaseModel *model = [[MQTTMessageBaseModel alloc]initWithString:str error:nil];
     //type=1 拍品信息
-    if (model.type.intValue == kMQTTMessageTypeItem) {
-        AuctionHallCurrentItemModel *itemModel = [[AuctionHallCurrentItemModel alloc]initWithString:str error:nil];
-        if (itemModel) {
+    if (model.type.intValue == 1) {
+
+        if (model.number > 0) {
+            
+            AuctionHallCurrentItemModel *itemModel = [[AuctionHallCurrentItemModel alloc]initWithString:str error:nil];
+            
             self.itemModel = itemModel;
             
             //图片
@@ -268,13 +273,20 @@
             //开始推拍品介绍
             self.itemIntroTimer.model = itemModel;
             
-            
-            self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",itemModel.data.endprice.floatValue];
-            self.bottomView.startPrice = [NSString stringWithFormat:@"%d",itemModel.data.endprice.intValue / 100 * 100 + 100];
+            if ([itemModel.data.phone isEqualToString:[BidManager sharedInstance].phone]) {
+                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f(自己)",itemModel.data.endprice.floatValue];
+            }
+            else{
+                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",itemModel.data.endprice.floatValue];
+            }
+            self.bottomView.startPrice = [itemModel.data.endprice copy];
         }
         //出价
         else{
             AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]initWithString:str error:nil];
+            NSString *price = [bidModel.price copy];
+            bidModel.price = [NSString stringWithFormat:@"¥%.0f",price.floatValue];
+            
             
             AuctionHallBidViewModel *bidViewModel = [[AuctionHallBidViewModel alloc]init];
             bidViewModel.dataModel = bidModel;
@@ -283,25 +295,56 @@
             [self.table reloadData];
             [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 
+            if ([bidModel.phone isEqualToString:[BidManager sharedInstance].phone]) {
+                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f(自己)",price.floatValue];
+            }
+            else{
+                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",price.floatValue];
+            }
+            self.bottomView.startPrice = [price copy];
             
-            self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",bidModel.price.floatValue];
-            self.bottomView.startPrice = [NSString stringWithFormat:@"%d",bidModel.price.intValue / 100 * 100 + 100];
+            
+            self.itemModel.data.phone = [bidModel.phone copy];
+            
+            [self.countDownView stop];
         }
     }
-    //聊天信息
-    else if (model.type.intValue == kMQTTMessageTypeChat){
-        AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]initWithString:str error:nil];
-        chatModel.userName = [chatModel.userName stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
-        
-        AuctionHallChatViewModel *viewModel = [[AuctionHallChatViewModel alloc]init];
-        viewModel.dataModel = chatModel;
-        [self.viewModels addViewModel:viewModel];
-        
-        [self.table reloadData];
-        [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    //聊天信息、成交信息
+    else if (model.type.intValue == 2){
+        //成交
+        if (model.tel.length == 0 && model.message.length > 0) {
+            AuctionHallSystemModel *sysModel = [[AuctionHallSystemModel alloc]initWithString:str error:nil];
+            
+            AuctionHallSystemViewModel *viewModel = [[AuctionHallSystemViewModel alloc]init];
+            viewModel.dataModel = sysModel;
+            [self.viewModels addViewModel:viewModel];
+            
+            [self.table reloadData];
+            [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+            
+            
+            
+            [self.countDownView stop];
+        }
+        //聊天
+        else if (model.tel.length > 0 && model.message.length > 0){
+            AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]initWithString:str error:nil];
+            chatModel.userName = [chatModel.userName stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
+            
+            AuctionHallChatViewModel *viewModel = [[AuctionHallChatViewModel alloc]init];
+            viewModel.dataModel = chatModel;
+            [self.viewModels addViewModel:viewModel];
+            
+            [self.table reloadData];
+            [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+        }
+        else{
+            //开始倒计时
+            [self.countDownView showWithSecond:10];
+        }
     }
-    else if (model.type.intValue == kMQTTMessageTypeCountDown){
-        NSLog(@"%@",str);
+    else if (model.type.intValue == 3){
+
     }
 }
 
@@ -477,7 +520,18 @@
         
         WS(weakSelf);
         [_bottomView setBidBlock:^(NSString *price){
-            [weakSelf bid:price];
+            if ([weakSelf.itemModel.data.phone isEqualToString:[BidManager sharedInstance].phone]) {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"当前最高价格已是自己保持\n确认继续出价？" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+                [alert show];
+                [alert handleClickedButton:^(NSInteger buttonIndex) {
+                    if (buttonIndex == 1) {
+                        [weakSelf bid:price];
+                    }
+                }];
+            }
+            else{
+                [weakSelf bid:price];
+            }
         }];
         
         [_bottomView setSendChatBlock:^(NSString *chatContent){

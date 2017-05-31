@@ -115,6 +115,8 @@
 
 -(void)stop
 {
+    self.currentIndex = 0;
+    
     [self.timer invalidate];
     self.timer = nil;
     

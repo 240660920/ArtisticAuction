@@ -92,7 +92,8 @@
 {
     _startPrice = [startPrice copy];
     
-    self.priceTf.text = _startPrice;
+    NSString *newPrice = [NSString stringWithFormat:@"%d",_startPrice.intValue / 100  * 100 + 100];
+    self.priceTf.text = newPrice;
 }
 
 - (IBAction)priceMinus:(id)sender {

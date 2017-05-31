@@ -11,6 +11,8 @@
 @interface MQTTMessageBaseModel : AABaseJSONModelResponse
 
 @property(nonatomic,copy)NSString *type;
+@property(nonatomic,copy)NSString *tel;
+@property(nonatomic,copy)NSString *message;
 
 @property(nonatomic,assign)NSInteger number;
 

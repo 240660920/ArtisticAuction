@@ -13,7 +13,7 @@
 +(JSONKeyMapper *)keyMapper
 {
     return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"price" : @"nowprice",
-                                                                 @"userName" : @"tel",
+                                                                 @"phone" : @"tel",
                                                                  @"time" : @"date"}];
 }
 

@@ -126,7 +126,7 @@
         CGFloat textHeight = 0;
         textHeight = [self.dataModel.price boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height;
         
-        NSString *userName = self.dataModel.userName;
+        NSString *userName = self.dataModel.phone;
         CGFloat subtitleHeight = [userName boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] subtitleFont]} context:nil].size.height + 2;
         _cellHeight = textHeight + subtitleHeight + 3 * self.verticalMargin;
     }

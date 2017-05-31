@@ -50,7 +50,7 @@
         AuctionHallBidModel *dataModel = _viewModel.dataModel;
         
         self.label.text = dataModel.price;
-        self.userNameLabel.text = dataModel.userName;
+        self.userNameLabel.text = dataModel.phone;
         self.timeLabel.text = dataModel.time;
         
     }

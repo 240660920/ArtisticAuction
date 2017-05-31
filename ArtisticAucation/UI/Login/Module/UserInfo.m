@@ -22,8 +22,8 @@ UserInfo *userInfo;
         userInfo = [NSKeyedUnarchiver unarchiveObjectWithFile:UserInfoArchivePath];
         if (!userInfo) {
             userInfo = [[UserInfo alloc]init];
-            userInfo.occasionList = [[NSMutableArray alloc]init];
         }
+        userInfo.occasionList = [[NSMutableArray alloc]init];
     }
     return userInfo;
 }

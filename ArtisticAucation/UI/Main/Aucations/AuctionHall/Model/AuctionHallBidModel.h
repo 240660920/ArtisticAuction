@@ -10,7 +10,7 @@
 
 @interface AuctionHallBidModel : AuctionHallBaseModel
 
-@property(nonatomic,copy)NSString *userName;
+@property(nonatomic,copy)NSString *phone;
 @property(nonatomic,copy)NSString *time;
 @property(nonatomic,copy)NSString *price;
 

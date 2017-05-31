@@ -10,4 +10,9 @@
 
 @implementation AuctionHallSystemModel
 
++(JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"text" : @"message"}];
+}
+
 @end
