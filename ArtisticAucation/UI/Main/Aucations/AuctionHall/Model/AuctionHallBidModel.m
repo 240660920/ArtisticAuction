@@ -10,9 +10,11 @@
 
 @implementation AuctionHallBidModel
 
--(NSString *)price
++(JSONKeyMapper *)keyMapper
 {
-    return [NSString stringWithFormat:@"¥%@",_price];
+    return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"price" : @"nowprice",
+                                                                 @"userName" : @"tel",
+                                                                 @"time" : @"date"}];
 }
 
 @end

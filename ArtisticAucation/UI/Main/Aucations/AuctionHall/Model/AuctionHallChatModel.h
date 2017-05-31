@@ -13,5 +13,7 @@
 @property(nonatomic,copy)NSString *userName;
 @property(nonatomic,copy)NSString *time;
 @property(nonatomic,copy)NSString *chatContent;
-
+@property(nonatomic,copy)NSString *message;
+@property(nonatomic,copy)NSString *tel;
+@property(nonatomic,copy)NSString *date;
 @end

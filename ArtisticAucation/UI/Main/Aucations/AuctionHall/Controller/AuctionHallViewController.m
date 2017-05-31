@@ -256,36 +256,52 @@
     //type=1 拍品信息
     if (model.type.intValue == kMQTTMessageTypeItem) {
         AuctionHallCurrentItemModel *itemModel = [[AuctionHallCurrentItemModel alloc]initWithString:str error:nil];
-        self.itemModel = itemModel;
-        
-        //图片
-        [self.imgScrollView setImageUrls:itemModel.data.image];
-        
-        //更新信息
-        self.stateView.nameLabel.text = itemModel.data.cname;
-        self.stateView.priceLabel.text = itemModel.data.endprice;
-        
-        self.bottomView.startPrice = [NSString stringWithFormat:@"%d",itemModel.data.endprice.intValue + 100];
-        
-        //开始推拍品介绍
-        self.itemIntroTimer.model = itemModel;
+        if (itemModel) {
+            self.itemModel = itemModel;
+            
+            //图片
+            [self.imgScrollView setImageUrls:itemModel.data.image];
+            
+            //名称
+            self.stateView.nameLabel.text = itemModel.data.cname;
+            
+            //开始推拍品介绍
+            self.itemIntroTimer.model = itemModel;
+            
+            
+            self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",itemModel.data.endprice.floatValue];
+            self.bottomView.startPrice = [NSString stringWithFormat:@"%d",itemModel.data.endprice.intValue / 100 * 100 + 100];
+        }
+        //出价
+        else{
+            AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]initWithString:str error:nil];
+            
+            AuctionHallBidViewModel *bidViewModel = [[AuctionHallBidViewModel alloc]init];
+            bidViewModel.dataModel = bidModel;
+            [self.viewModels addViewModel:bidViewModel];
+            
+            [self.table reloadData];
+            [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+
+            
+            self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",bidModel.price.floatValue];
+            self.bottomView.startPrice = [NSString stringWithFormat:@"%d",bidModel.price.intValue / 100 * 100 + 100];
+        }
     }
+    //聊天信息
     else if (model.type.intValue == kMQTTMessageTypeChat){
-        AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]init];
-        chatModel.chatContent = model.message;
-        chatModel.userName = [model.tel stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
-        chatModel.time = model.date;
+        AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]initWithString:str error:nil];
+        chatModel.userName = [chatModel.userName stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
         
         AuctionHallChatViewModel *viewModel = [[AuctionHallChatViewModel alloc]init];
         viewModel.dataModel = chatModel;
         [self.viewModels addViewModel:viewModel];
         
         [self.table reloadData];
-        
         [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     }
     else if (model.type.intValue == kMQTTMessageTypeCountDown){
-        
+        NSLog(@"%@",str);
     }
 }
 
@@ -303,17 +319,6 @@
         AABaseJSONModelResponse *rsp = [[AABaseJSONModelResponse alloc]initWithString:request.responseString error:nil];
         if (rsp.result.resultCode.intValue == 0) {
             
-            AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]init];
-            bidModel.price = price;
-            bidModel.userName = [[BidManager sharedInstance].phone stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
-            bidModel.time = [FMUString timeSinceDate:[NSDate date] format:@"yyyy-MM-dd HH:mm:ss"];
-            
-            AuctionHallBidViewModel *viewModel = [[AuctionHallBidViewModel alloc]init];
-            viewModel.dataModel = bidModel;
-            [self.viewModels addViewModel:viewModel];
-            
-            [self.table reloadData];
-            [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 
         }
         else{

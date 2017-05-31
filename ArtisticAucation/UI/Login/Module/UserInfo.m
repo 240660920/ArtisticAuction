@@ -22,6 +22,7 @@ UserInfo *userInfo;
         userInfo = [NSKeyedUnarchiver unarchiveObjectWithFile:UserInfoArchivePath];
         if (!userInfo) {
             userInfo = [[UserInfo alloc]init];
+            userInfo.occasionList = [[NSMutableArray alloc]init];
         }
     }
     return userInfo;
@@ -49,7 +50,6 @@ UserInfo *userInfo;
         self.agencyImage = [aDecoder decodeObjectForKey:@"agencyImage"];
         self.identifyCertifyState = [[aDecoder decodeObjectForKey:@"IdentityCertifyState"]intValue];
         self.loginType = [[aDecoder decodeObjectForKey:@"loginType"]intValue];
-        NSLog(@"%d",self.loginType);
     }
     return self;
 }

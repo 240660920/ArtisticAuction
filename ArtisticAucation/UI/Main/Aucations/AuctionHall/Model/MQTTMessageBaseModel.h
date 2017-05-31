@@ -14,8 +14,6 @@
 
 @property(nonatomic,assign)NSInteger number;
 
-@property(nonatomic,copy)NSString *message;
-@property(nonatomic,copy)NSString *tel;
-@property(nonatomic,copy)NSString *date;
+
 
 @end

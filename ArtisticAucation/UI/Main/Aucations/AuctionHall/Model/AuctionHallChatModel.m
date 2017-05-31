@@ -10,4 +10,11 @@
 
 @implementation AuctionHallChatModel
 
++(JSONKeyMapper *)keyMapper
+{
+    return [[JSONKeyMapper alloc]initWithModelToJSONDictionary:@{@"chatContent" : @"message",
+                                                                 @"userName" : @"tel",
+                                                                 @"time" : @"date"}];
+}
+
 @end
