@@ -6,9 +6,9 @@
 //  Copyright © 2017年 xieran. All rights reserved.
 //
 
-#import "AuctionHallBaseModel.h"
+#import "MQTTMessageBaseModel.h"
 
-@interface AuctionHallSystemModel : AuctionHallBaseModel
+@interface AuctionHallSystemModel : MQTTMessageBaseModel
 
 @property(nonatomic,copy)NSString *text;
 

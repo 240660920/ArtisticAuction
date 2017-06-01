@@ -8,6 +8,16 @@
 
 #import "AuctionHallCurrentItemModel.h"
 
+@implementation AuctionHallItemIntrolModel
+
+@end
+
+
+
+
+
+
+
 @implementation AuctionHallCurrentItemOccasionModel
 
 @end

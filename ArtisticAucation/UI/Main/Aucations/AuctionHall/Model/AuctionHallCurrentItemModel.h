@@ -8,14 +8,26 @@
 
 #import "MQTTMessageBaseModel.h"
 
-@interface AuctionHallCurrentItemOccasionModel : AABaseJSONModelResponse
+/*用于数据展示*/
+@interface AuctionHallItemIntrolModel : NSObject
+
+@property(nonatomic,copy)NSString *text;
+
+@end
+/**/
+
+
+
+
+
+@interface AuctionHallCurrentItemOccasionModel : MQTTMessageBaseModel
 
 @property(nonatomic,copy)NSString *oid;
 
 @end
 
 
-@interface AuctionHallCurrentItemDataModel : AABaseJSONModelResponse
+@interface AuctionHallCurrentItemDataModel : MQTTMessageBaseModel
 
 @property(nonatomic,copy)NSString *cname;
 @property(nonatomic,copy)NSString *endprice;
@@ -29,10 +41,9 @@
 
 @end
 
-@interface AuctionHallCurrentItemModel : AABaseJSONModelResponse
+@interface AuctionHallCurrentItemModel : MQTTMessageBaseModel
 
 @property(nonatomic,strong)AuctionHallCurrentItemDataModel *data;
 @property(nonatomic,assign)NSInteger index;
-@property(nonatomic,copy)NSString *type;
 
 @end

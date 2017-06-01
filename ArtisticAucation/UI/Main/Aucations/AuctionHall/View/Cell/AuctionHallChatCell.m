@@ -50,9 +50,14 @@
         AuctionHallChatModel *dataModel = _viewModel.dataModel;
         
         self.label.text = dataModel.chatContent;
-        self.userNameLabel.text = dataModel.userName;
         self.timeLabel.text = dataModel.time;
         
+        if (dataModel.userName.length == 11) {
+            self.userNameLabel.text = [dataModel.userName stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
+        }
+        else{
+            self.userNameLabel.text = dataModel.userName;
+        }
     }
     
 }

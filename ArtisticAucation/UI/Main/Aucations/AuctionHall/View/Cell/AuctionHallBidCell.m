@@ -49,7 +49,7 @@
         
         AuctionHallBidModel *dataModel = _viewModel.dataModel;
         
-        self.label.text = dataModel.price;
+        self.label.text = [NSString stringWithFormat:@"¥%0.f",dataModel.price.floatValue];
         self.userNameLabel.text = dataModel.phone;
         self.timeLabel.text = dataModel.time;
         

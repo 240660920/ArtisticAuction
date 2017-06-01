@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AuctionHallBaseModel.h"
-#import "AuctionHallItemIntrolModel.h"
+#import "AuctionHallCurrentItemModel.h"
 #import "AuctionHallChatModel.h"
 #import "AuctionHallSystemModel.h"
 #import "AuctionHallBidModel.h"

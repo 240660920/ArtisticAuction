@@ -255,9 +255,8 @@
     NSLog(@"--------%@",str);
     
     MQTTMessageBaseModel *model = [[MQTTMessageBaseModel alloc]initWithString:str error:nil];
-    //type=1 拍品信息
     if (model.type.intValue == 1) {
-
+        //拍品信息
         if (model.number > 0) {
             
             AuctionHallCurrentItemModel *itemModel = [[AuctionHallCurrentItemModel alloc]initWithString:str error:nil];
@@ -284,8 +283,6 @@
         //出价
         else{
             AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]initWithString:str error:nil];
-            NSString *price = [bidModel.price copy];
-            bidModel.price = [NSString stringWithFormat:@"¥%.0f",price.floatValue];
             
             
             AuctionHallBidViewModel *bidViewModel = [[AuctionHallBidViewModel alloc]init];
@@ -296,15 +293,15 @@
             [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 
             if ([bidModel.phone isEqualToString:[BidManager sharedInstance].phone]) {
-                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f(自己)",price.floatValue];
+                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f(自己)",bidModel.price.floatValue];
             }
             else{
-                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",price.floatValue];
+                self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",bidModel.price.floatValue];
             }
-            self.bottomView.startPrice = [price copy];
+            self.bottomView.startPrice = bidModel.price;
             
             
-            self.itemModel.data.phone = [bidModel.phone copy];
+            self.itemModel.data.phone = bidModel.phone;
             
             [self.countDownView stop];
         }
@@ -323,13 +320,12 @@
             [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
             
             
-            
+            //中断倒计时
             [self.countDownView stop];
         }
         //聊天
         else if (model.tel.length > 0 && model.message.length > 0){
             AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]initWithString:str error:nil];
-            chatModel.userName = [chatModel.userName stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
             
             AuctionHallChatViewModel *viewModel = [[AuctionHallChatViewModel alloc]init];
             viewModel.dataModel = chatModel;
@@ -402,13 +398,14 @@
     if (object == self.mqttSession) {
         switch (self.mqttSession.status) {
             case MQTTSessionStatusConnecting:
-                
+                self.titleView.occasionLabel.text = [NSString stringWithFormat:@"%@(连接中...)",self.occasionName];
                 break;
             case MQTTSessionStatusConnected:
-                
+                self.titleView.occasionLabel.text = self.occasionName;
                 break;
             case MQTTSessionStatusClosed:
-                
+            case MQTTSessionStatusError:
+                self.titleView.occasionLabel.text = [NSString stringWithFormat:@"%@(未连接)",self.occasionName];
                 break;
             default:
                 break;
