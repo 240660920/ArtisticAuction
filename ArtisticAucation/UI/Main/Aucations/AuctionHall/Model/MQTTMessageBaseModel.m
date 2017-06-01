@@ -10,7 +10,7 @@
 
 @implementation MQTTMessageBaseModel
 
--(MQTTMessageType)typeEnm
+-(MQTTMessageType)typeEnum
 {
     if (self.type.intValue == 1) {
         if (self.number > 0) {
