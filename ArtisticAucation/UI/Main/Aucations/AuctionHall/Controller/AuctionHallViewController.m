@@ -255,10 +255,10 @@
     NSLog(@"--------%@",str);
     
     MQTTMessageBaseModel *model = [[MQTTMessageBaseModel alloc]initWithString:str error:nil];
-    if (model.type.intValue == 1) {
+    
+    switch (model.typeEnum) {
         //拍品信息
-        if (model.number > 0) {
-            
+        case kMQTTMessageTypeItem:{
             AuctionHallCurrentItemModel *itemModel = [[AuctionHallCurrentItemModel alloc]initWithString:str error:nil];
             
             self.itemModel = itemModel;
@@ -279,11 +279,12 @@
                 self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f",itemModel.data.endprice.floatValue];
             }
             self.bottomView.startPrice = [itemModel.data.endprice copy];
+
         }
+            break;
         //出价
-        else{
+        case kMQTTMessageTypeBid:{
             AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]initWithString:str error:nil];
-            
             
             AuctionHallBidViewModel *bidViewModel = [[AuctionHallBidViewModel alloc]init];
             bidViewModel.dataModel = bidModel;
@@ -291,7 +292,7 @@
             
             [self.table reloadData];
             [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-
+            
             if ([bidModel.phone isEqualToString:[BidManager sharedInstance].phone]) {
                 self.stateView.priceLabel.text = [NSString stringWithFormat:@"¥%.0f(自己)",bidModel.price.floatValue];
             }
@@ -304,12 +305,11 @@
             self.itemModel.data.phone = bidModel.phone;
             
             [self.countDownView stop];
+
         }
-    }
-    //聊天信息、成交信息
-    else if (model.type.intValue == 2){
+            break;
         //成交
-        if (model.tel.length == 0 && model.message.length > 0) {
+        case kMQTTMessageTypeDeal:{
             AuctionHallSystemModel *sysModel = [[AuctionHallSystemModel alloc]initWithString:str error:nil];
             
             AuctionHallSystemViewModel *viewModel = [[AuctionHallSystemViewModel alloc]init];
@@ -322,9 +322,11 @@
             
             //中断倒计时
             [self.countDownView stop];
+
         }
+            break;
         //聊天
-        else if (model.tel.length > 0 && model.message.length > 0){
+        case kMQTTMessageTypeChat:{
             AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]initWithString:str error:nil];
             
             AuctionHallChatViewModel *viewModel = [[AuctionHallChatViewModel alloc]init];
@@ -333,14 +335,16 @@
             
             [self.table reloadData];
             [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+
         }
-        else{
+            break;
+        //倒计时
+        case kMQTTMessageTypeCountDown:
             //开始倒计时
             [self.countDownView showWithSecond:10];
-        }
-    }
-    else if (model.type.intValue == 3){
-
+            break;
+        default:
+            break;
     }
 }
 
