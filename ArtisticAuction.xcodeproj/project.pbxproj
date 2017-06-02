@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52EC48C71EE0FDEA002F3697 /* AuctionHallViewController+MessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EC48C61EE0FDEA002F3697 /* AuctionHallViewController+MessageManager.m */; };
 		940D61EF1BE79C060021D199 /* RealNameCerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 940D61EE1BE79C060021D199 /* RealNameCerViewController.xib */; };
 		940D97B31BAC14780064F381 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 940D97B11BAC14780064F381 /* RegistViewController.m */; };
 		940D97B71BAC161E0064F381 /* RegistTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 940D97B61BAC161E0064F381 /* RegistTextField.m */; };
@@ -248,6 +249,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52EC48C51EE0FDEA002F3697 /* AuctionHallViewController+MessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AuctionHallViewController+MessageManager.h"; sourceTree = "<group>"; };
+		52EC48C61EE0FDEA002F3697 /* AuctionHallViewController+MessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AuctionHallViewController+MessageManager.m"; sourceTree = "<group>"; };
 		5F60CDAEEEABBB14A40EDD41 /* Pods-ArtisticAucation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticAucation.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticAucation/Pods-ArtisticAucation.release.xcconfig"; sourceTree = "<group>"; };
 		62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtisticAuction.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction.release.xcconfig"; sourceTree = "<group>"; };
 		8696C41DA76950C625451993 /* libPods-ArtisticAucation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtisticAucation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -972,6 +975,8 @@
 			children = (
 				9413A3E61EC9C66F00E840FB /* AuctionHallViewController.h */,
 				9413A3E71EC9C66F00E840FB /* AuctionHallViewController.m */,
+				52EC48C51EE0FDEA002F3697 /* AuctionHallViewController+MessageManager.h */,
+				52EC48C61EE0FDEA002F3697 /* AuctionHallViewController+MessageManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2217,6 +2222,7 @@
 				9452F2C41BE85B0E0080502A /* AucationItemDescriptionCell.m in Sources */,
 				9495FA391BEF0AD1007CF0E8 /* LoginManager.m in Sources */,
 				947B4EF71BAC4B1C0083E203 /* AboutUsViewController.m in Sources */,
+				52EC48C71EE0FDEA002F3697 /* AuctionHallViewController+MessageManager.m in Sources */,
 				947DB9CB1BD0DDC500404958 /* AgencyInFavoritesController.m in Sources */,
 				944366C71C0990DB005D6C75 /* WeixinPayModule.m in Sources */,
 				94A1372D1B8EEB1F00D8DDF6 /* main.m in Sources */,
