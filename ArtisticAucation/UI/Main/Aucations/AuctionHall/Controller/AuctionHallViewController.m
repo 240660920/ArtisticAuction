@@ -123,6 +123,7 @@
     if (!cell) {
         cell = [[[viewModel cellClass] alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     [cell setViewModel:viewModel];
