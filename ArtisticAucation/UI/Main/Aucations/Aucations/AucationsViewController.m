@@ -43,7 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"拍卖";
+//    self.title = @"拍卖";
     self.navigationItem.leftBarButtonItems = nil;
     
     self.adLabel.hidden = NO;

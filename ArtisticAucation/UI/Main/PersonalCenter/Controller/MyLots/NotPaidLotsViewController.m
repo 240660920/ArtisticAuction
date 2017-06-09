@@ -104,7 +104,7 @@
     }
     
     
-    NSMutableAttributedString *promptAttrStr = [[NSMutableAttributedString alloc]initWithString:@"合计：" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14] , NSForegroundColorAttributeName : BlackColor}];
+    NSMutableAttributedString *promptAttrStr = [[NSMutableAttributedString alloc]initWithString:@"合计：¥" attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14] , NSForegroundColorAttributeName : BlackColor}];
     NSAttributedString *attrString = [[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"%.2f",totalAmount] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16] , NSForegroundColorAttributeName : [UIColor colorWithRed:1 green:51.0/255.0 blue:51.0/255.0 alpha:1]}];
     [promptAttrStr appendAttributedString:attrString];
     
