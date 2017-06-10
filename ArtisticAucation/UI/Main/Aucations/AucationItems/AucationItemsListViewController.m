@@ -14,7 +14,7 @@
 #import "NSString+PriceString.h"
 #import "AucationItemDetailViewController.h"
 #import "CommonRequests.h"
-#import "AucationHallViewController.h"
+#import "AuctionHallViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import "Remind.h"
 #import "WXApiObject.h"
@@ -333,7 +333,10 @@
 
 -(void)enterHall
 {
-    AucationHallViewController *vc = [[AucationHallViewController alloc]initWithOid:self.aucationModel.oid agencyName:self.aucationModel.agencyName occasionName:self.aucationModel.occasionName];
+    AuctionHallViewController *vc = [[AuctionHallViewController alloc]init];
+    vc.oid = self.aucationModel.oid;
+    vc.agencyName = self.aucationModel.agencyName;
+    vc.occasionName = self.aucationModel.occasionName;
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }

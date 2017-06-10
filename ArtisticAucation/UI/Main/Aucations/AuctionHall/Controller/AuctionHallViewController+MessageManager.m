@@ -38,6 +38,8 @@
             }
             self.bottomView.startPrice = [itemModel.data.endprice copy];
             
+            
+            [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
         }
             break;
             //出价

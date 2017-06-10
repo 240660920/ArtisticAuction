@@ -16,7 +16,7 @@
 #import "CommonRequests.h"
 #import <MJRefresh/MJRefresh.h>
 #import "Remind.h"
-#import "AucationHallViewController.h"
+#import "AuctionHallViewController.h"
 #import "AuctionHallViewController.h"
 #import "AdResponse.h"
 #import "AAWebViewController.h"

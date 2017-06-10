@@ -15,7 +15,7 @@
 #import "AucationItemDetailResponse.h"
 #import "BottomBidView.h"
 #import "BidManager.h"
-#import "AucationHallViewController.h"
+#import "AuctionHallViewController.h"
 #import "WXApi.h"
 
 @interface AucationItemDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>
@@ -367,7 +367,10 @@
 
 -(void)enterHall
 {
-    AucationHallViewController *vc = [[AucationHallViewController alloc]initWithOid:self.item.oid agencyName:self.item.agencyName occasionName:self.item.occasion.occasionName];
+    AuctionHallViewController *vc = [[AuctionHallViewController alloc]init];
+    vc.oid = self.item.oid;
+    vc.agencyName = self.item.agencyName;
+    vc.occasionName = self.item.occasion.occasionName;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

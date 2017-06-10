@@ -12,7 +12,7 @@
 #import "CommonRequests.h"
 #import "AucationsCell.h"
 #import "Remind.h"
-#import "AucationHallViewController.h"
+#import "AuctionHallViewController.h"
 #import "AucationItemsListViewController.h"
 #import "AgencyHeaderView.h"
 
@@ -229,7 +229,10 @@
     
     [cell setHallBlock:^(void){
         //进入拍卖大厅
-        AucationHallViewController *vc = [[AucationHallViewController alloc]initWithOid:model.oid agencyName:model.agencyName occasionName:model.occasionName];
+        AuctionHallViewController *vc = [[AuctionHallViewController alloc]init];
+        vc.oid = model.agencyName;
+        vc.agencyName = model.agencyName;
+        vc.occasionName = model.occasionName;
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }];

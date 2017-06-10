@@ -183,7 +183,6 @@
 		94A137301B8EEB1F00D8DDF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1372F1B8EEB1F00D8DDF6 /* AppDelegate.m */; };
 		94A137381B8EEB1F00D8DDF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A137371B8EEB1F00D8DDF6 /* Images.xcassets */; };
 		94A137471B8EEB1F00D8DDF6 /* ArtisticAucationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A137461B8EEB1F00D8DDF6 /* ArtisticAucationTests.m */; };
-		94A37F421BFF6A6600FB89DC /* AucationHallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A37F411BFF6A6600FB89DC /* AucationHallViewController.m */; };
 		94B330121C2BEBAC00A04347 /* AucationItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B330071C2BEBAC00A04347 /* AucationItemCell.m */; };
 		94B330131C2BEBAC00A04347 /* AucationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B330081C2BEBAC00A04347 /* AucationItemCell.xib */; };
 		94B330141C2BEBAC00A04347 /* AucationItemsListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B3300A1C2BEBAC00A04347 /* AucationItemsListResponse.m */; };
@@ -649,8 +648,6 @@
 		94A137401B8EEB1F00D8DDF6 /* ArtisticAuction.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtisticAuction.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A137451B8EEB1F00D8DDF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94A137461B8EEB1F00D8DDF6 /* ArtisticAucationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArtisticAucationTests.m; sourceTree = "<group>"; };
-		94A37F401BFF6A6600FB89DC /* AucationHallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AucationHallViewController.h; sourceTree = "<group>"; };
-		94A37F411BFF6A6600FB89DC /* AucationHallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AucationHallViewController.m; sourceTree = "<group>"; };
 		94B330061C2BEBAC00A04347 /* AucationItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AucationItemCell.h; sourceTree = "<group>"; };
 		94B330071C2BEBAC00A04347 /* AucationItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AucationItemCell.m; sourceTree = "<group>"; };
 		94B330081C2BEBAC00A04347 /* AucationItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AucationItemCell.xib; sourceTree = "<group>"; };
@@ -1146,8 +1143,6 @@
 				945C77631BFE08390091B6FC /* Remind.m */,
 				9456CBAA1CCDF043002A7FF8 /* AdScrollView.h */,
 				9456CBAB1CCDF043002A7FF8 /* AdScrollView.m */,
-				94A37F401BFF6A6600FB89DC /* AucationHallViewController.h */,
-				94A37F411BFF6A6600FB89DC /* AucationHallViewController.m */,
 			);
 			name = Aucations;
 			path = Aucations/Aucations;
@@ -2318,7 +2313,6 @@
 				945FA8211BCFA0610014D77E /* RSADataSigner.m in Sources */,
 				9413A3EA1EC9C66F00E840FB /* AuctionHallInputView.m in Sources */,
 				9481EF551ECAEFC000A5A0E6 /* AuctionHallChatModel.m in Sources */,
-				94A37F421BFF6A6600FB89DC /* AucationHallViewController.m in Sources */,
 				94543E8A1BF46051004C2062 /* AATextView.m in Sources */,
 				945FA81D1BCFA0610014D77E /* DataVerifier.m in Sources */,
 				94CF72881BC7C9D800E94D34 /* SpecialPerformanceInFavoriteCell.m in Sources */,

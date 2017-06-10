@@ -12,6 +12,8 @@
 
 @interface AuctionHallViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MQTTSessionDelegate>
 
+@property(nonatomic,strong)UIView *headerView;
+
 @end
 
 @implementation AuctionHallViewController
@@ -74,28 +76,29 @@
         make.height.equalTo(@100);
     }];
     
-    [self.imgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.titleView.mas_bottom);
-        make.height.equalTo(@(Screen_Width - 100));
-    }];
     
-    [self.stateView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.imgScrollView.mas_bottom);
-        make.height.equalTo(@55);
-    }];
+    if (!_headerView) {
+        _headerView = [[UIView alloc]init];
+        _headerView.frame = CGRectMake(0, 0, Screen_Width, Screen_Width - 100 + 55);
+        self.table.tableHeaderView = _headerView;
+    }
     
-    [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.stateView.mas_bottom);
-        make.bottom.equalTo(self.view).offset(-44);
-    }];
+    self.imgScrollView.frame = CGRectMake(0, 0, Screen_Width, Screen_Width - 100);
+    self.stateView.frame = CGRectMake(0, Screen_Width - 100, Screen_Width, 55);
+
     
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.height.equalTo(@44);
     }];
+    
+    [self.table mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.titleView.mas_bottom);
+        make.bottom.equalTo(self.bottomView.mas_top);
+    }];
+    
+
     
     [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.imgScrollView);
@@ -385,7 +388,7 @@
 {
     if (!_stateView) {
         _stateView = [[NSBundle mainBundle]loadNibNamed:@"AuctionHallStateView" owner:nil options:nil][0];
-        [self.view addSubview:_stateView];
+        [self.headerView addSubview:_stateView];
         
         __weak __typeof(self)weakself = self;
         [_stateView setTapItemListBlock:^{
@@ -446,7 +449,7 @@
 {
     if (!_imgScrollView) {
         _imgScrollView = [[AAImagesScrollView alloc]init];
-        [self.view addSubview:_imgScrollView];
+        [self.headerView addSubview:_imgScrollView];
 
         __weak __typeof(self)weakself = self;
         [_imgScrollView setTapBlock:^(NSArray *imgUrls, NSInteger currentIndex, id dataModel) {
