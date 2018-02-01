@@ -19,14 +19,14 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MD5Digest (1.1.0)
   - MJRefresh (3.1.12)
-  - MQTTClient (0.8.5):
-    - MQTTClient/Core (= 0.8.5)
-  - MQTTClient/Core (0.8.5):
+  - MQTTClient (0.9.9):
+    - MQTTClient/Core (= 0.9.9)
+  - MQTTClient/Core (0.9.9):
     - MQTTClient/Manager
     - MQTTClient/Min
-  - MQTTClient/Manager (0.8.5):
+  - MQTTClient/Manager (0.9.9):
     - MQTTClient/Min
-  - MQTTClient/Min (0.8.5)
+  - MQTTClient/Min (0.9.9)
   - Reachability (3.2)
   - SBJson (5.0.0)
   - SDWebImage (3.8.2):
@@ -55,11 +55,11 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MD5Digest: fea371215507cfcdc3c9633d02cffc7fd075ebc3
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MQTTClient: fca939bcd74aa70af2d8ee35f3e44f258f4e9888
+  MQTTClient: 5a59e0ebcad95f86ad8fc04dd4b819a944e58e0c
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SBJson: 73c848dc34be51fda282fab12bda6c426f5ead08
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
 PODFILE CHECKSUM: 8ec034050570102f456b033d690eea6dbc377ff0
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

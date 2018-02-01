@@ -18,6 +18,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [super awakeFromNib];
     
     self.backImageV.layer.masksToBounds = YES;
     self.backImageV.layer.cornerRadius = AucationItemCornerRadius;

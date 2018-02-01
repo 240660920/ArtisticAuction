@@ -11,7 +11,7 @@
 
 @interface LoginSubview ()<UITextFieldDelegate>
 
-@property(nonatomic,retain)UIView *blackRoundedView;
+@property(nonatomic,retain)UIView *line;
 
 @end
 
@@ -26,23 +26,25 @@
     
     self.layer.masksToBounds = YES;
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 1);
-    CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
-    CGContextMoveToPoint(context, 0, 44);
-    CGContextAddLineToPoint(context, rect.size.width, 44);
-    if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
-        CGContextMoveToPoint(context, rect.size.width / 2, rect.size.height);
-        CGContextAddLineToPoint(context, rect.size.width / 2, rect.size.height - 44);
-    }
-    CGContextStrokePath(context);
 
-    
+//    if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
+//        CGContextRef context = UIGraphicsGetCurrentContext();
+//        CGContextSetLineWidth(context, 1);
+//        CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
+//        CGContextMoveToPoint(context, rect.size.width / 2, rect.size.height);
+//        CGContextAddLineToPoint(context, rect.size.width / 2, rect.size.height - 44);
+//        CGContextStrokePath(context);
+//    }
 
-    
     [self.usernameTf mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self);
         make.height.equalTo(@44);
+    }];
+    
+    [self.line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self);
+        make.height.equalTo(@0.5);
+        make.top.equalTo(self).offset(44);
     }];
     
     [self.passwordTf mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -56,30 +58,20 @@
         [self.weixinLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.equalTo(self);
             make.height.equalTo(@44);
-            make.right.equalTo(self.mas_centerX);
-        }];
-        
-        [self.blackRoundedView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self);
-            make.height.equalTo(@44);
+            make.right.equalTo(self.mas_centerX).offset(-5);
         }];
         
         [self.travelerLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.bottom.equalTo(self);
             make.height.equalTo(@44);
-            make.left.equalTo(self.mas_centerX);
+            make.left.equalTo(self.mas_centerX).offset(5);
         }];
     }
     else{
-        [self.blackRoundedView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.bottom.equalTo(self);
-            make.width.equalTo(self).multipliedBy(0.5);
-            make.height.equalTo(@44);
-        }];
-        
         [self.travelerLoginButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.bottom.equalTo(self);
             make.height.equalTo(@44);
+            make.width.equalTo(@145);
         }];
     }
     
@@ -96,6 +88,14 @@
         make.right.equalTo(self);
         make.height.equalTo(@44);
     }];
+    
+    for (UIView *v in self.subviews) {
+        v.alpha = 0;
+    }
+}
+
+-(void)willMoveToSuperview:(UIView *)newSuperview
+{
     
 }
 
@@ -125,6 +125,56 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(loginWithUsername:password:)]) {
         [self.delegate loginWithUsername:self.usernameTf.text password:self.passwordTf.text];
     }
+}
+
+-(void)beginAnimation
+{
+    for (UIView *v in self.subviews) {
+        v.alpha = 0;
+    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:2];
+        self.usernameTf.alpha = 1;
+        [UIView commitAnimations];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:2];
+        self.line.alpha = 1;
+        [UIView commitAnimations];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:2];
+        self.passwordTf.alpha = 1;
+        [UIView commitAnimations];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:2];
+        self.loginButton.alpha = 1;
+        [UIView commitAnimations];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:2];
+        self.registButton.alpha = 1;
+        [UIView commitAnimations];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:2];
+        self.travelerLoginButton.alpha = 1;
+        self.weixinLoginButton.alpha = 1;
+        [UIView commitAnimations];
+    });
 }
 
 #pragma mark Properties
@@ -185,6 +235,8 @@
         [_loginButton setBackgroundImage:[[UIImage imageNamed:@"red_button_sel"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateHighlighted];
         [_loginButton setBackgroundImage:[[UIImage imageNamed:@"red_button_disable"] stretchableImageWithLeftCapWidth:5 topCapHeight:5] forState:UIControlStateDisabled];
         
+        _loginButton.layer.cornerRadius = 5;
+        _loginButton.layer.masksToBounds = true;
         _loginButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
         
@@ -204,7 +256,7 @@
         [_registButton setTitle:@"注册" forState:UIControlStateNormal];
         _registButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
         _registButton.layer.masksToBounds = YES;
-        _registButton.layer.cornerRadius = 3;
+        _registButton.layer.cornerRadius = 5;
         [_registButton addTarget:self.delegate action:@selector(regist) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:_registButton];
@@ -220,6 +272,10 @@
         [_weixinLoginButton setTitleColor:[UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1] forState:UIControlStateNormal];
         [_weixinLoginButton setTitle:@"微信登录" forState:UIControlStateNormal];
         [_weixinLoginButton addTarget:self.delegate action:@selector(weixinLogin) forControlEvents:UIControlEventTouchUpInside];
+        _weixinLoginButton.layer.borderWidth = 1;
+        _weixinLoginButton.layer.borderColor = [UIColor blackColor].CGColor;
+        _weixinLoginButton.layer.masksToBounds = true;
+        _weixinLoginButton.layer.cornerRadius = 5;
         [self addSubview:_weixinLoginButton];
     }
     return _weixinLoginButton;
@@ -233,24 +289,23 @@
         [_travelerLoginButton setTitleColor:[UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1] forState:UIControlStateNormal];
         [_travelerLoginButton setTitle:@"游客登录" forState:UIControlStateNormal];
         [_travelerLoginButton addTarget:self.delegate action:@selector(travelerLogin) forControlEvents:UIControlEventTouchUpInside];
+        _travelerLoginButton.layer.borderWidth = 1;
+        _travelerLoginButton.layer.borderColor = [UIColor blackColor].CGColor;
+        _travelerLoginButton.layer.masksToBounds = true;
+        _travelerLoginButton.layer.cornerRadius = 5;
         [self addSubview:_travelerLoginButton];
     }
     return _travelerLoginButton;
 }
 
--(UIView *)blackRoundedView
+-(UIView *)line
 {
-    if (!_blackRoundedView) {
-        _blackRoundedView = [[UIView alloc]init];
-        _blackRoundedView.backgroundColor = [UIColor clearColor];
-        _blackRoundedView.layer.masksToBounds = YES;
-        _blackRoundedView.layer.cornerRadius = 3;
-        _blackRoundedView.layer.borderWidth = 1;
-        _blackRoundedView.layer.borderColor = [UIColor blackColor].CGColor;
-        _blackRoundedView.userInteractionEnabled = NO;
-        [self addSubview:_blackRoundedView];
+    if (!_line) {
+        _line = [[UIView alloc]init];
+        _line.backgroundColor = [UIColor blackColor];
+        [self addSubview:_line];
     }
-    return _blackRoundedView;
+    return _line;
 }
 
 @end

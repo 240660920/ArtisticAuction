@@ -9,26 +9,26 @@
 #ifndef ArtisticAucation_Define_h
 #define ArtisticAucation_Define_h
 
-#define IP_Address @"123.57.162.152"
+#define IP_Address @"47.104.77.54"
 
-#define TestMode
+//#define TestMode
 
 #ifdef TestMode //测试环境
 
-#define ServerUrl_Base @"http://www.jiahengwentou.com:8080"
+#define ServerUrl_Base @"http://47.104.77.54"//@"http://www.jiahengwentou.com:8080"
 
-#define Port @"8080"
+#define Port @"80"//@"8080"
 
-#define UploadMinCount 0
+#define UploadMinCount 1
 
 
 #else  //正式环境
 
-#define ServerUrl_Base @"http://www.jiahengwentou.com:80"
+#define ServerUrl_Base @"http://47.104.77.54"
 
 #define Port @"80"
 
-#define UploadMinCount 10
+#define UploadMinCount 1
 
 #endif
 

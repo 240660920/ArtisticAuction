@@ -50,11 +50,17 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAppKey</key>
+	<string>16a0cb85c5f14</string>
+	<key>MOBAppSecret</key>
+	<string>7fbed5b12666a8e83de93c742b29bedc</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSContactsUsageDescription</key>
+	<string>艺众需要使用您的通讯录</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>YES</string>
 	<key>UIBackgroundModes</key>

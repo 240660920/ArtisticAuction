@@ -48,8 +48,6 @@
 
     //微信
     [WXApi registerApp:WeixinAppId];
-    //短信验证码(ShareSDK)
-    [SMSSDK registerApp:@"16a0cb85c5f14" withSecret:@"7fbed5b12666a8e83de93c742b29bedc"];
     
     
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];

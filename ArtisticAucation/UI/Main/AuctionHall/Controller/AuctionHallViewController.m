@@ -57,6 +57,11 @@
     
 }
 
+-(void)willMoveToParentViewController:(UIViewController *)parent
+{
+    NSLog(@"%@",parent);
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -162,7 +167,7 @@
         AABaseJSONModelResponse *rsp = [[AABaseJSONModelResponse alloc]initWithString:request.responseString error:nil];
         
         //成功
-        if (rsp.result.resultCode.intValue == 0) {
+        if (rsp != nil && rsp.result.resultCode.intValue == 0) {
             [self mqttConnect];
         }
         //失败
@@ -207,7 +212,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             // 订阅主题, qosLevel是一个枚举值,指的是消息的发布质量
             // 注意:订阅主题不能放到子线程进行,否则block不会回调
-            [self.mqttSession subscribeToTopic:self.oid atLevel:MQTTQosLevelAtMostOnce subscribeHandler:^(NSError *error, NSArray<NSNumber *> *gQoss) {
+            [self.mqttSession subscribeToTopic:self.oid atLevel:MQTTQosLevelAtLeastOnce subscribeHandler:^(NSError *error, NSArray<NSNumber *> *gQoss) {
                 if (error) {
                     NSLog(@"连接失败 = %@", error.localizedDescription);
                 }else{

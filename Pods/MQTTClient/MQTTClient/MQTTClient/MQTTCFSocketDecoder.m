@@ -2,7 +2,7 @@
 // MQTTCFSocketDecoder.m
 // MQTTClient.framework
 //
-// Copyright © 2013-2016, Christoph Krey
+// Copyright © 2013-2017, Christoph Krey. All rights reserved.
 //
 
 #import "MQTTCFSocketDecoder.h"
@@ -27,7 +27,7 @@
 
 - (void)open {
     if (self.state == MQTTCFSocketDecoderStateInitializing) {
-        [self.stream setDelegate:self];
+        (self.stream).delegate = self;
         [self.stream scheduleInRunLoop:self.runLoop forMode:self.runLoopMode];
         [self.stream open];
     }

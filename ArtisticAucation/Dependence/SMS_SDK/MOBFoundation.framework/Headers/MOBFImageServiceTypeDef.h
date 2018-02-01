@@ -9,26 +9,15 @@
 #ifndef MOBFoundation_MOBFImageServiceTypeDef_h
 #define MOBFoundation_MOBFImageServiceTypeDef_h
 
-@class UIImage;
+#import <UIKit/UIKit.h>
+
 
 /**
- *  图片加载返回事件
- *
- *  @param imageData 图片数据
+ 图片缓存处理
+ 
+ @param imageData 图片的数据
  */
-typedef void (^MOBFImageServiceResultHandler) (NSData *imageData) __deprecated;
-
-/**
- *  图片加载失败事件
- *
- *  @param error 错误信息
- */
-typedef void (^MOBFImageServiceFailHandler) (NSError *error) __deprecated;
-
-/**
- *  图片加载中事件
- */
-typedef void (^MOBFImageServiceLoadingHandler) () __deprecated;
+typedef NSData* (^MOBFImageGetterCacheHandler)(NSData *imageData);
 
 /**
  *  图片加载返回
@@ -36,6 +25,14 @@ typedef void (^MOBFImageServiceLoadingHandler) () __deprecated;
  *  @param image 图片对象
  *  @param error 错误信息
  */
-typedef void (^MOBFImageGetterResultHandler) (UIImage *image, NSError *error);
+typedef void (^MOBFImageGetterResultHandler)(UIImage *image, NSError *error);
+
+/**
+ *  图片加载返回
+ *
+ *  @param imageData 图片数据
+ *  @param error 错误信息
+ */
+typedef void (^MOBFImageDataGetterResultHandler)(NSData *imageData, NSError *error);
 
 #endif

@@ -510,6 +510,8 @@
         _table.dataSource = self;
         _table.backgroundView = [UIView backgroundView];
         _table.separatorColor = TableViewSeparateColor;
+        _table.estimatedSectionHeaderHeight = 0;
+        _table.estimatedSectionFooterHeight = 0;
         _table.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self requestData];
         }];

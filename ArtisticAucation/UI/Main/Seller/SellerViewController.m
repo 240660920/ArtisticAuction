@@ -13,6 +13,7 @@
 #import "UIAlertView+TapBlock.h"
 #import "SubmitPerformanceNameController.h"
 #import "UploadItemViewController.h"
+#import "LoginManager.h"
 #import <objc/runtime.h>
 
 @interface SellerViewController ()<UIAlertViewDelegate>
@@ -63,6 +64,53 @@
             }];
         }
             break;
+        case IdentifyCheckStateOnChecking:
+        case IdentityCheckStateFailed:
+        {
+            [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+            
+            //再调一次自动登录用以重新获取identifyCertifyState
+            [self relogin:^(BOOL success) {
+                [MBProgressHUD hideHUDForView:self.view animated:NO];
+                
+                if (success) {
+                    
+                    switch ([UserInfo sharedInstance].identifyCertifyState) {
+                        case IdentifyCheckStateOnChecking:{
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您上次提交的实名认证信息正在审核中" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                            [alert show];
+                        }
+                            break;
+                        case IdentityCheckStateFailed:{
+                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您上次提交的实名认证信息未通过" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重新认证", nil];
+                            [alert show];
+                            [alert handleClickedButton:^(NSInteger buttonIndex) {
+                                if (buttonIndex == 1) {
+                                    RealNameCerViewController *realViewController = [[RealNameCerViewController alloc] init];
+                                    [self.navigationController pushViewController:realViewController animated:YES];
+                                    
+                                }
+                            }];
+                        }
+                            
+                            break;
+                        case IdentityCheckStateFinished:{
+                            [self actionTap:sender];
+                        }
+                            
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                } else {
+                    [MBProgressHUD hideHUDForView:self.view animated:NO];
+                    
+                    [self.view showHudAndAutoDismiss:@"网络异常"];
+                }
+            }];
+        }
+            break;
         case IdentityCheckStateFinished:{
             if (sender.tag == 1) {
                 if([UserInfo sharedInstance].agencyName.length == 0){
@@ -90,26 +138,34 @@
             }
         }
             break;
-        case IdentityCheckStateFailed:{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您上次提交的实名认证信息未通过" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重新认证", nil];
-            [alert show];
-            [alert handleClickedButton:^(NSInteger buttonIndex) {
-                if (buttonIndex == 1) {
-                    RealNameCerViewController *realViewController = [[RealNameCerViewController alloc] init];
-                    [self.navigationController pushViewController:realViewController animated:YES];
-                    
-                }
-            }];
-        }
-            break;
-        case IdentifyCheckStateOnChecking:{
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您上次提交的实名认证信息正在审核中,请重新登录后再试" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-            break;
+//        case IdentityCheckStateFailed:{
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您上次提交的实名认证信息未通过" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"重新认证", nil];
+//            [alert show];
+//            [alert handleClickedButton:^(NSInteger buttonIndex) {
+//                if (buttonIndex == 1) {
+//                    RealNameCerViewController *realViewController = [[RealNameCerViewController alloc] init];
+//                    [self.navigationController pushViewController:realViewController animated:YES];
+//
+//                }
+//            }];
+//        }
+//            break;
+//        case IdentifyCheckStateOnChecking:{
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"您上次提交的实名认证信息正在审核中,请重新登录后再试" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//            break;
         default:
             break;
     }
+}
+
+-(void)relogin:(void(^)(BOOL success))hanlder {
+    [LoginManager login:[UserInfo sharedInstance].loginType autoLogin:true params:nil successBlock:^{
+        hanlder(true);
+    } failedBlock:^(NSString *errorMsg) {
+        hanlder(false);
+    }];
 }
 
 /*

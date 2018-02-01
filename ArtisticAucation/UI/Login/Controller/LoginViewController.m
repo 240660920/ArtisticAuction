@@ -35,6 +35,7 @@
     // Do any additional setup after loading the view from its nib.
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -48,12 +49,49 @@
 {
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBarHidden = YES;    
+    self.navigationController.navigationBarHidden = YES;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];    
+    [super viewDidAppear:animated];
+    
+    [self beginAnimation];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    [self.subview removeFromSuperview];
+}
+
+-(void)beginAnimation
+{
+    [self.view addSubview:self.subview];
+    [self.subview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(Screen_Height * 0.35));
+        make.height.equalTo(@(Screen_Height * 0.51));
+        make.width.equalTo(@(Screen_Width * 0.8));
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
+    
+    for (UIView *v in self.subview.subviews) {
+        v.alpha = 0;
+    }
+    
+    self.forgetPwdBtn.alpha = 0;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:2];
+        [self.subview beginAnimation];
+        self.forgetPwdBtn.alpha = 1;
+        self.backgroundImageView.layer.affineTransform = CGAffineTransformScale(self.backgroundImageView.layer.affineTransform, 1.05, 1.05);
+        [UIView commitAnimations];
+    });
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -64,13 +102,6 @@
 -(void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    
-    [self.subview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@(Screen_Height * 0.35));
-        make.height.equalTo(@(Screen_Height * 0.51));
-        make.width.equalTo(@(Screen_Width * 0.8));
-        make.centerX.equalTo(self.view.mas_centerX);
-    }];
     
     [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.left.right.equalTo(self.view);
@@ -140,7 +171,6 @@
     
     [self.view showLoadingHud];
     
-    
     [LoginManager login:kLoginTypePhone autoLogin:NO params:[[NSMutableDictionary alloc]initWithDictionary:@{@"phoneNum" : username , @"password" : [password MD5Digest] , @"type" : @"0"}] successBlock:^{
         
         [self.view hideAllHud];
@@ -170,7 +200,7 @@
 - (IBAction)weixinLogin{
     
     SendAuthReq* req =[[SendAuthReq alloc ] init ];
-    req.scope = @"snsapi_userinfo" ;
+    req.scope = @"snsapi_userinfo";
     req.state = @"123" ;
     //第三方向微信终端发送一个SendAuthReq消息结构
     
@@ -243,7 +273,6 @@
         _subview = [[LoginSubview alloc]init];
         _subview.backgroundColor = [UIColor clearColor];
         _subview.delegate = (id)self;
-        [self.view addSubview:_subview];
     }
     return _subview;
 }

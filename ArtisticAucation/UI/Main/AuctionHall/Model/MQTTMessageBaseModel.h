@@ -15,6 +15,7 @@ typedef enum : NSUInteger {
     kMQTTMessageTypeBid = 3,
     kMQTTMessageTypeDeal = 4,
     kMQTTMessageTypeCountDown = 5,
+    kMQTTMessageTypeOccassionEnd = 6,
 } MQTTMessageType;
 
 @interface MQTTMessageBaseModel : AABaseJSONModelResponse

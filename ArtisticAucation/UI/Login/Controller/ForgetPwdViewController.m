@@ -221,7 +221,7 @@
     
     [self.view showLoadingHud];
     
-    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneNumTf.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneNumTf.text zone:@"86" template:nil result:^(NSError *error) {
         if (!error)
         {
             NSLog(@"验证码发送成功");

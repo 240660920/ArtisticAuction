@@ -29,4 +29,6 @@
 @property(nonatomic,strong)UIButton *weixinLoginButton;
 @property(nonatomic,strong)UIButton *travelerLoginButton;
 
+-(void)beginAnimation;
+
 @end

@@ -3,7 +3,7 @@
 //  MQTTClient
 //
 //  Created by Christoph Krey on 06.12.15.
-//  Copyright © 2015-2016 Christoph Krey. All rights reserved.
+//  Copyright © 2015-2017 Christoph Krey. All rights reserved.
 //
 
 #import "MQTTCFSocketTransport.h"
@@ -20,12 +20,15 @@
 @synthesize delegate;
 @synthesize runLoop;
 @synthesize runLoopMode;
+@dynamic host;
+@dynamic port;
 
 - (instancetype)init {
     self = [super init];
     self.host = @"localhost";
     self.port = 1883;
     self.tls = false;
+    self.voip = false;
     self.certificates = nil;
     return self;
 }
@@ -47,12 +50,10 @@
     if (self.tls) {
         NSMutableDictionary *sslOptions = [[NSMutableDictionary alloc] init];
         
-        [sslOptions setObject:(NSString *)kCFStreamSocketSecurityLevelNegotiatedSSL
-                       forKey:(NSString*)kCFStreamSSLLevel];
+        sslOptions[(NSString*)kCFStreamSSLLevel] = (NSString *)kCFStreamSocketSecurityLevelNegotiatedSSL;
         
         if (self.certificates) {
-            [sslOptions setObject:self.certificates
-                           forKey:(NSString *)kCFStreamSSLCertificates];
+            sslOptions[(NSString *)kCFStreamSSLCertificates] = self.certificates;
         }
         
         if(!CFReadStreamSetProperty(readStream, kCFStreamPropertySSLSettings, (__bridge CFDictionaryRef)(sslOptions))){
@@ -74,6 +75,9 @@
         self.encoder.runLoop = self.runLoop;
         self.encoder.runLoopMode = self.runLoopMode;
         self.encoder.delegate = self;
+        if (self.voip) {
+            [self.encoder.stream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
+        }
         [self.encoder open];
         
         self.decoder.delegate = nil;
@@ -82,6 +86,9 @@
         self.decoder.runLoop = self.runLoop;
         self.decoder.runLoopMode = self.runLoopMode;
         self.decoder.delegate = self;
+        if (self.voip) {
+            [self.decoder.stream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
+        }
         [self.decoder open];
         
     } else {
@@ -157,9 +164,7 @@
     }
     CFArrayRef keyref = NULL;
     OSStatus importStatus = SecPKCS12Import((__bridge CFDataRef)pkcs12data,
-                                            (__bridge CFDictionaryRef)[NSDictionary
-                                                                       dictionaryWithObject:passphrase
-                                                                       forKey:(__bridge id)kSecImportExportPassphrase],
+                                            (__bridge CFDictionaryRef)@{(__bridge id)kSecImportExportPassphrase: passphrase},
                                             &keyref);
     if (importStatus != noErr) {
         DDLogWarn(@"[MQTTCFSocketTransport] Error while importing pkcs12 [%d]", (int)importStatus);
@@ -186,7 +191,7 @@
         return nil;
     }
     
-    NSArray *clientCerts = [[NSArray alloc] initWithObjects:(__bridge id)identityRef, (__bridge id)cert, nil];
+    NSArray *clientCerts = @[(__bridge id)identityRef, (__bridge id)cert];
     return clientCerts;
 }
 

@@ -96,6 +96,14 @@
             [self.table reloadData];
             [self.table scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
             
+            /*专场结束*/
+            if (chatModel.type.intValue == kMQTTMessageTypeOccassionEnd) {
+                [self.mqttSession disconnect];
+                [self.mqttSession close];
+                
+                self.bottomView.alpha = 0.5;
+                self.bottomView.userInteractionEnabled = false;
+            }
         }
             break;
             //倒计时
