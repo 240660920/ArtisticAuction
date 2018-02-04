@@ -21,6 +21,7 @@
 #import "BidManager.h"
 #import "AuctionHallItemIntroTimer.h"
 #import <MQTTClient/MQTTClient.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface AuctionHallViewController : UIViewController
 
@@ -43,5 +44,8 @@
 @property(nonatomic,strong)UITableView *table;
 
 @property(nonatomic,strong)NSMutableArray *viewModels;
+
+@property(nonatomic,strong)AVAudioPlayer *countDownSoundPlayer;
+@property(nonatomic,strong)AVAudioPlayer *dealSoundPlayer;
 
 @end

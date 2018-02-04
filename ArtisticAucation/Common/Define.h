@@ -11,7 +11,7 @@
 
 #define IP_Address @"47.104.77.54"
 
-//#define TestMode
+#define TestMode
 
 #ifdef TestMode //测试环境
 
@@ -28,7 +28,7 @@
 
 #define Port @"80"
 
-#define UploadMinCount 1
+#define UploadMinCount 15
 
 #endif
 

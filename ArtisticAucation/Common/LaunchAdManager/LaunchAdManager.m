@@ -85,18 +85,19 @@
             
             
             if (![[module valueForKey:propertyName] isEqualToString:[localModule valueForKey:propertyName]]) {
-                [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[[module valueForKey:propertyName] completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                
+                [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[[module valueForKey:propertyName] completeImageUrlString]] options:SDWebImageDownloaderLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
                     
-                } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
                     if (image) {
                         [NSKeyedArchiver archiveRootObject:module toFile:LaunchAdArchievePath];
                         
-                        [[SDImageCache sharedImageCache]storeImage:image forKey:@"LaunchAdImage" toDisk:YES];
+                        [[SDImageCache sharedImageCache]storeImage:image forKey:@"LaunchAdImage" toDisk:YES completion:nil];
                     }
                     else{
                         [[NSFileManager defaultManager]removeItemAtPath:LaunchAdArchievePath error:nil];
                         
-                        [[SDImageCache sharedImageCache]removeImageForKey:@"LaunchAdImage"];
+                        [[SDImageCache sharedImageCache]removeImageForKey:@"LaunchAdImage" fromDisk:YES withCompletion:nil];
                     }
                 }];
             }
@@ -104,7 +105,7 @@
         else{
             [[NSFileManager defaultManager]removeItemAtPath:LaunchAdArchievePath error:nil];
             
-            [[SDImageCache sharedImageCache]removeImageForKey:@"LaunchAdImage"];
+            [[SDImageCache sharedImageCache]removeImageForKey:@"LaunchAdImage" fromDisk:YES withCompletion:nil];
         }
         
         

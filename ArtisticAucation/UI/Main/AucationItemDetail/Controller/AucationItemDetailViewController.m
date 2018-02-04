@@ -10,7 +10,6 @@
 #import "AucationDetailTextCell.h"
 #import "AucationDetailTopView.h"
 #import "AucationItemDescriptionCell.h"
-#import "NSString+PriceString.h"
 #import "AgencyPerformancesViewController.h"
 #import "AucationItemDetailResponse.h"
 #import "BottomBidView.h"
@@ -393,7 +392,7 @@
 
 -(void)showNameAndPhoneAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请输入姓名和手机号码" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"领取号牌" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
     [alert textFieldAtIndex:0].placeholder = @"请输入姓名";
     [alert textFieldAtIndex:0].keyboardType = UIKeyboardTypeDecimalPad;
@@ -404,13 +403,23 @@
     
     [alert handleClickedButton:^(NSInteger buttonIndex) {
         if (buttonIndex == 1) {
-            userNameForBid = [alert textFieldAtIndex:0].text;
-            phoneNumForBid = [alert textFieldAtIndex:1].text;
-            [self showBidAlert];
-            
-            [[NSUserDefaults standardUserDefaults]setObject:userNameForBid forKey:BidUsernameKey];
-            [[NSUserDefaults standardUserDefaults]setObject:phoneNumForBid forKey:BidPhoneKey];
-            [[NSUserDefaults standardUserDefaults]synchronize];
+            if (![Utils isPhoneValue:[alert textFieldAtIndex:1].text]) {
+                [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"手机号格式不正确"];
+            }
+            else if ([alert textFieldAtIndex:1].text.length == 0){
+                [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"请输入手机号码"];
+            }
+            else if ([alert textFieldAtIndex:0].text.length == 0){
+                [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"请输入姓名"];
+            } else {
+                userNameForBid = [alert textFieldAtIndex:0].text;
+                phoneNumForBid = [alert textFieldAtIndex:1].text;
+                [self showBidAlert];
+                
+                [[NSUserDefaults standardUserDefaults]setObject:userNameForBid forKey:BidUsernameKey];
+                [[NSUserDefaults standardUserDefaults]setObject:phoneNumForBid forKey:BidPhoneKey];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+            }
         }
     }];
 }

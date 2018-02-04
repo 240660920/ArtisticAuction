@@ -73,16 +73,18 @@
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:imageView animated:NO];
         hud.mode = MBProgressHUDModeDeterminate;
         
-        [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrls[i] completeImageUrlString]] placeholderImage:nil options:SDWebImageContinueInBackground progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[imageUrls[i] completeImageUrlString]] placeholderImage:nil options:SDWebImageContinueInBackground progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
             if (receivedSize > 0) {
                 float progress = (float)receivedSize / (float)expectedSize;
                 hud.progress = progress;
             }
             
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
             [imageView setImage:image];
-            [hud hide:NO];
+            [hud hideAnimated:NO];
+            
         }];
     }
 }

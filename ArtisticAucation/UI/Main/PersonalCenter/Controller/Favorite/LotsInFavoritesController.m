@@ -8,7 +8,6 @@
 
 #import "LotsInFavoritesController.h"
 #import "AucationItemCell.h"
-#import "NSString+PriceString.h"
 #import "AucationItemsListResponse.h"
 #import "MyCollectedLotsListResponse.h"
 #import "CommonRequests.h"

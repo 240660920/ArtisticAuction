@@ -8,7 +8,7 @@ pod 'SBJson'
 pod 'MBProgressHUD'
 pod 'JSONModel'
 pod 'MD5Digest'
-pod ‘FSMediaPicker’
+##pod ‘FSMediaPicker’
 pod ‘MJRefresh’
 pod ‘BJImageCropper’
 pod 'MQTTClient'

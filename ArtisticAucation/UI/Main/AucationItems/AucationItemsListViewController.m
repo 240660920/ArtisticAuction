@@ -11,7 +11,6 @@
 #import "SessionHeader.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AucationItemsListResponse.h"
-#import "NSString+PriceString.h"
 #import "AucationItemDetailViewController.h"
 #import "CommonRequests.h"
 #import "AuctionHallViewController.h"

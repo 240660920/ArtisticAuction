@@ -68,7 +68,7 @@ BidManager *bidManager;
 
 -(void)showInputNameAndPhoneAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请输入姓名和手机号码" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"领取号牌" message:nil delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
     
     UITextField *tf0 = [alert textFieldAtIndex:0];
@@ -101,6 +101,8 @@ BidManager *bidManager;
                 [[NSUserDefaults standardUserDefaults]setObject:tf0.text forKey:BidUsernameKey];
                 [[NSUserDefaults standardUserDefaults]setObject:tf1.text forKey:BidPhoneKey];
                 [[NSUserDefaults standardUserDefaults]synchronize];
+                
+                [[UIApplication sharedApplication].keyWindow showHudAndAutoDismiss:@"领取成功"];
             }
         }
     }];

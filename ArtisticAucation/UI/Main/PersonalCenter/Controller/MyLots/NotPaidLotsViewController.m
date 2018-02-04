@@ -7,7 +7,6 @@
 //
 
 #import "NotPaidLotsViewController.h"
-#import "NSString+PriceString.h"
 #import "PayViewController.h"
 #import "SettlementModule.h"
 #import "AucationItemDetailViewController.h"

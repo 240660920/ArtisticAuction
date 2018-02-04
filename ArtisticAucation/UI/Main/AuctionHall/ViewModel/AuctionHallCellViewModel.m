@@ -41,7 +41,7 @@
 
 +(UIFont *)textFont
 {
-    return [UIFont systemFontOfSize:16];
+    return [UIFont systemFontOfSize:14];
 }
 
 @end
@@ -59,7 +59,7 @@
         CGFloat textHeight = 0;
         textHeight = [self.dataModel.text boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height;
         
-        _cellHeight = textHeight + 2 * self.verticalMargin + 2;
+        _cellHeight = textHeight + self.verticalMargin + 2;
     }
     return _cellHeight;
 }
@@ -93,22 +93,19 @@
     return [AuctionHallChatCell class];
 }
 
+-(NSString *)content
+{
+    return [NSString stringWithFormat:@"%@：%@(%@)",[self.dataModel.userName maskingUsername],self.dataModel.chatContent,[self.dataModel.time substringFromIndex:11]];
+}
+
 -(CGFloat)cellHeight
 {
     if (_cellHeight == 0) {
-        CGFloat textHeight = 0;
-        textHeight = [self.dataModel.chatContent boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height;
+        NSString *content = [self content];
         
-        NSString *userName = self.dataModel.userName;
-        CGFloat subtitleHeight = [userName boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] subtitleFont]} context:nil].size.height + 2;
-        _cellHeight = textHeight + subtitleHeight + 3 * self.verticalMargin;
+        _cellHeight = [content boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height + self.verticalMargin;
     }
     return _cellHeight;
-}
-
-+(UIFont *)subtitleFont
-{
-    return [UIFont systemFontOfSize:12];
 }
 
 @end
@@ -122,20 +119,7 @@
 
 -(CGFloat)cellHeight
 {
-    if (_cellHeight == 0) {
-        CGFloat textHeight = 0;
-        textHeight = [self.dataModel.price boundingRectWithSize:CGSizeMake(Screen_Width - 2 * self.horizonalMargin, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] textFont]} context:nil].size.height;
-        
-        NSString *userName = self.dataModel.phone;
-        CGFloat subtitleHeight = [userName boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:0 | 1 attributes:@{NSFontAttributeName : [[self class] subtitleFont]} context:nil].size.height + 2;
-        _cellHeight = textHeight + subtitleHeight + 3 * self.verticalMargin;
-    }
-    return _cellHeight;
-}
-
-+(UIFont *)subtitleFont
-{
-    return [UIFont systemFontOfSize:12];
+    return 30;
 }
 
 @end

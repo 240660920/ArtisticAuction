@@ -94,11 +94,11 @@
         
         self.headerView.collectButton.selected = item.data.collectType.boolValue;
         [self.headerView.collectButton setTitle:item.data.collectTotals forState:UIControlStateNormal];
+
         
-        
-        [[SDWebImageManager sharedManager]downloadImageWithURL:[NSURL URLWithString:[item.data.imgurl completeImageUrlString]] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        [[SDWebImageDownloader sharedDownloader]downloadImageWithURL:[NSURL URLWithString:[item.data.imgurl completeImageUrlString]] options:SDWebImageDownloaderHighPriority progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
-        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
             if (image) {
                 self.headerView.image = image;
                 self.headerView.frame = CGRectMake(0, 0, Screen_Width, [AgencyHeaderView heightForImage:image]);
@@ -106,7 +106,6 @@
                 [self.table reloadData];
             }
         }];
-        
     } failed:^(ASIFormDataRequest *request) {
         [self.view showHudAndAutoDismiss:NetworkErrorPrompt];
     }];

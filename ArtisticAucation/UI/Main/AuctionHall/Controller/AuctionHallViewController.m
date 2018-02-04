@@ -9,8 +9,7 @@
 #import "AuctionHallViewController.h"
 #import "AuctionHallViewController+MessageManager.h"
 
-
-@interface AuctionHallViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MQTTSessionDelegate>
+@interface AuctionHallViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MQTTSessionDelegate,AVAudioPlayerDelegate>
 
 @property(nonatomic,strong)UIView *headerView;
 
@@ -46,15 +45,55 @@
     
     
     _viewModels = [[NSMutableArray alloc]init];
-    
-
 
 
     [self configAutoLayout];
     
-    
     [self enterHall];
     
+    
+    AuctionHallItemIntrolModel *introlModel = [[AuctionHallItemIntrolModel alloc]init];
+    introlModel.text = @"本件拍品：lot1";
+    AuctionHallItemIntroViewModel *introlViewModel = [[AuctionHallItemIntroViewModel alloc]init];
+    introlViewModel.dataModel = introlModel;
+    
+    
+    
+    AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]init];
+    chatModel.time = @"2010-01-10 10:00:00";
+    chatModel.chatContent = @"梵蒂冈还点饭接口刮打工皇帝发广告打飞机怪怪的风格发广告";
+    chatModel.userName = @"13515110650";
+    AuctionHallChatViewModel *chatViewModel = [[AuctionHallChatViewModel alloc]init];
+    chatViewModel.dataModel = chatModel;
+    
+    AuctionHallChatModel *chatModel2 = [[AuctionHallChatModel alloc]init];
+    chatModel2.time = @"2010-01-10 10:00:00";
+    chatModel2.chatContent = @"开个房测试很反感打工皇帝发广";
+    chatModel2.userName = @"18652043055";
+    AuctionHallChatViewModel *chatViewModel2 = [[AuctionHallChatViewModel alloc]init];
+    chatViewModel2.dataModel = chatModel2;
+    
+    
+    AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]init];
+    bidModel.phone = @"17302150722";
+    bidModel.price = @"100";
+    bidModel.time = @"2010-01-01 10:20:20";
+    AuctionHallBidViewModel *bidViewModel = [[AuctionHallBidViewModel alloc]init];
+    bidViewModel.dataModel = bidModel;
+    
+    AuctionHallBidModel *bidModel2 = [[AuctionHallBidModel alloc]init];
+    bidModel2.phone = @"18652043055";
+    bidModel2.price = @"100000";
+    bidModel2.time = @"2011-11-11 10:20:20";
+    AuctionHallBidViewModel *bidViewModel2 = [[AuctionHallBidViewModel alloc]init];
+    bidViewModel2.dataModel = bidModel2;
+    
+    [self.viewModels addObject:introlViewModel];
+    [self.viewModels addObject:chatViewModel];
+    [self.viewModels addObject:chatViewModel2];
+    [self.viewModels addObject:bidViewModel];
+    [self.viewModels addObject:bidViewModel2];
+    [self.table reloadData];
 }
 
 -(void)willMoveToParentViewController:(UIViewController *)parent
@@ -102,8 +141,6 @@
         make.top.equalTo(self.titleView.mas_bottom);
         make.bottom.equalTo(self.bottomView.mas_top);
     }];
-    
-
     
     [self.countDownView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.imgScrollView);
@@ -311,7 +348,7 @@
 
 
 
--(void)tapImgView
+-(void)enterItemDetail
 {
     if (self.itemModel.data.cid) {
         AucationItemDetailViewController *vc = [[AucationItemDetailViewController alloc]init];
@@ -459,7 +496,7 @@
         __weak __typeof(self)weakself = self;
         [_imgScrollView setTapBlock:^(NSArray *imgUrls, NSInteger currentIndex, id dataModel) {
             __strong __typeof(self)strongSelf = weakself;
-            [strongSelf enterItemList];
+            [strongSelf enterItemDetail];
         }];
     }
     return _imgScrollView;
@@ -470,7 +507,7 @@
     if (!_countDownView) {
         _countDownView = [[AuctionHallCountDownView alloc]init];
         _countDownView.layer.opacity = 0;
-        [self.view addSubview:_countDownView];
+        [self.imgScrollView addSubview:_countDownView];
     }
     return _countDownView;
 }
@@ -482,7 +519,8 @@
         _table.delegate = self;
         _table.dataSource = self;
         _table.backgroundColor = [UIColor clearColor];
-        _table.separatorColor = [UIColor colorWithRed:215.0/255.0 green:215.0/255.0 blue:215.0/255.0 alpha:1];
+//        _table.separatorColor = [UIColor colorWithRed:215.0/255.0 green:215.0/255.0 blue:215.0/255.0 alpha:1];
+        _table.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_table];
     }
     return _table;
@@ -505,6 +543,22 @@
         }];
     }
     return _itemIntroTimer;
+}
+
+-(AVAudioPlayer *)countDownSoundPlayer{
+    if (!_countDownSoundPlayer) {
+        _countDownSoundPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:[[NSBundle mainBundle]pathForResource:@"count_down_sound" ofType:@"mp3"]] error:nil];
+        _countDownSoundPlayer.numberOfLoops = 5;
+    }
+    return _countDownSoundPlayer;
+}
+
+-(AVAudioPlayer *)dealSoundPlayer{
+    if (!_dealSoundPlayer) {
+        _dealSoundPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:[[NSBundle mainBundle]pathForResource:@"deal_sound" ofType:@"m4a"]] error:nil];
+        _dealSoundPlayer.volume = 0.8;
+    }
+    return _dealSoundPlayer;
 }
 
 @end

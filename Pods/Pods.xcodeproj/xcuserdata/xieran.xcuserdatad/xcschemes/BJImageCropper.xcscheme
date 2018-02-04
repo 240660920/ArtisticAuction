@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C5A70289CB4CECE2AB22B0192B6A7089'
+               BlueprintIdentifier = '255E81AA906FDF56546D1EB26986A531'
                BlueprintName = 'BJImageCropper'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libBJImageCropper.a'>

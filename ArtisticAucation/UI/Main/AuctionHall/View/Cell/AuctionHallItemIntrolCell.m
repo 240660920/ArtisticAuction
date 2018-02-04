@@ -21,7 +21,6 @@
     [self.label mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(self.verticalMargin);
         make.left.equalTo(self.contentView).offset(self.horizonalMargin);
-        make.bottom.equalTo(self.contentView).offset(-self.verticalMargin);
         make.right.equalTo(self.contentView).offset(-self.horizonalMargin);
     }];
     

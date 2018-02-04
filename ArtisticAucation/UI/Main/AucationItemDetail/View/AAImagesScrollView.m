@@ -37,7 +37,7 @@
     }
     
     
-    for (UIImageView *imageView in self.subviews) {
+    for (UIImageView *imageView in self.scrollView.subviews) {
         if ([imageView isMemberOfClass:[UIImageView class]]) {
             [imageView removeFromSuperview];
         }
@@ -46,6 +46,7 @@
     
     if (imageUrls.count <= 1) {
         self.scrollView.contentSize = CGSizeZero;
+        self.scrollView.contentOffset = CGPointZero;
     }
     else{
         self.scrollView.contentSize = CGSizeMake(Screen_Width * (imageUrls.count + 2), 0);
@@ -105,7 +106,7 @@
 {
     int contentOffset = scrollView.contentOffset.x;
     int width = Screen_Width;
-    if (contentOffset % width == 0) {
+    if (contentOffset % width == 0 && self.imageUrls.count > 1) {
         int pageIndex = contentOffset / width - 1;
         if (pageIndex == -1) {
             pageIndex = (int)self.imageUrls.count - 1;

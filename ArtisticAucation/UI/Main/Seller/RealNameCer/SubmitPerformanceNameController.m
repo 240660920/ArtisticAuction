@@ -8,7 +8,8 @@
 
 #import "SubmitPerformanceNameController.h"
 #import "OpenupSessionViewController.h"
-#import <FSMediaPicker/FSMediaPicker.h>
+#import "FSMediaPicker.h"
+#import "ZYQAssetPickerController.h"
 
 @interface SubmitPerformanceNameController ()<FSMediaPickerDelegate>
 

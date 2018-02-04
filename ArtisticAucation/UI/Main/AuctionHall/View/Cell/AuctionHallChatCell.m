@@ -20,21 +20,10 @@
 
 -(void)updateConstraints
 {
-    [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.label mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(self.horizonalMargin);
         make.top.equalTo(self.contentView).offset(self.verticalMargin);
-    }];
-    
-    [self.label mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.userNameLabel.mas_bottom).offset(self.verticalMargin);
-        make.left.equalTo(self.contentView).offset(self.horizonalMargin);
-        make.bottom.equalTo(self.contentView).offset(-self.verticalMargin);
         make.right.equalTo(self.contentView).offset(-self.horizonalMargin);
-    }];
-    
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView).offset(-self.horizonalMargin);
-        make.centerY.equalTo(self.userNameLabel);
     }];
     
     [super updateConstraints];
@@ -49,15 +38,14 @@
         
         AuctionHallChatModel *dataModel = _viewModel.dataModel;
         
-        self.label.text = dataModel.chatContent;
-        self.timeLabel.text = dataModel.time;
+        NSString *username = [[dataModel.userName mutableCopy]maskingUsername];
         
-        if (dataModel.userName.length == 11) {
-            self.userNameLabel.text = [dataModel.userName stringByReplacingCharactersInRange:NSMakeRange(7, 4) withString:@"****"];
-        }
-        else{
-            self.userNameLabel.text = dataModel.userName;
-        }
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"%@：",username] attributes:@{NSForegroundColorAttributeName : [UIColor grayColor]}];
+        [attrStr appendAttributedString:[[NSAttributedString alloc]initWithString:dataModel.chatContent attributes:@{NSForegroundColorAttributeName : BlackColor}]];
+        [attrStr appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"(%@)",[dataModel.time substringFromIndex:11]] attributes:@{NSForegroundColorAttributeName : [UIColor grayColor]}]];
+        self.label.attributedText = attrStr;
+        
+        
     }
     
 }
@@ -69,31 +57,12 @@
         _label.textColor = BlackColor;
         _label.numberOfLines = 0;
         _label.font = [[AuctionHallChatViewModel class] textFont];
+        _label.layer.masksToBounds = true;
+        _label.layer.cornerRadius = 2;
+        _label.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:223.0/255.0 blue:223.0/255.0 alpha:0.5];
         [self.contentView addSubview:_label];
     }
     return _label;
-}
-
--(UILabel *)userNameLabel
-{
-    if (!_userNameLabel) {
-        _userNameLabel = [[UILabel alloc]init];
-        _userNameLabel.textColor = RedColor;
-        _userNameLabel.font = [[AuctionHallChatViewModel class]subtitleFont];
-        [self.contentView addSubview:_userNameLabel];
-    }
-    return _userNameLabel;
-}
-
--(UILabel *)timeLabel
-{
-    if (!_timeLabel) {
-        _timeLabel = [[UILabel alloc]init];
-        _timeLabel.textColor = [UIColor grayColor];
-        _timeLabel.font = [[AuctionHallChatViewModel class]subtitleFont];
-        [self.contentView addSubview:_timeLabel];
-    }
-    return _timeLabel;
 }
 
 @end

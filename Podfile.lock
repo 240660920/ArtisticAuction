@@ -13,30 +13,28 @@ PODS:
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
   - BJImageCropper (1.0.2)
-  - FSMediaPicker (0.0.2)
   - JSONModel (1.7.0)
-  - Masonry (1.0.2)
+  - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MD5Digest (1.1.0)
-  - MJRefresh (3.1.12)
-  - MQTTClient (0.9.9):
-    - MQTTClient/Core (= 0.9.9)
-  - MQTTClient/Core (0.9.9):
+  - MJRefresh (3.1.15.3)
+  - MQTTClient (0.11.0):
+    - MQTTClient/Core (= 0.11.0)
+  - MQTTClient/Core (0.11.0):
     - MQTTClient/Manager
     - MQTTClient/Min
-  - MQTTClient/Manager (0.9.9):
+  - MQTTClient/Manager (0.11.0):
     - MQTTClient/Min
-  - MQTTClient/Min (0.9.9)
+  - MQTTClient/Min (0.11.0)
   - Reachability (3.2)
   - SBJson (5.0.0)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.3.0):
+    - SDWebImage/Core (= 4.3.0)
+  - SDWebImage/Core (4.3.0)
 
 DEPENDENCIES:
   - ASIHTTPRequest
   - BJImageCropper
-  - FSMediaPicker
   - JSONModel
   - Masonry
   - MBProgressHUD
@@ -49,17 +47,16 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ASIHTTPRequest: ec013992946676b7978dcbde6396d57312d21db4
   BJImageCropper: 18fcc5d11d78bbb5be01f7d9cf7581634338905d
-  FSMediaPicker: 89c5fe9894a288db7c87c255bdb7856e33dc4073
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MD5Digest: fea371215507cfcdc3c9633d02cffc7fd075ebc3
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MQTTClient: 5a59e0ebcad95f86ad8fc04dd4b819a944e58e0c
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MQTTClient: 524355b7088c59aa31f0a1dfa908b84c1c156ad4
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SBJson: 73c848dc34be51fda282fab12bda6c426f5ead08
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
 
-PODFILE CHECKSUM: 8ec034050570102f456b033d690eea6dbc377ff0
+PODFILE CHECKSUM: 6e5f015812e3aa255785fae17b6325d5a4b792c6
 
 COCOAPODS: 1.3.1

@@ -80,6 +80,7 @@
 		943024ED1BBA27E600807AD6 /* VerificationCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 943024EC1BBA27E600807AD6 /* VerificationCodeManager.m */; };
 		9432B5591BDA62C900F82705 /* ItemPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */; };
 		943802AC1BB4048C003446A4 /* UIBarButtonItem+CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 943802AB1BB4048C003446A4 /* UIBarButtonItem+CustomButton.m */; };
+		943BF9B2202603C800BB3618 /* FSMediaPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 943BF9B1202603C800BB3618 /* FSMediaPicker.m */; };
 		943E1D4C1BBBCD17004E2475 /* PersonalCenterTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E1D4B1BBBCD17004E2475 /* PersonalCenterTableCell.m */; };
 		943E1D4F1BBBD1F4004E2475 /* UIAlertView+TapBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 943E1D4E1BBBD1F4004E2475 /* UIAlertView+TapBlock.m */; };
 		944366C71C0990DB005D6C75 /* WeixinPayModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 944366C61C0990DB005D6C75 /* WeixinPayModule.m */; };
@@ -126,7 +127,7 @@
 		94760C2F1BB3A2A500A1E5BB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94760C2A1BB3A2A500A1E5BB /* libWeChatSDK.a */; };
 		947A31DE1BD91F2500D75424 /* NSString+CompleteImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 947A31DD1BD91F2500D75424 /* NSString+CompleteImageUrl.m */; };
 		947A31E01BD926AC00D75424 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947A31DF1BD926AC00D75424 /* SearchViewController.xib */; };
-		947A31E91BD94B6900D75424 /* NSString+PriceString.m in Sources */ = {isa = PBXBuildFile; fileRef = 947A31E81BD94B6900D75424 /* NSString+PriceString.m */; };
+		947A31E91BD94B6900D75424 /* NSString+Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 947A31E81BD94B6900D75424 /* NSString+Business.m */; };
 		947B4EE71BAC4AD80083E203 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B4ED91BAC4AD80083E203 /* PersonalCenterViewController.m */; };
 		947B4EF71BAC4B1C0083E203 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B4EEE1BAC4B1C0083E203 /* AboutUsViewController.m */; };
 		947B4EF81BAC4B1C0083E203 /* MyLotsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B4EF01BAC4B1C0083E203 /* MyLotsViewController.m */; };
@@ -151,6 +152,8 @@
 		947DB9CD1BD0DDC500404958 /* SpecialPerformanceInFavoritesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947DB9CA1BD0DDC500404958 /* SpecialPerformanceInFavoritesController.m */; };
 		947DB9E91BD486F700404958 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947DB9E81BD486F700404958 /* PayViewController.m */; };
 		947DB9ED1BD4875100404958 /* PayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947DB9EC1BD4875100404958 /* PayTableViewCell.m */; };
+		947EFC4C2026BB3C0085965C /* NSString+Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 947EFC4B2026BB3C0085965C /* NSString+Regex.m */; };
+		947EFC502026EB260085965C /* count_down_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 947EFC4E2026EB250085965C /* count_down_sound.mp3 */; };
 		94805C3B1BBA674C007BB7BF /* VerificationCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94805C3A1BBA674C007BB7BF /* VerificationCodeButton.m */; };
 		94805C401BBA8BB3007BB7BF /* ModifyInfoResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94805C3F1BBA8BB3007BB7BF /* ModifyInfoResponse.m */; };
 		94811EC21C14743700D9C837 /* RemindButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94811EC11C14743700D9C837 /* RemindButton.m */; };
@@ -189,6 +192,7 @@
 		948AE1681C16D83100D17429 /* ZYQAssetPicker.Bundle in Resources */ = {isa = PBXBuildFile; fileRef = 948AE1591C16D83100D17429 /* ZYQAssetPicker.Bundle */; };
 		948AE1691C16D83100D17429 /* ZYQAssetPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948AE15B1C16D83100D17429 /* ZYQAssetPickerController.m */; };
 		9493900F1BB00D7500D63A72 /* RegistResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9493900E1BB00D7500D63A72 /* RegistResponse.m */; };
+		94942D032026F641004893CD /* deal_sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 94942D022026F641004893CD /* deal_sound.m4a */; };
 		9495FA391BEF0AD1007CF0E8 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495FA381BEF0AD1007CF0E8 /* LoginManager.m */; };
 		949820AF1C3E3C1100C86835 /* MyLotsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 949820AD1C3E3C1100C86835 /* MyLotsCell.m */; };
 		949820B01C3E3C1100C86835 /* MyLotsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 949820AE1C3E3C1100C86835 /* MyLotsCell.xib */; };
@@ -385,6 +389,8 @@
 		9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPreferenceCell.m; sourceTree = "<group>"; };
 		943802AA1BB4048C003446A4 /* UIBarButtonItem+CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+CustomButton.h"; sourceTree = "<group>"; };
 		943802AB1BB4048C003446A4 /* UIBarButtonItem+CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+CustomButton.m"; sourceTree = "<group>"; };
+		943BF9B0202603C800BB3618 /* FSMediaPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMediaPicker.h; sourceTree = "<group>"; };
+		943BF9B1202603C800BB3618 /* FSMediaPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMediaPicker.m; sourceTree = "<group>"; };
 		943E1D4A1BBBCD17004E2475 /* PersonalCenterTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterTableCell.h; sourceTree = "<group>"; };
 		943E1D4B1BBBCD17004E2475 /* PersonalCenterTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterTableCell.m; sourceTree = "<group>"; };
 		943E1D4D1BBBD1F4004E2475 /* UIAlertView+TapBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+TapBlock.h"; sourceTree = "<group>"; };
@@ -549,8 +555,8 @@
 		947A31DC1BD91F2500D75424 /* NSString+CompleteImageUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CompleteImageUrl.h"; sourceTree = "<group>"; };
 		947A31DD1BD91F2500D75424 /* NSString+CompleteImageUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CompleteImageUrl.m"; sourceTree = "<group>"; };
 		947A31DF1BD926AC00D75424 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		947A31E71BD94B6900D75424 /* NSString+PriceString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PriceString.h"; sourceTree = "<group>"; };
-		947A31E81BD94B6900D75424 /* NSString+PriceString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PriceString.m"; sourceTree = "<group>"; };
+		947A31E71BD94B6900D75424 /* NSString+Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Business.h"; sourceTree = "<group>"; };
+		947A31E81BD94B6900D75424 /* NSString+Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Business.m"; sourceTree = "<group>"; };
 		947B4ED81BAC4AD80083E203 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		947B4ED91BAC4AD80083E203 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		947B4EED1BAC4B1C0083E203 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
@@ -599,6 +605,9 @@
 		947DB9E81BD486F700404958 /* PayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayViewController.m; sourceTree = "<group>"; };
 		947DB9EB1BD4875100404958 /* PayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayTableViewCell.h; sourceTree = "<group>"; };
 		947DB9EC1BD4875100404958 /* PayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTableViewCell.m; sourceTree = "<group>"; };
+		947EFC4A2026BB3C0085965C /* NSString+Regex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Regex.h"; sourceTree = "<group>"; };
+		947EFC4B2026BB3C0085965C /* NSString+Regex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regex.m"; sourceTree = "<group>"; };
+		947EFC4E2026EB250085965C /* count_down_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = count_down_sound.mp3; sourceTree = "<group>"; };
 		94805C391BBA674C007BB7BF /* VerificationCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeButton.h; sourceTree = "<group>"; };
 		94805C3A1BBA674C007BB7BF /* VerificationCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeButton.m; sourceTree = "<group>"; };
 		94805C3E1BBA8BB3007BB7BF /* ModifyInfoResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyInfoResponse.h; sourceTree = "<group>"; };
@@ -658,6 +667,7 @@
 		9490984E1B942C5C00BA263E /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = SOURCE_ROOT; };
 		9493900D1BB00D7500D63A72 /* RegistResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistResponse.h; path = ArtisticAucation/Common/RegistResponse.h; sourceTree = SOURCE_ROOT; };
 		9493900E1BB00D7500D63A72 /* RegistResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistResponse.m; path = ArtisticAucation/Common/RegistResponse.m; sourceTree = SOURCE_ROOT; };
+		94942D022026F641004893CD /* deal_sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = deal_sound.m4a; sourceTree = "<group>"; };
 		9495FA371BEF0AD1007CF0E8 /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
 		9495FA381BEF0AD1007CF0E8 /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
 		949820AC1C3E3C1100C86835 /* MyLotsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLotsCell.h; sourceTree = "<group>"; };
@@ -879,16 +889,16 @@
 		52A50E7920030E53007C2EE9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				52A50E7A20030E53007C2EE9 /* AuctionHallBidCell.m */,
-				52A50E7B20030E53007C2EE9 /* AuctionHallSystemCell.m */,
 				52A50E7C20030E53007C2EE9 /* AuctionHallTableViewCell.h */,
-				52A50E7D20030E53007C2EE9 /* AuctionHallItemIntrolCell.m */,
-				52A50E7E20030E53007C2EE9 /* AuctionHallChatCell.m */,
-				52A50E7F20030E53007C2EE9 /* AuctionHallBidCell.h */,
 				52A50E8020030E53007C2EE9 /* AuctionHallTableViewCell.m */,
+				52A50E7F20030E53007C2EE9 /* AuctionHallBidCell.h */,
+				52A50E7A20030E53007C2EE9 /* AuctionHallBidCell.m */,
 				52A50E8120030E53007C2EE9 /* AuctionHallSystemCell.h */,
-				52A50E8220030E53007C2EE9 /* AuctionHallChatCell.h */,
+				52A50E7B20030E53007C2EE9 /* AuctionHallSystemCell.m */,
 				52A50E8320030E53007C2EE9 /* AuctionHallItemIntrolCell.h */,
+				52A50E7D20030E53007C2EE9 /* AuctionHallItemIntrolCell.m */,
+				52A50E8220030E53007C2EE9 /* AuctionHallChatCell.h */,
+				52A50E7E20030E53007C2EE9 /* AuctionHallChatCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1142,8 +1152,8 @@
 				94652FE51BC8AE18004EBBC5 /* UIView+background.m */,
 				947A31DC1BD91F2500D75424 /* NSString+CompleteImageUrl.h */,
 				947A31DD1BD91F2500D75424 /* NSString+CompleteImageUrl.m */,
-				947A31E71BD94B6900D75424 /* NSString+PriceString.h */,
-				947A31E81BD94B6900D75424 /* NSString+PriceString.m */,
+				947A31E71BD94B6900D75424 /* NSString+Business.h */,
+				947A31E81BD94B6900D75424 /* NSString+Business.m */,
 				941666291BDA1A660092431A /* UIViewController+LoginAlert.h */,
 				9416662A1BDA1A660092431A /* UIViewController+LoginAlert.m */,
 				9456E63D1BE4C21900FC0C38 /* NSArray+StringSeparateByComma.h */,
@@ -1154,6 +1164,8 @@
 				9417C65E1C450ABB00C32422 /* UIImage+FixOrientation.m */,
 				94243CD71ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.h */,
 				94243CD81ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m */,
+				947EFC4A2026BB3C0085965C /* NSString+Regex.h */,
+				947EFC4B2026BB3C0085965C /* NSString+Regex.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1214,6 +1226,15 @@
 				9432B5581BDA62C900F82705 /* ItemPreferenceCell.m */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		943BF9AF202603C800BB3618 /* FSMediaPicker */ = {
+			isa = PBXGroup;
+			children = (
+				943BF9B0202603C800BB3618 /* FSMediaPicker.h */,
+				943BF9B1202603C800BB3618 /* FSMediaPicker.m */,
+			);
+			path = FSMediaPicker;
 			sourceTree = "<group>";
 		};
 		945290811BD5EE9E000BE139 /* Module */ = {
@@ -1830,6 +1851,8 @@
 		94E937B31BA3DB6B00FC6C48 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				947EFC4E2026EB250085965C /* count_down_sound.mp3 */,
+				94942D022026F641004893CD /* deal_sound.m4a */,
 				944AF7FB1DDE97C300CE108C /* TestItems */,
 				948331481C1985D4002625B9 /* PropertyList.plist */,
 			);
@@ -1839,6 +1862,7 @@
 		94ED2BF51B9C5791002B0E3F /* Dependence */ = {
 			isa = PBXGroup;
 			children = (
+				943BF9AF202603C800BB3618 /* FSMediaPicker */,
 				941231131D7569E800B79746 /* SMS_SDK */,
 				948AE14B1C16D83100D17429 /* ZYQAssetPickerController */,
 				94CF72791BC7A42500E94D34 /* JSONKit */,
@@ -1997,7 +2021,7 @@
 				TargetAttributes = {
 					94A137261B8EEB1F00D8DDF6 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = U4P35974U6;
+						DevelopmentTeam = X6DDKY7VC2;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -2010,8 +2034,8 @@
 					};
 					94A1373F1B8EEB1F00D8DDF6 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = U4P35974U6;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = X6DDKY7VC2;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 94A137261B8EEB1F00D8DDF6;
 					};
 				};
@@ -2044,6 +2068,7 @@
 				A8E063021BC6526C00294D08 /* PushConfig.plist in Resources */,
 				949820B01C3E3C1100C86835 /* MyLotsCell.xib in Resources */,
 				947BBC8F1C5B872300A0DDE4 /* AlipaySDK.bundle in Resources */,
+				94942D032026F641004893CD /* deal_sound.m4a in Resources */,
 				948AE1621C16D83100D17429 /* AssetsPickerVideo@2x.png in Resources */,
 				948AE1611C16D83100D17429 /* AssetsPickerLocked@2x.png in Resources */,
 				948AE1671C16D83100D17429 /* OK.png in Resources */,
@@ -2055,6 +2080,7 @@
 				948AE15C1C16D83100D17429 /* 1.png in Resources */,
 				948AE15E1C16D83100D17429 /* addImage.png in Resources */,
 				948AE1681C16D83100D17429 /* ZYQAssetPicker.Bundle in Resources */,
+				947EFC502026EB260085965C /* count_down_sound.mp3 in Resources */,
 				A8DCB7B01BC8B294006E5A08 /* SearchResultCell.xib in Resources */,
 				948AE0971C16864A00D17429 /* UploadListViewController.xib in Resources */,
 				948AE0791C166A2E00D17429 /* ModifyPasswordViewController.xib in Resources */,
@@ -2102,7 +2128,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ArtisticAuction/Pods-ArtisticAuction-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/FSMediaPicker/FSMediaPicker.bundle,
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2171,6 +2196,7 @@
 				940F5B0C1B9C70BC00EEA5C1 /* UserInfo.m in Sources */,
 				94B876A21BA26DB600B6B720 /* BaseViewController.m in Sources */,
 				52A50ED120030E53007C2EE9 /* BidManager.m in Sources */,
+				947EFC4C2026BB3C0085965C /* NSString+Regex.m in Sources */,
 				94243CD91ECC0E8900509F1A /* NSMutableArray+AddHallViewModel.m in Sources */,
 				94C668ED1BDE03C80083AFBF /* MyCollectedLotsListResponse.m in Sources */,
 				52A50EC020030E53007C2EE9 /* AuctionHallCurrentItemModel.m in Sources */,
@@ -2197,7 +2223,7 @@
 				945469F11C09634700CAD2B4 /* MyInfoViewController.m in Sources */,
 				947BBC921C5B872300A0DDE4 /* AlixPayResult.m in Sources */,
 				52A50EF120030E6F007C2EE9 /* AgencyPerformancesViewController.m in Sources */,
-				947A31E91BD94B6900D75424 /* NSString+PriceString.m in Sources */,
+				947A31E91BD94B6900D75424 /* NSString+Business.m in Sources */,
 				9416F4CC1BA03ACA005ACBA2 /* MainViewController.m in Sources */,
 				52A50EDC20030E53007C2EE9 /* AucationDetailTopView.m in Sources */,
 				52A50ED720030E53007C2EE9 /* AucationDetailTextCell.m in Sources */,
@@ -2251,6 +2277,7 @@
 				947BBC981C5B872300A0DDE4 /* SBJsonWriter.m in Sources */,
 				947C74B91C0BEA1E000EC72D /* ImageViewWithDealState.m in Sources */,
 				94B876A61BA26DFC00B6B720 /* SearchViewController.m in Sources */,
+				943BF9B2202603C800BB3618 /* FSMediaPicker.m in Sources */,
 				945290841BD5EEB1000BE139 /* SettlementModule.m in Sources */,
 				9493900F1BB00D7500D63A72 /* RegistResponse.m in Sources */,
 				52A50ED620030E53007C2EE9 /* QuickPricePickerView.m in Sources */,
@@ -2440,67 +2467,7 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: ran xie (2BUEK97Q8K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = U4P35974U6;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence/SMS_SDK",
-					"$(SRCROOT)/ArtisticAucation/UI/Payment/openssl",
-					"$(SRCROOT)/../",
-					"$(PROJECT_DIR)/ArtisticAucation/alipay",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay/alipay",
-				);
-				GCC_INPUT_FILETYPE = automatic;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"$(SDKROOT)/usr/include/libxml2\"",
-					"$(inherited)",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
-					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
-					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
-					"\"${PODS_ROOT}/Headers/Public/MD5Digest\"",
-					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
-					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
-					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
-					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
-					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
-					"$(SRCROOT)/ArtisticAucation/Payment/**",
-				);
-				INFOPLIST_FILE = ArtisticAucation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence",
-					"$(PROJECT_DIR)/ArtisticAucation/Dependence/Weixin",
-					"$(PROJECT_DIR)/ArtisticAucation/Common/JPush/lib",
-					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
-					"$(PROJECT_DIR)/ArtisticAucation/UI/Payment",
-					"$(PROJECT_DIR)",
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
-					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
-				);
-				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "407942a5-628e-4439-b85c-8d6f45b647e0";
-				PROVISIONING_PROFILE_SPECIFIER = GGWHDev;
-			};
-			name = Debug;
-		};
-		94A1374C1B8EEB1F00D8DDF6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X6DDKY7VC2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2546,9 +2513,73 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaheng.artisticauction1;
 				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "6cace7f7-18d9-4d43-a0ee-b4e5695c9e17";
-				PROVISIONING_PROFILE_SPECIFIER = "common-adhoc";
+				PROVISIONING_PROFILE = "029f881d-2ae4-4a38-828e-9334f33d0b78";
+				PROVISIONING_PROFILE_SPECIFIER = "common-dev";
+			};
+			name = Debug;
+		};
+		94A1374C1B8EEB1F00D8DDF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62D981401BD10483C6F6B55E /* Pods-ArtisticAuction.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence/SMS_SDK",
+					"$(SRCROOT)/ArtisticAucation/UI/Payment/openssl",
+					"$(SRCROOT)/../",
+					"$(PROJECT_DIR)/ArtisticAucation/alipay",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay/alipay",
+				);
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/ASIHTTPRequest\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MD5Digest\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/Reachability\"",
+					"\"${PODS_ROOT}/Headers/Public/SBJson\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
+					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
+					"$(SRCROOT)/ArtisticAucation/Payment/**",
+				);
+				INFOPLIST_FILE = ArtisticAucation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence",
+					"$(PROJECT_DIR)/ArtisticAucation/Dependence/Weixin",
+					"$(PROJECT_DIR)/ArtisticAucation/Common/JPush/lib",
+					"\"$(SRCROOT)/ArtisticAucation/Common/JPush/lib/libPushSDK-1.8.3.a\"",
+					"$(PROJECT_DIR)/ArtisticAucation/UI/Payment",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
+					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaheng.artisticauction1;
+				PRODUCT_NAME = ArtisticAuction;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -2558,7 +2589,8 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = U4P35974U6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X6DDKY7VC2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2571,6 +2603,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtisticAuction.app/ArtisticAuction";
 			};
 			name = Debug;
@@ -2581,7 +2614,8 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = U4P35974U6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X6DDKY7VC2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2590,6 +2624,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtisticAuction.app/ArtisticAuction";
 			};
 			name = Release;

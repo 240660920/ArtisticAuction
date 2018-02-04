@@ -15,6 +15,7 @@
 #import "MainViewController.h"
 #import "LoginManager.h"
 #import "LaunchAdManager.h"
+#import "AuctionHallViewController.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -27,8 +28,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSLog(@"%@",[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]);
-    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     LoginViewController *loginViewController = [[LoginViewController alloc]init];
@@ -39,6 +38,7 @@
     nav.navigationBarHidden = YES;;
     
     self.window.rootViewController = nav;
+//    self.window.rootViewController = [[AuctionHallViewController alloc]init];
     
     [self.window makeKeyAndVisible];
     

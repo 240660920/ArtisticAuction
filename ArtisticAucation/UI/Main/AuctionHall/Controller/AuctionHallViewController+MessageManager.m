@@ -66,6 +66,9 @@
             
             [self.countDownView stop];
             
+            if ([self.countDownSoundPlayer isPlaying]) {
+                [self.countDownSoundPlayer stop];
+            }
         }
             break;
             //成交
@@ -83,6 +86,8 @@
             //中断倒计时
             [self.countDownView stop];
             
+            [self.countDownSoundPlayer stop];
+            [self.dealSoundPlayer play];
         }
             break;
             //聊天
@@ -110,6 +115,8 @@
         case kMQTTMessageTypeCountDown:
             //开始倒计时
             [self.countDownView showWithSecond:10];
+            
+            [self.countDownSoundPlayer play];
             break;
         default:
             break;

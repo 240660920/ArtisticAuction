@@ -59,7 +59,7 @@
 
 @property(nonatomic,strong)AuctionHallChatModel *dataModel;
 
-+(UIFont *)subtitleFont;
+-(NSString *)content;
 
 @end
 

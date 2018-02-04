@@ -27,7 +27,7 @@
 #import <UIImageView+WebCache.h>
 #import "UIViewController+LoginAlert.h"
 #import "NSArray+StringSeparateByComma.h"
-#import "NSString+PriceString.h"
+#import "NSString+Business.h"
 #import "NSString+randomString.h"
 #import "AABaseJSONModelResponse.h"
 #import <MJRefresh/MJRefresh.h>
@@ -35,6 +35,7 @@
 #import "FMUString.h"
 #import "UIImage+FixOrientation.h"
 #import "TimeManager.h"
+#import "NSString+Regex.h"
 
 #endif
 
