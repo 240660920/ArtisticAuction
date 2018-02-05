@@ -52,48 +52,48 @@
     [self enterHall];
     
     
-    AuctionHallItemIntrolModel *introlModel = [[AuctionHallItemIntrolModel alloc]init];
-    introlModel.text = @"本件拍品：lot1";
-    AuctionHallItemIntroViewModel *introlViewModel = [[AuctionHallItemIntroViewModel alloc]init];
-    introlViewModel.dataModel = introlModel;
-    
-    
-    
-    AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]init];
-    chatModel.time = @"2010-01-10 10:00:00";
-    chatModel.chatContent = @"梵蒂冈还点饭接口刮打工皇帝发广告打飞机怪怪的风格发广告";
-    chatModel.userName = @"13515110650";
-    AuctionHallChatViewModel *chatViewModel = [[AuctionHallChatViewModel alloc]init];
-    chatViewModel.dataModel = chatModel;
-    
-    AuctionHallChatModel *chatModel2 = [[AuctionHallChatModel alloc]init];
-    chatModel2.time = @"2010-01-10 10:00:00";
-    chatModel2.chatContent = @"开个房测试很反感打工皇帝发广";
-    chatModel2.userName = @"18652043055";
-    AuctionHallChatViewModel *chatViewModel2 = [[AuctionHallChatViewModel alloc]init];
-    chatViewModel2.dataModel = chatModel2;
-    
-    
-    AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]init];
-    bidModel.phone = @"17302150722";
-    bidModel.price = @"100";
-    bidModel.time = @"2010-01-01 10:20:20";
-    AuctionHallBidViewModel *bidViewModel = [[AuctionHallBidViewModel alloc]init];
-    bidViewModel.dataModel = bidModel;
-    
-    AuctionHallBidModel *bidModel2 = [[AuctionHallBidModel alloc]init];
-    bidModel2.phone = @"18652043055";
-    bidModel2.price = @"100000";
-    bidModel2.time = @"2011-11-11 10:20:20";
-    AuctionHallBidViewModel *bidViewModel2 = [[AuctionHallBidViewModel alloc]init];
-    bidViewModel2.dataModel = bidModel2;
-    
-    [self.viewModels addObject:introlViewModel];
-    [self.viewModels addObject:chatViewModel];
-    [self.viewModels addObject:chatViewModel2];
-    [self.viewModels addObject:bidViewModel];
-    [self.viewModels addObject:bidViewModel2];
-    [self.table reloadData];
+//    AuctionHallItemIntrolModel *introlModel = [[AuctionHallItemIntrolModel alloc]init];
+//    introlModel.text = @"本件拍品：lot1";
+//    AuctionHallItemIntroViewModel *introlViewModel = [[AuctionHallItemIntroViewModel alloc]init];
+//    introlViewModel.dataModel = introlModel;
+//    
+//    
+//    
+//    AuctionHallChatModel *chatModel = [[AuctionHallChatModel alloc]init];
+//    chatModel.time = @"2010-01-10 10:00:00";
+//    chatModel.chatContent = @"梵蒂冈还点饭接口刮打工皇帝发广告打飞机怪怪的风格发广告";
+//    chatModel.userName = @"13515110650";
+//    AuctionHallChatViewModel *chatViewModel = [[AuctionHallChatViewModel alloc]init];
+//    chatViewModel.dataModel = chatModel;
+//    
+//    AuctionHallChatModel *chatModel2 = [[AuctionHallChatModel alloc]init];
+//    chatModel2.time = @"2010-01-10 10:00:00";
+//    chatModel2.chatContent = @"开个房测试很反感打工皇帝发广";
+//    chatModel2.userName = @"18652043055";
+//    AuctionHallChatViewModel *chatViewModel2 = [[AuctionHallChatViewModel alloc]init];
+//    chatViewModel2.dataModel = chatModel2;
+//    
+//    
+//    AuctionHallBidModel *bidModel = [[AuctionHallBidModel alloc]init];
+//    bidModel.phone = @"17302150722";
+//    bidModel.price = @"100";
+//    bidModel.time = @"2010-01-01 10:20:20";
+//    AuctionHallBidViewModel *bidViewModel = [[AuctionHallBidViewModel alloc]init];
+//    bidViewModel.dataModel = bidModel;
+//    
+//    AuctionHallBidModel *bidModel2 = [[AuctionHallBidModel alloc]init];
+//    bidModel2.phone = @"18652043055";
+//    bidModel2.price = @"100000";
+//    bidModel2.time = @"2011-11-11 10:20:20";
+//    AuctionHallBidViewModel *bidViewModel2 = [[AuctionHallBidViewModel alloc]init];
+//    bidViewModel2.dataModel = bidModel2;
+//    
+//    [self.viewModels addObject:introlViewModel];
+//    [self.viewModels addObject:chatViewModel];
+//    [self.viewModels addObject:chatViewModel2];
+//    [self.viewModels addObject:bidViewModel];
+//    [self.viewModels addObject:bidViewModel2];
+//    [self.table reloadData];
 }
 
 -(void)willMoveToParentViewController:(UIViewController *)parent

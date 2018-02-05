@@ -36,6 +36,8 @@
     [UIView commitAnimations];
     
     [self.timer fire];
+    
+    [self.superview bringSubviewToFront:self];
 }
 
 -(void)stop

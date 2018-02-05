@@ -480,6 +480,7 @@ static UIColor *titleColor;
                                      style:UIBarButtonItemStylePlain
                                     target:self
                                     action:@selector(finishPickingAssets:)];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }
 
 - (void)setupAssets
@@ -601,6 +602,8 @@ static UIColor *titleColor;
 {
     [_indexPathsForSelectedItems addObject:asset];
     
+    [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    
     ZYQAssetPickerController *vc = (ZYQAssetPickerController *)self.navigationController;
     vc.indexPathsForSelectedItems = _indexPathsForSelectedItems;
     
@@ -613,6 +616,10 @@ static UIColor *titleColor;
 - (void)didDeselectAsset:(ALAsset *)asset
 {
     [_indexPathsForSelectedItems removeObject:asset];
+  
+    if (self.indexPathsForSelectedItems.count == 0) {
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    }
     
     ZYQAssetPickerController *vc = (ZYQAssetPickerController *)self.navigationController;
     vc.indexPathsForSelectedItems = _indexPathsForSelectedItems;

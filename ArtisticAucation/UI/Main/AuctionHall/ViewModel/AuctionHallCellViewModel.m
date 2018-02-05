@@ -122,4 +122,9 @@
     return 30;
 }
 
++(UIFont *)textFont
+{
+    return [UIFont boldSystemFontOfSize:14];
+}
+
 @end

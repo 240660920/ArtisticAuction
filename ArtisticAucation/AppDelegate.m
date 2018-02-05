@@ -37,8 +37,8 @@
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName : NavigationBarTitleColor , NSFontAttributeName : NavigationBarTitleFont};
     nav.navigationBarHidden = YES;;
     
-    self.window.rootViewController = nav;
-//    self.window.rootViewController = [[AuctionHallViewController alloc]init];
+//    self.window.rootViewController = nav;
+    self.window.rootViewController = [[AuctionHallViewController alloc]init];
     
     [self.window makeKeyAndVisible];
     

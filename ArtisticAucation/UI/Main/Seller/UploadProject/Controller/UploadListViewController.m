@@ -12,6 +12,7 @@
 #import "UploadItemManager.h"
 #import "ZYQAssetPickerController.h"
 #import "EditImageViewController.h"
+#import "FSMediaPicker.h"
 
 @interface UploadListViewController ()<UITableViewDataSource,UITableViewDelegate,ASIProgressDelegate,ZYQAssetPickerControllerDelegate>
 {
@@ -338,10 +339,10 @@
 - (IBAction)addImage:(id)sender {
     ZYQAssetPickerController *picker = [[ZYQAssetPickerController alloc]init];
     picker.maximumNumberOfSelection = 1;
-    picker.showEmptyGroups = YES;
+    picker.showEmptyGroups = NO;
     picker.delegate = (id)self;
     [self presentViewController:picker animated:YES completion:^{
-        
+
     }];
 }
 

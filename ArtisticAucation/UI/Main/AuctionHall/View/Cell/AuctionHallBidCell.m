@@ -58,12 +58,6 @@
         self.label.text = [NSString stringWithFormat:@"¥%0.f",dataModel.price.floatValue];
         self.userNameLabel.text = [NSString stringWithFormat:@"%@：",[dataModel.phone maskingUsername]];
         self.timeLabel.text = [NSString stringWithFormat:@"(%@)",[dataModel.time substringFromIndex:11]];
-        
-        if ([dataModel.phone isEqualToString:[BidManager sharedInstance].phone]) {
-            self.userNameLabel.textColor = RedColor;
-        } else {
-            self.userNameLabel.textColor = [UIColor grayColor];
-        }
     }
     
 }
@@ -84,7 +78,7 @@
         _label = [[UILabel alloc]init];
         _label.textColor = RedColor;
         _label.numberOfLines = 0;
-        _label.font = [[AuctionHallChatViewModel class] textFont];
+        _label.font = [[AuctionHallBidViewModel class] textFont];
         [self.contentView addSubview:_label];
     }
     return _label;
@@ -94,8 +88,8 @@
 {
     if (!_userNameLabel) {
         _userNameLabel = [[UILabel alloc]init];
-        _userNameLabel.textColor = RedColor;
-        _userNameLabel.font = [[AuctionHallChatViewModel class]textFont];
+        _userNameLabel.textColor = BlackColor;
+        _userNameLabel.font = [[AuctionHallBidViewModel class]textFont];
         [self.contentView addSubview:_userNameLabel];
     }
     return _userNameLabel;
@@ -106,7 +100,7 @@
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc]init];
         _timeLabel.textColor = [UIColor grayColor];
-        _timeLabel.font = [[AuctionHallChatViewModel class]textFont];
+        _timeLabel.font = [[AuctionHallBidViewModel class]textFont];
         [self.contentView addSubview:_timeLabel];
     }
     return _timeLabel;

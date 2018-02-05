@@ -2513,7 +2513,7 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiaheng.artisticauction1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaheng.artisticauction;
 				PRODUCT_NAME = ArtisticAuction;
 				PROVISIONING_PROFILE = "029f881d-2ae4-4a38-828e-9334f33d0b78";
 				PROVISIONING_PROFILE_SPECIFIER = "common-dev";
@@ -2529,9 +2529,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jiangsu Public Arts and Culture Industry Co.,Ltd (U4P35974U6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X6DDKY7VC2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2576,10 +2576,10 @@
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/Alipay",
 					"$(PROJECT_DIR)/ArtisticAucation/Payment/WeixinPay/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jiaheng.artisticauction1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jiaheng.artisticauction;
 				PRODUCT_NAME = ArtisticAuction;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "6cace7f7-18d9-4d43-a0ee-b4e5695c9e17";
+				PROVISIONING_PROFILE_SPECIFIER = "common-adhoc";
 			};
 			name = Release;
 		};
